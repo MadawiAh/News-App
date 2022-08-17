@@ -17,8 +17,8 @@ struct NewsAppTheme: AppTheme {
     
     func stylePrimaryButton (_ button: UIButton){
         button.titleLabel?.font = font.primaryButtonFont
-        button.titleLabel?.textColor = .red
-//        button.tintColor = .clear
+        button.titleLabel?.textColor = .black
+        button.tintColor = .clear
         button.layer.cornerRadius = button.frame.size.height/2
         button.clipsToBounds = true
     }

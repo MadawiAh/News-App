@@ -32,8 +32,5 @@ struct NewsAppColorTheme: ColorTheme {
     var grayDarkColor343B3C: UIColor {
         return UIColor(red: 52/255, green: 59/255, blue: 60/255, alpha: 1.0)
     }
-    
-    var redDarkColorBF2525: UIColor {
-        return UIColor(red: 191/255, green: 37/255, blue: 37/255, alpha: 1.0)
-    }
+
 }
