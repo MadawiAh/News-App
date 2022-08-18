@@ -25,24 +25,21 @@ class Auth {
         
         // 1.Check email existence
         if let currentUserEmail = UserDefaults.standard.string(forKey:"email"){
-            
             if currentUserEmail.caseInsensitiveCompare(email) == ComparisonResult.orderedSame {
                 completion(.fail(dueTo: .emailExists))
                 return
             }
-            
-            // 2.Check passswords match
-            if password != rePassword {
-                completion(.fail(dueTo: .passwordMismatch))
-                return
-            }
-            
-            UserDefaults.standard.set(email, forKey: "email")
-            UserDefaults.standard.set(password, forKey: "password")
-            UserDefaults.standard.set(true, forKey: "isLogged")
-            completion(.success)
-            
         }
+        // 2.Check passswords match
+        if password != rePassword {
+            completion(.fail(dueTo: .passwordMismatch))
+            return
+        }
+        UserDefaults.standard.set(email, forKey: "email")
+        UserDefaults.standard.set(password, forKey: "password")
+        UserDefaults.standard.set(true, forKey: "isLogged")
+        completion(.success)
+
     }
     
     func logIn(email: String, password: String,  completion:  @escaping (authResult) -> Void) {
