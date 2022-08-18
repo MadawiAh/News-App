@@ -73,7 +73,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func backTapped(_ sender: Any) {
-        navigationController?.popToVC(VCIdetifier: "LandingViewController" , animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func emailChanged(_ sender: Any) {
@@ -139,7 +139,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func logInTapped(_ sender: Any) {
-        navigationController?.pushVC(storyboard: "Main", VCIdetifier: "LogInViewController", animated: true)
+        guard let navigationVC = self.navigationController else { return }
+        navigationVC.popViewController(animated: false)
+        navigationVC.pushVC(storyboard: "Main", VCIdetifier: "LogInViewController", animated: false)
     }
     
     private func checkForValidForm(){
