@@ -77,39 +77,40 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func emailChanged(_ sender: Any) {
-        if let email = emailField.text {
-            if let errorMsg = Validator.validateEmail(email){
-                emailErrorLable.text = errorMsg
-                emailErrorLable.isHidden = false
-                return
-            }
-            emailErrorLable.isHidden = true
-            
+    OuterIF: if let email = emailField.text {
+        if let errorMsg = Validator.validateEmail(email){
+            emailErrorLable.text = errorMsg
+            emailErrorLable.isHidden = false
+            break OuterIF
         }
+        emailErrorLable.isHidden = true
+        
+    }
         checkForValidForm()
     }
     
+    
     @IBAction func passwordChanged(_ sender: Any) {
-        if let password = passwordField.text {
-            if let errorMsg = Validator.validatePassword(password){
-                passwordErrorLable.text = errorMsg
-                passwordErrorLable.isHidden = false
-                return
-            }
-            passwordErrorLable.isHidden = true
+    OuterIF: if let password = passwordField.text {
+        if let errorMsg = Validator.validatePassword(password){
+            passwordErrorLable.text = errorMsg
+            passwordErrorLable.isHidden = false
+            break OuterIF
         }
+        passwordErrorLable.isHidden = true
+    }
         checkForValidForm()
     }
     
     @IBAction func repeatPasswordChanged(_ sender: Any) {
-        if let rePassword = repeatPasswordField.text {
-            if let errorMsg = Validator.validatePassword(rePassword){
-                repeatPasswordErrorLable.text = errorMsg
-                repeatPasswordErrorLable.isHidden = false
-                return
-            }
-            repeatPasswordErrorLable.isHidden = true
+    OuterIF: if let rePassword = repeatPasswordField.text {
+        if let errorMsg = Validator.validatePassword(rePassword){
+            repeatPasswordErrorLable.text = errorMsg
+            repeatPasswordErrorLable.isHidden = false
+            break OuterIF
         }
+        repeatPasswordErrorLable.isHidden = true
+    }
         checkForValidForm()
     }
     
@@ -142,14 +143,21 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func checkForValidForm(){
-        if emailErrorLable.isHidden && passwordErrorLable.isHidden && repeatPasswordErrorLable.isHidden  {
-            if emailField.text?.isEmpty ?? true || passwordField.text?.isEmpty ?? true || repeatPasswordField.text?.isEmpty ?? true{
-                
-                signUpBtn.isEnabled = false
-                return
-            }
-            signUpBtn.isEnabled = true
+        
+        if !emailErrorLable.isHidden ||
+            !passwordErrorLable.isHidden ||
+            !repeatPasswordErrorLable.isHidden  {
+            signUpBtn.isEnabled = false
+            return
         }
+        
+        if emailField.text?.isEmpty ?? true ||
+            passwordField.text?.isEmpty ?? true ||
+            repeatPasswordField.text?.isEmpty ?? true{
+            signUpBtn.isEnabled = false
+            return
+        }
+        signUpBtn.isEnabled = true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
