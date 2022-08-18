@@ -108,15 +108,13 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 self.navigationController?.pushViewController(TabBarController(), animated: false)
                 
             case .fail(dueTo: .invalidCredentials):
-                self.view.window?.rootViewController?.presentAlertWithTitleAndMessage(title: "Alert", message: "You have entered an invalid username or password", options: "OK")
-                { (option) in
-                    self.resetElements() }
+                self.resetElements()
+                self.view.window?.rootViewController?.presentAlertWithTitleAndMessage(title: "Alert", message: "You have entered an invalid username or password", options: "OK") { (_) in }
                 
             default:
                 print("In default")
             }
         }
-        
     }
     
     @IBAction func signUpTapped(_ sender: Any) {

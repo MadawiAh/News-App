@@ -121,13 +121,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             switch result{
                 
             case .fail(dueTo: .emailExists):
-                self.view.window?.rootViewController?.presentAlertWithTitleAndMessage(title: "Alert", message: "The email is already used", options: "OK") { (option) in
-                    self.resetElements()
-                    return }
+                self.resetElements()
+                self.view.window?.rootViewController?.presentAlertWithTitleAndMessage(title: "Alert", message: "The email is already used", options: "OK") { (_) in }
                 
             case .fail(dueTo: .passwordMismatch):
-                self.view.window?.rootViewController?.presentAlertWithTitleAndMessage(title: "Alert", message: "Password and repeated password do not match", options: "OK") { (option) in self.resetElements()
-                    return }
+                self.resetElements()
+                self.view.window?.rootViewController?.presentAlertWithTitleAndMessage(title: "Alert", message: "Password and repeated password do not match", options: "OK") { (_) in }
                 
             case .success:
                 self.navigationController?.pushViewController(TabBarController(), animated: false)
