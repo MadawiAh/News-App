@@ -33,7 +33,8 @@
 		71651EB828ACD265002263D3 /* NewsAppFontTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71651EB728ACD265002263D3 /* NewsAppFontTheme.swift */; };
 		718A519928B4FA5D000ABB6B /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718A519828B4FA5D000ABB6B /* Animator.swift */; };
 		719F2E6128B61FD60042A74C /* NewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719F2E6028B61FD60042A74C /* NewsController.swift */; };
-		71BD1C7628B2457300941978 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BD1C7528B2457300941978 /* NewsCell.swift */; };
+		719F2E6428B662A70042A74C /* CustomNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719F2E6228B662A60042A74C /* CustomNewsCell.swift */; };
+		719F2E6528B662A70042A74C /* CustomNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 719F2E6328B662A60042A74C /* CustomNewsCell.xib */; };
 		71BD1C7828B2526500941978 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BD1C7728B2526500941978 /* News.swift */; };
 		71FA8C4F28A53A8700D3A75E /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FA8C4E28A53A8700D3A75E /* AuthController.swift */; };
 		A307348E9AF2F72BE3E7A420 /* Pods_NewsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9D573A6768982D7542BC24 /* Pods_NewsApp.framework */; };
@@ -68,7 +69,8 @@
 		71651EB728ACD265002263D3 /* NewsAppFontTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAppFontTheme.swift; sourceTree = "<group>"; };
 		718A519828B4FA5D000ABB6B /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		719F2E6028B61FD60042A74C /* NewsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsController.swift; sourceTree = "<group>"; };
-		71BD1C7528B2457300941978 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		719F2E6228B662A60042A74C /* CustomNewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNewsCell.swift; sourceTree = "<group>"; };
+		719F2E6328B662A60042A74C /* CustomNewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomNewsCell.xib; sourceTree = "<group>"; };
 		71BD1C7728B2526500941978 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		71FA8C4E28A53A8700D3A75E /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
 		7E9D573A6768982D7542BC24 /* Pods_NewsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,7 +140,7 @@
 				714C5BA428A0B7D000D0DD57 /* SignUpViewController.swift */,
 				714C5BA628A0B7FB00D0DD57 /* LogInViewController.swift */,
 				714C5BA828A0B82400D0DD57 /* NewsViewController.swift */,
-				71BD1C7528B2457300941978 /* NewsCell.swift */,
+				719F2E6228B662A60042A74C /* CustomNewsCell.swift */,
 				71651EAC28AB94E0002263D3 /* MoviesViewController.swift */,
 				71651EAE28AB94FB002263D3 /* TVViewController.swift */,
 				71651EB328ABCD98002263D3 /* MoreViewController.swift */,
@@ -162,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				714C5B9628A0B6E500D0DD57 /* Main.storyboard */,
+				719F2E6328B662A60042A74C /* CustomNewsCell.xib */,
 				714C5B9B28A0B6EA00D0DD57 /* LaunchScreen.storyboard */,
 			);
 			path = Views;
@@ -303,6 +306,7 @@
 				714C5B9D28A0B6EA00D0DD57 /* LaunchScreen.storyboard in Resources */,
 				714C5B9A28A0B6EA00D0DD57 /* Assets.xcassets in Resources */,
 				714C5B9828A0B6E500D0DD57 /* Main.storyboard in Resources */,
+				719F2E6528B662A70042A74C /* CustomNewsCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,11 +363,11 @@
 				714C5B9528A0B6E500D0DD57 /* LandingViewController.swift in Sources */,
 				71FA8C4F28A53A8700D3A75E /* AuthController.swift in Sources */,
 				71651EA928AA5FB9002263D3 /* NewsAppColorTheme.swift in Sources */,
-				71BD1C7628B2457300941978 /* NewsCell.swift in Sources */,
 				718A519928B4FA5D000ABB6B /* Animator.swift in Sources */,
 				719F2E6128B61FD60042A74C /* NewsController.swift in Sources */,
 				714C5BBD28A30A6A00D0DD57 /* UINavigationController+Navigations.swift in Sources */,
 				714C5B9128A0B6E500D0DD57 /* AppDelegate.swift in Sources */,
+				719F2E6428B662A70042A74C /* CustomNewsCell.swift in Sources */,
 				71651EB828ACD265002263D3 /* NewsAppFontTheme.swift in Sources */,
 				71651EA228AA334B002263D3 /* Note.swift in Sources */,
 				71651EA728AA5CC9002263D3 /* ColorTheme.swift in Sources */,

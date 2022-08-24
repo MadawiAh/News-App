@@ -22,6 +22,7 @@ class NewsViewController: UIViewController{
         super.viewDidLoad()
         
         setUpTableView()
+        registerTableViewCells()
     }
     
     
@@ -33,12 +34,6 @@ class NewsViewController: UIViewController{
         fetchNewsData()
     }
     
-    private func fetchNewsData() {
-        newsController.fetchNewsData() { result in
-            self.news = result
-        }
-    }
-    
     private func setUpTableView() {
         tableView.estimatedRowHeight = 115.0;
         tableView.rowHeight = UITableView.automaticDimension;
@@ -46,6 +41,19 @@ class NewsViewController: UIViewController{
         tableView.dataSource = self
         
         refreshTable()
+    }
+    
+    private func registerTableViewCells() {
+        let newsCell = UINib(nibName: "CustomNewsCell",
+                                  bundle: nil)
+        tableView.register(newsCell,
+                                forCellReuseIdentifier: "CustomNewsCell")
+    }
+    
+    private func fetchNewsData() {
+        newsController.fetchNewsData() { result in
+            self.news = result
+        }
     }
     
     private func refreshTable(){
@@ -61,6 +69,7 @@ class NewsViewController: UIViewController{
         }
     }
 }
+
 // MARK: Table View Datasource and Delegate
 
 extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -76,14 +85,15 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let currentNews = news[indexPath.row]
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell") as! NewsCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomNewsCell") as! CustomNewsCell
         cell.setNews(news: currentNews)
         
         cell.shareTappedClosure = { [weak self] cell in
             
             guard let self = self,
-                              let indexPath = tableView.indexPath(for: cell)
+                  let indexPath = tableView.indexPath(for: cell)
                         else { return }
+            
             self.shareActivity(forURL: self.news[indexPath.row].url)
         }
         

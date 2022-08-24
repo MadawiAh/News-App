@@ -1,14 +1,14 @@
 //
-//  NewsCell.swift
+//  CustomNewsCell.swift
 //  NewsApp
 //
-//  Created by Madawi Ahmed on 23/01/1444 AH.
+//  Created by Madawi Ahmed on 26/01/1444 AH.
 //
 
 import UIKit
 
-class NewsCell: UITableViewCell{
-    
+class CustomNewsCell: UITableViewCell {
+
     @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var contentStack: UIStackView!
     @IBOutlet weak var newsImage: UIImageView!
@@ -18,7 +18,7 @@ class NewsCell: UITableViewCell{
     @IBOutlet weak var shareBtn: UIButton!
     
     let theme: AppTheme = NewsAppTheme()
-    var shareTappedClosure: ((NewsCell)->())?
+    var shareTappedClosure: ((CustomNewsCell)->())?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -95,4 +95,5 @@ class NewsCell: UITableViewCell{
         Animator.animateButton(buttonToAnimate: sender)
         shareTappedClosure?(self)
     }
+    
 }
