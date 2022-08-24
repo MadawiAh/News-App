@@ -119,10 +119,10 @@
 			children = (
 				714C5B9028A0B6E500D0DD57 /* AppDelegate.swift */,
 				714C5B9228A0B6E500D0DD57 /* SceneDelegate.swift */,
-				714C5BB128A21A8300D0DD57 /* Models */,
 				714C5BAE28A206B600D0DD57 /* Views */,
-				714C5BAA28A0B83500D0DD57 /* View Controllers */,
+				714C5BB128A21A8300D0DD57 /* Models */,
 				71FA8C5028A53A8D00D3A75E /* Controllers */,
+				714C5BAA28A0B83500D0DD57 /* View Controllers */,
 				714C5BAD28A10BCA00D0DD57 /* Helpers */,
 				714C5BBB28A279FE00D0DD57 /* Extensions */,
 				714C5B9928A0B6EA00D0DD57 /* Assets.xcassets */,
