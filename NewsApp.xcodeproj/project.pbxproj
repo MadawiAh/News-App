@@ -31,6 +31,11 @@
 		71651EB428ABCD99002263D3 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71651EB328ABCD98002263D3 /* MoreViewController.swift */; };
 		71651EB628ACD166002263D3 /* FontTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71651EB528ACD165002263D3 /* FontTheme.swift */; };
 		71651EB828ACD265002263D3 /* NewsAppFontTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71651EB728ACD265002263D3 /* NewsAppFontTheme.swift */; };
+		718A519928B4FA5D000ABB6B /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718A519828B4FA5D000ABB6B /* Animator.swift */; };
+		719F2E5E28B50F130042A74C /* CustomShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719F2E5D28B50F130042A74C /* CustomShadowView.swift */; };
+		719F2E6128B61FD60042A74C /* NewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719F2E6028B61FD60042A74C /* NewsController.swift */; };
+		71BD1C7628B2457300941978 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BD1C7528B2457300941978 /* NewsCell.swift */; };
+		71BD1C7828B2526500941978 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BD1C7728B2526500941978 /* News.swift */; };
 		71FA8C4F28A53A8700D3A75E /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FA8C4E28A53A8700D3A75E /* AuthController.swift */; };
 		A307348E9AF2F72BE3E7A420 /* Pods_NewsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9D573A6768982D7542BC24 /* Pods_NewsApp.framework */; };
 /* End PBXBuildFile section */
@@ -62,6 +67,11 @@
 		71651EB328ABCD98002263D3 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		71651EB528ACD165002263D3 /* FontTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontTheme.swift; sourceTree = "<group>"; };
 		71651EB728ACD265002263D3 /* NewsAppFontTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAppFontTheme.swift; sourceTree = "<group>"; };
+		718A519828B4FA5D000ABB6B /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
+		719F2E5D28B50F130042A74C /* CustomShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShadowView.swift; sourceTree = "<group>"; };
+		719F2E6028B61FD60042A74C /* NewsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsController.swift; sourceTree = "<group>"; };
+		71BD1C7528B2457300941978 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		71BD1C7728B2526500941978 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		71FA8C4E28A53A8700D3A75E /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
 		7E9D573A6768982D7542BC24 /* Pods_NewsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12B096490B3DBB935D0A0C8 /* Pods-NewsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsApp.debug.xcconfig"; path = "Target Support Files/Pods-NewsApp/Pods-NewsApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -130,6 +140,7 @@
 				714C5BA428A0B7D000D0DD57 /* SignUpViewController.swift */,
 				714C5BA628A0B7FB00D0DD57 /* LogInViewController.swift */,
 				714C5BA828A0B82400D0DD57 /* NewsViewController.swift */,
+				71BD1C7528B2457300941978 /* NewsCell.swift */,
 				71651EAC28AB94E0002263D3 /* MoviesViewController.swift */,
 				71651EAE28AB94FB002263D3 /* TVViewController.swift */,
 				71651EB328ABCD98002263D3 /* MoreViewController.swift */,
@@ -143,7 +154,9 @@
 			children = (
 				71651EA528AA5BBF002263D3 /* Theme */,
 				714C5BBE28A3C43B00D0DD57 /* Validator.swift */,
+				718A519828B4FA5D000ABB6B /* Animator.swift */,
 				71651EA128AA334B002263D3 /* Note.swift */,
+				719F2E5F28B50F170042A74C /* Custom UIs */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -161,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				714C5BAF28A21A7D00D0DD57 /* User.swift */,
+				71BD1C7728B2526500941978 /* News.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -211,10 +225,19 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		719F2E5F28B50F170042A74C /* Custom UIs */ = {
+			isa = PBXGroup;
+			children = (
+				719F2E5D28B50F130042A74C /* CustomShadowView.swift */,
+			);
+			path = "Custom UIs";
+			sourceTree = "<group>";
+		};
 		71FA8C5028A53A8D00D3A75E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				71FA8C4E28A53A8700D3A75E /* AuthController.swift */,
+				719F2E6028B61FD60042A74C /* NewsController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -347,6 +370,9 @@
 				714C5B9528A0B6E500D0DD57 /* LandingViewController.swift in Sources */,
 				71FA8C4F28A53A8700D3A75E /* AuthController.swift in Sources */,
 				71651EA928AA5FB9002263D3 /* NewsAppColorTheme.swift in Sources */,
+				71BD1C7628B2457300941978 /* NewsCell.swift in Sources */,
+				718A519928B4FA5D000ABB6B /* Animator.swift in Sources */,
+				719F2E6128B61FD60042A74C /* NewsController.swift in Sources */,
 				714C5BBD28A30A6A00D0DD57 /* UINavigationController+Navigations.swift in Sources */,
 				714C5B9128A0B6E500D0DD57 /* AppDelegate.swift in Sources */,
 				71651EB828ACD265002263D3 /* NewsAppFontTheme.swift in Sources */,
@@ -360,6 +386,8 @@
 				71651EB628ACD166002263D3 /* FontTheme.swift in Sources */,
 				71651EB128AB959E002263D3 /* TabBarController.swift in Sources */,
 				714C5BBA28A279F600D0DD57 /* UIViewController+Alerts.swift in Sources */,
+				719F2E5E28B50F130042A74C /* CustomShadowView.swift in Sources */,
+				71BD1C7828B2526500941978 /* News.swift in Sources */,
 				714C5BB028A21A7D00D0DD57 /* User.swift in Sources */,
 				714C5BA728A0B7FB00D0DD57 /* LogInViewController.swift in Sources */,
 				71651EAF28AB94FB002263D3 /* TVViewController.swift in Sources */,
@@ -517,6 +545,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -545,6 +574,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

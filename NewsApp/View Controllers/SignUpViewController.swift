@@ -21,8 +21,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var logInLable: UILabel!
     @IBOutlet weak var logInBtn: UIButton!
     
-    private let authenticator = Auth()
     let theme: AppTheme = NewsAppTheme()
+    private let authController = AuthController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,7 +115,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func signUpTapped(_ sender: Any) {
         
-        authenticator.register(email: emailField.text ?? "", password: passwordField.text ?? "", rePassword: repeatPasswordField.text ?? "")
+        authController.register(email: emailField.text ?? "", password: passwordField.text ?? "", rePassword: repeatPasswordField.text ?? "")
         { (result) in
             
             switch result{

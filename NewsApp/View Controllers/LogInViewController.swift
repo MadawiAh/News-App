@@ -24,8 +24,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var signUpLable: UILabel!
     @IBOutlet weak var signUpBtn: UIButton!
     
-    private let authenticator = Auth()
     let theme: AppTheme = NewsAppTheme()
+    private let authController = AuthController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,7 +99,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func logInTapped(_ sender: Any) {
         
-        authenticator.logIn(email: emailField.text ?? "", password: passwordField.text ?? "")
+        authController.logIn(email: emailField.text ?? "", password: passwordField.text ?? "")
         { (result) in
             
             switch result {

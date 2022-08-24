@@ -45,7 +45,6 @@ class TabBarController: UITabBarController {
         let images = [UIImage(systemName: "newspaper"), UIImage(systemName: "film"), UIImage(systemName: "tv"), UIImage(systemName: "ellipsis")]
         
         for x in 0..<viewControllers.count {
-            viewControllers[x].isNavigationBarHidden = true
             viewControllers[x].tabBarItem = UITabBarItem(
                 title: titles[x],
                 image: images[x],
