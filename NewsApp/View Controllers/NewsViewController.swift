@@ -29,6 +29,7 @@ class NewsViewController: UIViewController{
         super.viewWillAppear(animated)
         
         self.title = "News"
+        
         fetchNewsData()
     }
     
@@ -77,6 +78,14 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell") as! NewsCell
         cell.setNews(news: currentNews)
+        
+        cell.shareTappedClosure = { [weak self] cell in
+            
+            guard let self = self,
+                              let indexPath = tableView.indexPath(for: cell)
+                        else { return }
+            self.shareActivity(forURL: self.news[indexPath.row].url)
+        }
         
         return cell
     }

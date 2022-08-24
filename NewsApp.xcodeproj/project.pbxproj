@@ -17,7 +17,7 @@
 		714C5BA728A0B7FB00D0DD57 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714C5BA628A0B7FB00D0DD57 /* LogInViewController.swift */; };
 		714C5BA928A0B82400D0DD57 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714C5BA828A0B82400D0DD57 /* NewsViewController.swift */; };
 		714C5BB028A21A7D00D0DD57 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714C5BAF28A21A7D00D0DD57 /* User.swift */; };
-		714C5BBA28A279F600D0DD57 /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714C5BB928A279F600D0DD57 /* UIViewController+Alerts.swift */; };
+		714C5BBA28A279F600D0DD57 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714C5BB928A279F600D0DD57 /* UIViewController+Extensions.swift */; };
 		714C5BBD28A30A6A00D0DD57 /* UINavigationController+Navigations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714C5BBC28A30A6A00D0DD57 /* UINavigationController+Navigations.swift */; };
 		714C5BBF28A3C43B00D0DD57 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714C5BBE28A3C43B00D0DD57 /* Validator.swift */; };
 		71651EA228AA334B002263D3 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71651EA128AA334B002263D3 /* Note.swift */; };
@@ -32,7 +32,6 @@
 		71651EB628ACD166002263D3 /* FontTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71651EB528ACD165002263D3 /* FontTheme.swift */; };
 		71651EB828ACD265002263D3 /* NewsAppFontTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71651EB728ACD265002263D3 /* NewsAppFontTheme.swift */; };
 		718A519928B4FA5D000ABB6B /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718A519828B4FA5D000ABB6B /* Animator.swift */; };
-		719F2E5E28B50F130042A74C /* CustomShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719F2E5D28B50F130042A74C /* CustomShadowView.swift */; };
 		719F2E6128B61FD60042A74C /* NewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719F2E6028B61FD60042A74C /* NewsController.swift */; };
 		71BD1C7628B2457300941978 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BD1C7528B2457300941978 /* NewsCell.swift */; };
 		71BD1C7828B2526500941978 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BD1C7728B2526500941978 /* News.swift */; };
@@ -53,7 +52,7 @@
 		714C5BA628A0B7FB00D0DD57 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		714C5BA828A0B82400D0DD57 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		714C5BAF28A21A7D00D0DD57 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		714C5BB928A279F600D0DD57 /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
+		714C5BB928A279F600D0DD57 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		714C5BBC28A30A6A00D0DD57 /* UINavigationController+Navigations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Navigations.swift"; sourceTree = "<group>"; };
 		714C5BBE28A3C43B00D0DD57 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		71651EA128AA334B002263D3 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
@@ -68,7 +67,6 @@
 		71651EB528ACD165002263D3 /* FontTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontTheme.swift; sourceTree = "<group>"; };
 		71651EB728ACD265002263D3 /* NewsAppFontTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAppFontTheme.swift; sourceTree = "<group>"; };
 		718A519828B4FA5D000ABB6B /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
-		719F2E5D28B50F130042A74C /* CustomShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShadowView.swift; sourceTree = "<group>"; };
 		719F2E6028B61FD60042A74C /* NewsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsController.swift; sourceTree = "<group>"; };
 		71BD1C7528B2457300941978 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		71BD1C7728B2526500941978 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
@@ -156,7 +154,6 @@
 				714C5BBE28A3C43B00D0DD57 /* Validator.swift */,
 				718A519828B4FA5D000ABB6B /* Animator.swift */,
 				71651EA128AA334B002263D3 /* Note.swift */,
-				719F2E5F28B50F170042A74C /* Custom UIs */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -182,7 +179,7 @@
 		714C5BBB28A279FE00D0DD57 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				714C5BB928A279F600D0DD57 /* UIViewController+Alerts.swift */,
+				714C5BB928A279F600D0DD57 /* UIViewController+Extensions.swift */,
 				714C5BBC28A30A6A00D0DD57 /* UINavigationController+Navigations.swift */,
 			);
 			path = Extensions;
@@ -223,14 +220,6 @@
 				71651EB728ACD265002263D3 /* NewsAppFontTheme.swift */,
 			);
 			path = Fonts;
-			sourceTree = "<group>";
-		};
-		719F2E5F28B50F170042A74C /* Custom UIs */ = {
-			isa = PBXGroup;
-			children = (
-				719F2E5D28B50F130042A74C /* CustomShadowView.swift */,
-			);
-			path = "Custom UIs";
 			sourceTree = "<group>";
 		};
 		71FA8C5028A53A8D00D3A75E /* Controllers */ = {
@@ -385,8 +374,7 @@
 				714C5BA528A0B7D000D0DD57 /* SignUpViewController.swift in Sources */,
 				71651EB628ACD166002263D3 /* FontTheme.swift in Sources */,
 				71651EB128AB959E002263D3 /* TabBarController.swift in Sources */,
-				714C5BBA28A279F600D0DD57 /* UIViewController+Alerts.swift in Sources */,
-				719F2E5E28B50F130042A74C /* CustomShadowView.swift in Sources */,
+				714C5BBA28A279F600D0DD57 /* UIViewController+Extensions.swift in Sources */,
 				71BD1C7828B2526500941978 /* News.swift in Sources */,
 				714C5BB028A21A7D00D0DD57 /* User.swift in Sources */,
 				714C5BA728A0B7FB00D0DD57 /* LogInViewController.swift in Sources */,

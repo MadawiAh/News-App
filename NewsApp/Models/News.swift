@@ -11,6 +11,7 @@ import UIKit
 struct News {
     let image: UIImage?
     let title: String
+    let url: String
     let createdAt: String
     let numberOfWords: Int
     var timeToRead: Int {

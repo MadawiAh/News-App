@@ -25,4 +25,16 @@ extension UIViewController {
         }
         return topViewController!
     }
+    
+    func shareActivity (forURL url:String){
+       
+        guard let item = URL(string: url) else { return }
+        
+        let activityViewController = UIActivityViewController(
+            activityItems: [item], applicationActivities: nil)
+        
+        activityViewController.isModalInPresentation = true
+        present(activityViewController, animated: true, completion: nil)
+    }
+    
 }

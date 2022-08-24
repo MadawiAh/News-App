@@ -18,7 +18,8 @@ class NewsCell: UITableViewCell{
     @IBOutlet weak var shareBtn: UIButton!
     
     let theme: AppTheme = NewsAppTheme()
-    
+    var shareTappedClosure: ((NewsCell)->())?
+
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -90,6 +91,7 @@ class NewsCell: UITableViewCell{
         toggleFavourite(sender)
     }
     
-    @IBAction func shareTapped(_ sender: Any) {
+    @IBAction func shareTapped(_ sender: UIButton) {
+        shareTappedClosure?(self)
     }
 }
