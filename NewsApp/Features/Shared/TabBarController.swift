@@ -31,13 +31,13 @@ class TabBarController: UITabBarController {
     private func setupTabBarPages(){
         
         let newsVC = UINavigationController(rootViewController:
-                                                UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewsViewController"))
+                                                UIStoryboard.news.instantiateViewController(withIdentifier: "NewsViewController"))
         let moviesVC = UINavigationController(rootViewController:
-                                                UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MoviesViewController"))
+                                                UIStoryboard.movies.instantiateViewController(withIdentifier: "MoviesViewController"))
         let tvVC = UINavigationController(rootViewController:
-                                                UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TVViewController"))
+                                            UIStoryboard.tv.instantiateViewController(withIdentifier: "TVViewController"))
         let moreVC = UINavigationController(rootViewController:
-                                                UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MoreViewController"))
+                                                UIStoryboard.more.instantiateViewController(withIdentifier: "MoreViewController"))
       
 
         let viewControllers = [newsVC, moviesVC, tvVC, moreVC]
