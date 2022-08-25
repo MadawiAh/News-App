@@ -35,11 +35,11 @@ class CustomNewsCell: UITableViewCell {
         
         shadowView.layer.shadowPath = UIBezierPath(rect: CGRect(x: 0,
                                                                 y: 0,
-                                                                width: shadowView.layer.frame.width - shadowView.layer.frame.width/12, height: shadowView.layer.frame.height + shadowView.layer.frame.height/35
+                                                                width: shadowView.layer.frame.width - shadowView.layer.frame.width/11, height: shadowView.layer.frame.height
                                                                )).cgPath
         shadowView.layer.shadowColor = theme.color.grayLightColor9fa1a1.cgColor
         shadowView.layer.shadowOffset = CGSize(width: 0, height: -2)
-        shadowView.layer.shadowOpacity = 0.2
+        shadowView.layer.shadowOpacity = 0.3
         shadowView.layer.shadowRadius = 5
         
         newsTitle.textColor = theme.color.grayDarkColor343B3C
