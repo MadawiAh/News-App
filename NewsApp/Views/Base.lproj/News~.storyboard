@@ -140,7 +140,7 @@
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                         <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="email"/>
                                                         <connections>
-                                                            <action selector="emailChanged:" destination="TIt-cq-chC" eventType="editingDidEnd" id="kPK-Z9-alK"/>
+                                                            <action selector="emailChanged:" destination="TIt-cq-chC" eventType="editingChanged" id="PVf-eD-Fou"/>
                                                             <outlet property="delegate" destination="TIt-cq-chC" id="Fwz-ND-B5g"/>
                                                         </connections>
                                                     </textField>
@@ -172,7 +172,7 @@
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                         <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES" textContentType="password"/>
                                                         <connections>
-                                                            <action selector="passwordChanged:" destination="TIt-cq-chC" eventType="editingDidEnd" id="hIz-Jd-eXs"/>
+                                                            <action selector="passwordChanged:" destination="TIt-cq-chC" eventType="editingChanged" id="FGy-Qp-Jcx"/>
                                                             <outlet property="delegate" destination="TIt-cq-chC" id="Dct-GR-Zwc"/>
                                                         </connections>
                                                     </textField>
@@ -204,7 +204,7 @@
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                         <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
                                                         <connections>
-                                                            <action selector="repeatPasswordChanged:" destination="TIt-cq-chC" eventType="editingDidEnd" id="pZY-yf-YgD"/>
+                                                            <action selector="repeatPasswordChanged:" destination="TIt-cq-chC" eventType="editingChanged" id="cYH-aW-IiC"/>
                                                             <outlet property="delegate" destination="TIt-cq-chC" id="Td0-45-P7v"/>
                                                         </connections>
                                                     </textField>
@@ -476,7 +476,7 @@
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                         <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="email"/>
                                                         <connections>
-                                                            <action selector="emailChanged:" destination="Wgo-8W-EZn" eventType="editingDidEnd" id="7VE-6H-kMj"/>
+                                                            <action selector="emailChanged:" destination="Wgo-8W-EZn" eventType="editingChanged" id="RG2-Xt-dub"/>
                                                             <outlet property="delegate" destination="Wgo-8W-EZn" id="b4K-B9-7va"/>
                                                         </connections>
                                                     </textField>
@@ -508,7 +508,7 @@
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                         <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
                                                         <connections>
-                                                            <action selector="passwordChanged:" destination="Wgo-8W-EZn" eventType="editingDidEnd" id="ueg-cB-TLb"/>
+                                                            <action selector="passwordChanged:" destination="Wgo-8W-EZn" eventType="editingChanged" id="NOC-73-vt7"/>
                                                             <outlet property="delegate" destination="Wgo-8W-EZn" id="mBa-E3-cSf"/>
                                                         </connections>
                                                     </textField>
