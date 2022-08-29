@@ -30,20 +30,10 @@ class MoreViewController: UIViewController{
         view.backgroundColor = theme.color.viewsBackgroundColor
         
         profileImage.makeRounded()
-        
-        editImageBtn.makeRounded()
-        editImageBtn.backgroundColor = theme.color.orangeDarkColorEB652B
-        editImageBtn.layer.borderColor = UIColor.white.cgColor
-        editImageBtn.layer.borderWidth = 3
-        editImageBtn.imageView?.tintColor = .white
-        
-        shadowView.backgroundColor = .clear
-        shadowView.layer.shadowPath = UIBezierPath(roundedRect:shadowView.layer.frame ,cornerRadius:shadowView.layer.frame.width/2).cgPath;
-        shadowView.layer.shadowColor = theme.color.grayDarkColor343B3C.cgColor
-        shadowView.layer.shadowOffset = CGSize(width: -139, height:-80)
-        shadowView.layer.shadowOpacity = 0.4
-        
-        
+        styleEditImageBtn()
+        styleShadowView()
+        styleNavBar()
+
         emailLabel.textColor = theme.color.grayMediumColor546062
         emailLabel.font = theme.font.titleThreeFont
         
@@ -51,9 +41,30 @@ class MoreViewController: UIViewController{
         logOut.backgroundColor = theme.color.grayLightColor9fa1a1.withAlphaComponent(0.2)
     }
     
+    private func styleEditImageBtn(){
+        editImageBtn.makeRounded()
+        editImageBtn.backgroundColor = theme.color.orangeDarkColorEB652B
+        editImageBtn.layer.borderColor = UIColor.white.cgColor
+        editImageBtn.layer.borderWidth = 3
+        editImageBtn.imageView?.tintColor = .white
+    }
+    
+    private func styleShadowView(){
+        shadowView.backgroundColor = .clear
+        shadowView.layer.shadowPath = UIBezierPath(roundedRect:shadowView.layer.frame ,cornerRadius:shadowView.layer.frame.width/2).cgPath;
+        shadowView.layer.shadowColor = theme.color.grayDarkColor343B3C.cgColor
+        shadowView.layer.shadowOffset = CGSize(width: -139, height:-80)
+        shadowView.layer.shadowOpacity = 0.4
+    }
+    
+    private func styleNavBar(){
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem?.tintColor = theme.color.grayDarkColor343B3C
+    }
+    
     private func setUpElements(){
         emailLabel.text = UserDefaults.standard.string(forKey:"email")
-        // set up the profile image
+        /// TO DO: set up the profile image from storage
         
         imagePicker.delegate = self
     }
@@ -77,9 +88,7 @@ class MoreViewController: UIViewController{
 }
 
 extension MoreViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
-    
-    
-    
+
     // MARK: UIImagePicker Methods
     
     func editImage() {

@@ -54,20 +54,10 @@ class MoreTableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if MoreActions.allCases[indexPath.row] == .favourites {
-            // navigation
+            navigationController?.pushVC(storyboard: .more, VCIdetifier: "FavouritesViewController", animated: true)
         }
         if MoreActions.allCases[indexPath.row] == .shareApp {
             self.shareActivity(forURL: "https://google.com//")
         }
     }
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }

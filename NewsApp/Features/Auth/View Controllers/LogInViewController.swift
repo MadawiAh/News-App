@@ -120,7 +120,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     @IBAction func signUpTapped(_ sender: Any) {
         guard let navigationVC = self.navigationController else { return }
         navigationVC.popViewController(animated: false)
-        navigationVC.pushVC(storyboard: "Main", VCIdetifier: "SignUpViewController", animated: false)
+        navigationVC.pushVC(storyboard: .main, VCIdetifier: "SignUpViewController", animated: false)
     }
     
     private func checkForValidForm(){
