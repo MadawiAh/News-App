@@ -11,7 +11,6 @@
         <!--News View Controller-->
         <scene sceneID="zC2-AK-gHj">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tSC-00-o4t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="NewsViewController" id="dDy-et-LJZ" customClass="NewsViewController" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4zd-oc-eNH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -37,6 +36,7 @@
                         <outlet property="tableView" destination="twv-r2-WnY" id="cBG-uT-5pL"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tSC-00-o4t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2915.9420289855075" y="-882.58928571428567"/>
         </scene>

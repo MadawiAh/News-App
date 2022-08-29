@@ -24,6 +24,7 @@ class CustomNewsCell: UITableViewCell {
         super.awakeFromNib()
         
         styleElements()
+        
     }
 
     func styleElements(){
@@ -46,7 +47,7 @@ class CustomNewsCell: UITableViewCell {
         newsTitle.font = theme.font.titleThreeFont
         
         newsCreationTime.textColor = theme.color.grayLightColor9fa1a1
-        newsCreationTime.font = theme.font.titlefiveFont
+        newsCreationTime.font = theme.font.titleSixFont
         
         favouriteBtn.tintColor = theme.color.grayLightColor9fa1a1
         shareBtn.tintColor = theme.color.grayLightColor9fa1a1
