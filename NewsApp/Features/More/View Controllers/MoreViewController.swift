@@ -16,6 +16,7 @@ class MoreViewController: UIViewController{
     @IBOutlet weak var logOut: UIButton!
     
     let theme: AppTheme = NewsAppTheme()
+    let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +54,8 @@ class MoreViewController: UIViewController{
     private func setUpElements(){
         emailLabel.text = UserDefaults.standard.string(forKey:"email")
         // set up the profile image
+        
+        imagePicker.delegate = self
     }
     
     // MARK: User Actions
@@ -75,6 +78,8 @@ class MoreViewController: UIViewController{
 
 extension MoreViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
+    
+    
     // MARK: UIImagePicker Methods
     
     func editImage() {
@@ -90,9 +95,6 @@ extension MoreViewController: UIImagePickerControllerDelegate & UINavigationCont
     
     func openCamera() {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera){
-            
-            let imagePicker = UIImagePickerController()
-            imagePicker.delegate = self
             imagePicker.sourceType = UIImagePickerController.SourceType.camera
             imagePicker.allowsEditing = false
             self.present(imagePicker, animated: true, completion: nil)
@@ -105,9 +107,6 @@ extension MoreViewController: UIImagePickerControllerDelegate & UINavigationCont
     
     func openPhotoAlbum() {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary){
-            
-            let imagePicker = UIImagePickerController()
-            imagePicker.delegate = self
             imagePicker.allowsEditing = true
             imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
             self.present(imagePicker, animated: true, completion: nil)
