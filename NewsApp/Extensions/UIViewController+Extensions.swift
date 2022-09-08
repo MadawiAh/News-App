@@ -4,8 +4,9 @@
 //
 //  Created by Madawi Ahmed on 11/01/1444 AH.
 //
-
 import UIKit
+import SVProgressHUD
+
 extension UIViewController {
     
     // MARK: Alert extention
@@ -49,4 +50,15 @@ extension UIViewController {
         present(activityViewController, animated: true, completion: nil)
     }
     
+    // MARK: Show Error extension
+    
+    func showError(error: Error, completion: (()->Void)?){
+       
+        if let apiError = error as? APIErrors {
+            SVProgressHUD.show(UIImage(systemName: "xmark.circle")!, status: apiError.message)
+        } else {
+            SVProgressHUD.show(UIImage(systemName: "xmark.circle")!, status: error.localizedDescription)
+        }
+        completion?()
+    }
 }

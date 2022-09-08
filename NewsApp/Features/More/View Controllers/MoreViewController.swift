@@ -63,9 +63,10 @@ class MoreViewController: UIViewController{
     }
     
     private func setUpElements(){
-        emailLabel.text = UserDefaults.standard.string(forKey:"email")
         /// TO DO: set up the profile image from storage
-        
+        profileImage.image = UIImage(named: "profile-placeholder.png")
+        emailLabel.text = UserDefaults.standard.string(forKey:"email")
+
         imagePicker.delegate = self
     }
     

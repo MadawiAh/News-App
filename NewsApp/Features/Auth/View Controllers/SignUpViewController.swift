@@ -131,7 +131,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 
             case .success:
                 self.navigationController?.pushViewController(TabBarController(), animated: false)
-                
             default:
                 print("In default")
             }

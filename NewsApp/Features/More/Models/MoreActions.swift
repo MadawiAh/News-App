@@ -10,6 +10,7 @@ enum MoreActions: CaseIterable {
     
     case favourites
     case shareApp
+    case clearCache
     
     var image: UIImage {
         switch self {
@@ -17,6 +18,8 @@ enum MoreActions: CaseIterable {
             return UIImage(systemName: "heart.fill")!
         case .shareApp:
             return UIImage(systemName: "square.and.arrow.up")!
+        case .clearCache:
+            return UIImage(systemName: "trash")!
         }
     }
     
@@ -26,7 +29,8 @@ enum MoreActions: CaseIterable {
             return "Favourites"
         case .shareApp:
             return "Share NewsApp"
+        case .clearCache:
+            return "Clear Cache"
         }
-        
     }
 }
