@@ -32,4 +32,8 @@ protocol FontTheme {
     var titleFifeFont: UIFont { get }
     
     var titleSixFont: UIFont { get }
+    
+    var titleSevenFont: UIFont { get }
+    
+    var bodyFifeFont: UIFont { get }
 }

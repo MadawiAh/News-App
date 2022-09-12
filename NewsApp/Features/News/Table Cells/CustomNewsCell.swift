@@ -90,7 +90,6 @@ class CustomNewsCell: UITableViewCell {
         else {return}
         
         newsImage.kf.setImage(with: completeURL, placeholder: UIImage(named: "news-placeholder.png")){ result, error in
-            
             self.delegate?.refreshTableView()
         }
     }
