@@ -96,10 +96,12 @@ class NewsViewController: UIViewController{
     }
     
     private func updateViews() {
+        if !news.isEmpty {
+            self.tableView.backgroundView = nil
+        }
         refreshTableView()
         SVProgressHUD.dismiss()
         refreshControl.endRefreshing()
-        view.isUserInteractionEnabled = true
     }
     
     // MARK: Fetching news
@@ -113,12 +115,13 @@ class NewsViewController: UIViewController{
                 self.pageSize = 10
                 DispatchQueue.main.async {
                     self.updateViews()
-                    self.tableView.backgroundView = nil
                 }
             } failure: { error in
-                
+                print("Error occured !")
                 self.showError(error: error){
+                    
                     DispatchQueue.main.asyncAfter(deadline: .now()+2.5) {
+                        print("Error views update !")
                         self.updateViews()
                     }
                 }
@@ -142,7 +145,6 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if news.count == 0 { setUpEmptyListLable()}
-        else { tableView.backgroundView = nil }
         return pageSize
     }
     

@@ -25,7 +25,7 @@ struct NewsData: Codable {
     let webURL: String
     let snippet, leadParagraph: String
     let source: String
-    let multimedia: [Multimedia]
+    let multimedia: [NewsMultimedia]
     let headline: Headline
     let keywords: [Keyword]
     let pubDate: String
@@ -121,7 +121,7 @@ struct Keyword: Codable {
 
 // MARK: Multimedia
 
-struct Multimedia: Codable {
+struct NewsMultimedia: Codable {
     let type: String
     let url: String
     let height, width: Int

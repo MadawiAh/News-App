@@ -53,7 +53,8 @@ extension UIViewController {
     // MARK: Show Error extension
     
     func showError(error: Error, completion: (()->Void)?){
-       
+        
+        SVProgressHUD.setContainerView(view)
         if let apiError = error as? APIErrors {
             SVProgressHUD.show(UIImage(systemName: "xmark.circle")!, status: apiError.message)
         } else {
