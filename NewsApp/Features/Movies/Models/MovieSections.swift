@@ -17,14 +17,14 @@ enum MovieSections: Int, CaseIterable {
         case .criticPicks:
             return 1
         case .recentReviews:
-            return 20
+            return 5
         }
     }
     
     var rowHeight: CGFloat {
         switch self {
         case .criticPicks:
-            return 180
+            return 210
         case .recentReviews:
             return 100
         }
@@ -38,4 +38,15 @@ enum MovieSections: Int, CaseIterable {
             return "Recent Reviews"
         }
     }
+    
+    var numberOfColumns: Int {
+        switch self {
+        case .criticPicks:
+            return 5
+        default:
+            return 1
+        }
+    }
 }
+
+

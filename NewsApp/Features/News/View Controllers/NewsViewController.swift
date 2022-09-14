@@ -117,11 +117,9 @@ class NewsViewController: UIViewController{
                     self.updateViews()
                 }
             } failure: { error in
-                print("Error occured !")
                 self.showError(error: error){
                     
                     DispatchQueue.main.asyncAfter(deadline: .now()+2.5) {
-                        print("Error views update !")
                         self.updateViews()
                     }
                 }

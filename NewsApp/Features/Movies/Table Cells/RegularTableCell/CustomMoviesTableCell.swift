@@ -39,7 +39,7 @@ class CustomMoviesTableCell: UITableViewCell {
         bylineLabel.textColor = theme.color.grayLightColor9fa1a1
        
         isCriticPick.font = theme.font.titleSevenFont
-        isCriticPick.textColor = theme.color.orangeLightColorEC8B3F
+        isCriticPick.textColor = theme.color.orangeLightColorEC8B3F.withAlphaComponent(0.8)
         
     }
     
@@ -64,12 +64,12 @@ class CustomMoviesTableCell: UITableViewCell {
         let templateString = NSMutableAttributedString(string:"")
         
         let imageAttachment = NSTextAttachment()
-        imageAttachment.image = UIImage(systemName: "star.fill")!.withTintColor(theme.color.orangeLightColorEC8B3F)
+        imageAttachment.image = UIImage(systemName: "star.fill")!.withTintColor(theme.color.orangeLightColorEC8B3F.withAlphaComponent(0.8))
         imageAttachment.bounds = CGRect(x: 0, y: -1, width: 10, height: 10)
 
         let imageString = NSAttributedString(attachment: imageAttachment)
         templateString.append(imageString)
-        templateString.append(NSAttributedString(string:" Critics Pick"))
+        templateString.append(NSAttributedString(string:" Critics's Pick"))
 
          isCriticPick.attributedText = templateString
          isCriticPick.isHidden = false

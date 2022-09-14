@@ -17,6 +17,7 @@ class MoviesViewController: UIViewController {
     private let refreshControl = UIRefreshControl()
     private var criticPicksMovies = [MoviesData]()
     private var recentlyReviewedMovies = [MoviesData]()
+    private var lastContentOffset: CGFloat = 0
     
     // MARK: Lifecycle methods
     
@@ -32,7 +33,7 @@ class MoviesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.title = "Movie Reviews"
+        self.title = "Movies"
         fetchCriticPicks()
         fetchRecentMovieReviews()
     }
@@ -88,19 +89,49 @@ class MoviesViewController: UIViewController {
         let headerView = UIView()
         headerView.backgroundColor = UIColor.white
         
-        let titleLabel = UILabel(frame: CGRect(x: 10, y: 0, width: 200, height: 30))
+        /// Header title
+        let titleLabel = UILabel(frame: CGRect(x: 10, y: 0, width: 180, height: 30))
         titleLabel.textColor = theme.color.grayDarkColor343B3C
         titleLabel.font = theme.font.titleThreeFont
+        
+        /// Header button
+        let seeAllBtn: UIButton = UIButton(frame: CGRect(x: view.frame.width - 80, y: 0, width: 80, height: 30))
+        seeAllBtn.setTitle("See All", for: .normal)
+        seeAllBtn.setTitleColor(theme.color.orangeLightColorEC8B3F, for: .normal)
+        seeAllBtn.titleLabel?.font = theme.font.titleFifeFont
+        seeAllBtn.addTarget(self, action: #selector(seeAllTapped(withSender:)), for: .touchUpInside)
         
         switch section {
         case MovieSections.criticPicks.rawValue:
             titleLabel.text = MovieSections.criticPicks.title
+            seeAllBtn.tag = MovieSections.criticPicks.rawValue
         default:
             titleLabel.text = MovieSections.recentReviews.title
+            seeAllBtn.tag = MovieSections.recentReviews.rawValue
         }
         
         headerView.addSubview(titleLabel)
+        headerView.addSubview(seeAllBtn)
+        
         return headerView
+    }
+    
+    @objc func seeAllTapped(withSender sender: UIButton) {
+        
+        let vc = UIStoryboard.movies.instantiateViewController(withIdentifier: "MoviesListViewController") as! MoviesListViewController
+        
+        switch sender.tag {
+        case MovieSections.criticPicks.rawValue:
+            vc.moviesList = criticPicksMovies
+            vc.barTitle = MovieSections.criticPicks.title
+            
+        default:
+            vc.moviesList = recentlyReviewedMovies
+            vc.barTitle = MovieSections.recentReviews.title
+        }
+        
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     private func updateViews() {
@@ -115,7 +146,6 @@ class MoviesViewController: UIViewController {
     // MARK: Fetching movie reviews
     
     private func fetchCriticPicks() {
-        print("picks call")
         moviesController.fetchCriticPicks { [weak self] fetchedMovies in
             
             guard let self = self else {return}
@@ -169,10 +199,10 @@ extension MoviesViewController: UITableViewDelegate, UITableViewDataSource{
         }
         
         switch section {
-        
+            
         case MovieSections.criticPicks.rawValue:
             return MovieSections.criticPicks.numberOfRows
-       
+            
         default:
             return MovieSections.recentReviews.numberOfRows
         }
@@ -181,10 +211,10 @@ extension MoviesViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         switch indexPath.section {
-        
+            
         case MovieSections.criticPicks.rawValue:
             return MovieSections.criticPicks.rowHeight
-        
+            
         default:
             return MovieSections.recentReviews.rowHeight
         }
@@ -219,14 +249,30 @@ extension MoviesViewController: UITableViewDelegate, UITableViewDataSource{
         
         tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
     }
+    
+    //    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+    //        print ("In scroll")
+    //        guard let tableViewCell = tableView.cellForRow(at: indexPath) as? CollectionTableCell else { return }
+    //        tableViewCell.collectionDidScroll = true
+    //
+    //    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        /// check if horizontal scrolling
+        if (self.lastContentOffset > scrollView.contentOffset.x) || (self.lastContentOffset < scrollView.contentOffset.x) {
+            
+            if let collectionCell = tableView.cellForRow( at: IndexPath( row: 0,
+                                                                         section: MovieSections.criticPicks.rawValue)) as? CollectionTableCell{
+                collectionCell.collectionDidScroll = true
+            }
+        }
+    }
 }
-
 // MARK: UICollectionView DataSource and Delegate
 
 extension MoviesViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return criticPicksMovies.count
+        return MovieSections.criticPicks.numberOfColumns
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -238,7 +284,7 @@ extension MoviesViewController: UICollectionViewDataSource, UICollectionViewDele
         let currentMovie = criticPicksMovies[indexPath.row]
         
         cell.setMovie(movie: currentMovie)
-
+        
         return cell
     }
 }
