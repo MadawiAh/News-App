@@ -12,7 +12,7 @@ class CustomMoviesTableCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var bylineLabel: UILabel!
-    @IBOutlet weak var isCriticPick: UILabel!
+    @IBOutlet weak var isCriticsPickLabel: UILabel!
     
     let theme: AppTheme = NewsAppTheme()
     weak var delegate: MovieCellsUpdater?
@@ -38,16 +38,16 @@ class CustomMoviesTableCell: UITableViewCell {
         bylineLabel.font = theme.font.titleSevenFont
         bylineLabel.textColor = theme.color.grayLightColor9fa1a1
        
-        isCriticPick.font = theme.font.titleSevenFont
-        isCriticPick.textColor = theme.color.orangeLightColorEC8B3F.withAlphaComponent(0.8)
+        isCriticsPickLabel.font = theme.font.titleSevenFont
+        isCriticsPickLabel.textColor = theme.color.orangeDarkColorEB652B.withAlphaComponent(0.8)
         
     }
     
     func setMovie(movie: MoviesData){
-        titleLabel.text = movie.displayTitle
+        titleLabel.text = movie.displayTitle.emptyAsNil() ?? getTitleFromHeadline(movie: movie)
         summaryLabel.text = movie.summaryShort
         bylineLabel.text = "By " + movie.byline
-        isCriticPick.isHidden = true
+        isCriticsPickLabel.isHidden = true
         
         if movie.criticsPick == 1 {setUpIsCriticPrickLabel()}
 
@@ -64,15 +64,19 @@ class CustomMoviesTableCell: UITableViewCell {
         let templateString = NSMutableAttributedString(string:"")
         
         let imageAttachment = NSTextAttachment()
-        imageAttachment.image = UIImage(systemName: "star.fill")!.withTintColor(theme.color.orangeLightColorEC8B3F.withAlphaComponent(0.8))
+        imageAttachment.image = UIImage(systemName: "star.fill")!.withTintColor(theme.color.orangeDarkColorEB652B.withAlphaComponent(0.8))
         imageAttachment.bounds = CGRect(x: 0, y: -1, width: 10, height: 10)
 
         let imageString = NSAttributedString(attachment: imageAttachment)
         templateString.append(imageString)
         templateString.append(NSAttributedString(string:" Critics's Pick"))
 
-         isCriticPick.attributedText = templateString
-         isCriticPick.isHidden = false
+        isCriticsPickLabel.attributedText = templateString
+        isCriticsPickLabel.isHidden = false
     }
     
+    func getTitleFromHeadline(movie: MoviesData) -> String {
+        return movie.headline.getSlice(from: "‘", to: "’ R") ?? ""
+    }
 }
+

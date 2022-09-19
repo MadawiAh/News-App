@@ -14,7 +14,9 @@ class NewsController {
         APIService(url: nil, service: .getNews(year: year, month: month), method: .get).executeCall{ (result: Result<NewsNetworkCall,Error>) in
             switch result{
             case .success(let news):
-                success?(news.response.docs)
+                var newsArray = news.response.docs
+                newsArray = newsArray.filter{$0.documentType == "article"}
+                success?(newsArray)
             case .failure(let error):
                 failure?(error)
             }

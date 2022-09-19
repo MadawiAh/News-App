@@ -51,9 +51,10 @@ struct NewsData: Codable {
         case subsectionName = "subsection_name"
     }
     
-    var timeToRead: Int {
+    var timeToRead: String {
         get {
-            return Int(round(Double(wordCount)/200.0))
+            let time = Int(round(Double(wordCount)/200.0))
+            return "\(time == 0 ? "less than" : (String(describing: time))) min read"
         }
     }
     // TODO: Needs further testing
@@ -80,7 +81,7 @@ struct NewsData: Codable {
 // MARK: Byline
 
 struct Byline: Codable {
-    let original: String
+    let original: String?
     let person: [Person]
     let organization: String?
 }

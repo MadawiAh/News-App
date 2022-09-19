@@ -122,6 +122,13 @@ extension MoviesListViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = UIStoryboard.details.instantiateViewController(withIdentifier: "MoviesDetailsViewController") as! MoviesDetailsViewController
+        vc.movie = moviesList[indexPath.row]
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 // MARK: CollectionCellUpdater protocol

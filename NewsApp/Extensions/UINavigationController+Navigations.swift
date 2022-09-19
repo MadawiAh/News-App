@@ -11,8 +11,8 @@ extension UINavigationController {
     
     func pushVC(storyboard: UIStoryboard, VCIdetifier: String, animated: Bool){
         let vc = storyboard.instantiateViewController(withIdentifier: VCIdetifier)
+        vc.hidesBottomBarWhenPushed = true
         pushViewController(vc, animated: animated)
-    
     }
     
     func popToVC(VCIdetifier: String, animated: Bool){

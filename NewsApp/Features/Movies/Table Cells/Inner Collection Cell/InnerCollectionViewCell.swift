@@ -27,7 +27,6 @@ class InnerCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         
         styleElements()
-        
     }
     
     func styleElements(){
@@ -54,13 +53,13 @@ class InnerCollectionViewCell: UICollectionViewCell {
     }
     
     func setMovie(movie: MoviesData){
-        titleLabel.text = movie.displayTitle
+        titleLabel.text = movie.displayTitle.emptyAsNil() ?? getTitleFromHeadline(movie: movie)
         bylineLabel.text = "By " + movie.byline
         mpaaRatingLabel.text = movie.mpaaRating
-        mpaaRatingView.isHidden = false
-        
-        if movie.mpaaRating.isEmpty || movie.mpaaRating == "Not Rated" {
-            mpaaRatingView.isHidden = true }
+        mpaaRatingView.isHidden = true
+       
+        if !movie.mpaaRating.isEmpty && movie.mpaaRating != "Not Rated" {
+            mpaaRatingView.isHidden = false }
         
         guard let completeURL = URL(string: "\(movie.multimedia.src)")
         else {return}
@@ -68,5 +67,9 @@ class InnerCollectionViewCell: UICollectionViewCell {
         poster.kf.setImage(with: completeURL, placeholder: UIImage(named: "poster-placeholder.png")){ result, error in
             self.delegate?.refreshTableView()
         }
+    }
+    
+    func getTitleFromHeadline(movie: MoviesData) -> String {
+        return movie.headline.getSlice(from: "‘", to: "’ R") ?? ""
     }
 }

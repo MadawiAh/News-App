@@ -109,21 +109,21 @@ class NewsViewController: UIViewController{
     private func fetchNewsData() {
         let now = Date() /// temp
         newsController.fetchNewsData( year:"\(now.getComponent(.year))", month:"\(now.getComponent(.month))") { [weak self] fetchedNews in
+            
+            guard let self = self else {return}
+            self.news = fetchedNews
+            self.pageSize = 10
+            DispatchQueue.main.async {
+                self.updateViews()
+            }
+        } failure: { error in
+            self.showError(error: error){
                 
-                guard let self = self else {return}
-                self.news = fetchedNews
-                self.pageSize = 10
-                DispatchQueue.main.async {
+                DispatchQueue.main.asyncAfter(deadline: .now()+2.5) {
                     self.updateViews()
                 }
-            } failure: { error in
-                self.showError(error: error){
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now()+2.5) {
-                        self.updateViews()
-                    }
-                }
             }
+        }
     }
 }
 
@@ -165,7 +165,10 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        /// TODO: Navigation to details page
+        let vc = UIStoryboard.details.instantiateViewController(withIdentifier: "NewsDetailsViewController") as! NewsDetailsViewController
+        vc.news = news[indexPath.row]
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

@@ -23,7 +23,7 @@ struct MoviesNetworkCall: Codable {
 // MARK: MoviesData
 
 struct MoviesData: Codable {
-    let displayTitle: String
+    var displayTitle: String 
     let mpaaRating: String
     let criticsPick: Int
     let byline, headline, summaryShort, publicationDate: String
