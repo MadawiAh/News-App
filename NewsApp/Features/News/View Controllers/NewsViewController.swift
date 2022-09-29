@@ -41,6 +41,7 @@ class NewsViewController: UIViewController{
     // MARK: Views Set Up methods
     
     private func setUpTableView() {
+        tableView.backgroundColor = theme.color.grayBrightColorf9f9f9
         tableView.rowHeight = UITableView.automaticDimension;
         tableView.estimatedRowHeight = 115.0;
         tableView.delegate = self
@@ -109,23 +110,23 @@ class NewsViewController: UIViewController{
     private func fetchNewsData() {
         let now = Date() /// temp
         newsController.fetchNewsData( year:"\(now.getComponent(.year))", month:"\(now.getComponent(.month))") { [weak self] fetchedNews in
+            
+            guard let self = self else {return}
+            self.news = fetchedNews
+            self.pageSize = 10
+            DispatchQueue.main.async {
+                self.updateViews()
+            }
+        } failure: { error in
+            print("Error occured !")
+            self.showError(error: error){
                 
-                guard let self = self else {return}
-                self.news = fetchedNews
-                self.pageSize = 10
-                DispatchQueue.main.async {
+                DispatchQueue.main.asyncAfter(deadline: .now()+2.5) {
+                    print("Error views update !")
                     self.updateViews()
                 }
-            } failure: { error in
-                print("Error occured !")
-                self.showError(error: error){
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now()+2.5) {
-                        print("Error views update !")
-                        self.updateViews()
-                    }
-                }
             }
+        }
     }
 }
 

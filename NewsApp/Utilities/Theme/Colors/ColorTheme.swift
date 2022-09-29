@@ -20,6 +20,8 @@ protocol ColorTheme {
     
     var orangeDarkColorEB652B: UIColor { get }
     
+    var grayBrightColorf9f9f9: UIColor { get }
+    
     var grayLightColor9fa1a1: UIColor { get }
     
     var grayMediumColor546062: UIColor { get }
