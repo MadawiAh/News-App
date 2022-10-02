@@ -56,11 +56,12 @@ class InnerCollectionViewCell: UICollectionViewCell {
     func setMovie(movie: MoviesData){
         titleLabel.text = movie.displayTitle
         bylineLabel.text = "By " + movie.byline
-        mpaaRatingLabel.text = movie.mpaaRating
-        mpaaRatingView.isHidden = false
-        
-        if movie.mpaaRating.isEmpty || movie.mpaaRating == "Not Rated" {
-            mpaaRatingView.isHidden = true }
+        mpaaRatingView.isHidden = true
+       
+        if movie.hasMpaaRating {
+            mpaaRatingLabel.text = movie.mpaaRating
+            mpaaRatingView.isHidden = false
+        }
         
         guard let completeURL = URL(string: "\(movie.multimedia.src)")
         else {return}

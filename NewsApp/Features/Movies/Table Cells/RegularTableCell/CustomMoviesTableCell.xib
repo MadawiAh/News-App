@@ -72,7 +72,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="bylineLabel" destination="G67-Hn-Us4" id="iij-4h-jPi"/>
-                <outlet property="isCriticPick" destination="79u-zv-1qi" id="gYd-Sx-FdG"/>
+                <outlet property="isCriticsPickLabel" destination="79u-zv-1qi" id="AW0-vm-5Z4"/>
                 <outlet property="poster" destination="WW8-e7-VTL" id="COh-ix-ECK"/>
                 <outlet property="summaryLabel" destination="aXe-BQ-TC5" id="qRh-FV-e0d"/>
                 <outlet property="titleLabel" destination="oqW-q0-qHl" id="6UV-96-g8c"/>

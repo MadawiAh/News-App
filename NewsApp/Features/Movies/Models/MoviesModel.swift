@@ -43,6 +43,16 @@ struct MoviesData: Codable {
         case dateUpdated = "date_updated"
         case link, multimedia
     }
+    
+    var hasMpaaRating: Bool {
+        return  mpaaRating == "Unrated" ||
+                mpaaRating == "Not Rated" ||
+                mpaaRating == "" ? false: true
+    }
+    
+    var isCriticsPick: Bool {
+        return criticsPick == 1
+    }
 }
 
 // MARK: Link
