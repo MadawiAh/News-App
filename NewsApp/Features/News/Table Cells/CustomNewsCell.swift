@@ -8,11 +8,9 @@
 import UIKit
 import Kingfisher
 
-protocol NewsCellUpdater: AnyObject {
-    func refreshTableView()
-}
-
 class CustomNewsCell: UITableViewCell {
+    
+    static let nibName = "CustomNewsCell"
     
     @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var contentStack: UIStackView!
@@ -23,19 +21,19 @@ class CustomNewsCell: UITableViewCell {
     @IBOutlet weak var shareBtn: UIButton!
     
     
-    let theme: AppTheme = NewsAppTheme()
-    var shareTappedClosure: ((CustomNewsCell)->())?
-    weak var delegate: NewsCellUpdater?
+    private let theme: AppTheme = NewsAppTheme()
+    private var shareTappedClosure: ((CustomNewsCell)->())?
+    private var refreshTableClosure: (()->())?
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         styleElements()
-        
     }
     
-    func styleElements(){
+    // MARK: - Private Helpers
+    
+    private func styleElements(){
         
         selectionStyle = .none
         
@@ -54,7 +52,6 @@ class CustomNewsCell: UITableViewCell {
         favouriteBtn.tintColor = theme.color.grayLightColor9fa1a1
         shareBtn.tintColor = theme.color.grayLightColor9fa1a1
     }
-    
     
     private func styleShadowView() {
         shadowView.layer.shadowPath = UIBezierPath(rect: CGRect(x: 0,
@@ -75,26 +72,6 @@ class CustomNewsCell: UITableViewCell {
         newsImage.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
     }
     
-    func setNews(news: NewsData){
-        
-        newsTitle.text = news.headline.main
-        newsPublishTime.text = "\(news.formatedDate) • \(news.timeToRead == 0 ? "less than" : (String(describing: news.timeToRead))) min read"
-        
-        newsImage.isHidden = false
-        if news.multimedia.isEmpty {
-            newsImage.isHidden = true
-            return
-        }
-        
-        guard let completeURL = URL(string: "https://www.nytimes.com/\(news.multimedia[0].url)")
-        else {return}
-        
-        newsImage.kf.setImage(with: completeURL, placeholder: UIImage(named: "news-placeholder.png")){ result, error in
-            
-            self.delegate?.refreshTableView()
-        }
-    }
-    
     private func toggleFavourite(){
         
         var img = UIImage(systemName: "suit.heart.fill")
@@ -113,19 +90,37 @@ class CustomNewsCell: UITableViewCell {
         favouriteBtn.imageView?.heightAnchor.constraint(equalToConstant: 25).isActive = true
     }
     
-    // MARK: User Actions
+    // MARK: - Public Helpers
+    
+    func setNews(news: NewsData, shareTapped: ((CustomNewsCell)->())?, refreshTable: (()->())?){
+        shareTappedClosure = shareTapped
+        refreshTableClosure = refreshTable
+        newsTitle.text = news.headline.main
+        newsPublishTime.text = "\(news.formatedDate) • \(news.timeToRead)"
+        
+        newsImage.isHidden = false
+        if news.multimedia.isEmpty {
+            newsImage.isHidden = true
+            return
+        }
+        
+        guard let completeURL = URL(string: "\(Secrets.mediaBaseUrl)\(news.multimedia[0].url)")
+        else {return}
+        
+        newsImage.kf.setImage(with: completeURL, placeholder: UIImage(named: "news-placeholder.png")){ result, error in
+            self.refreshTableClosure?()
+        }
+    }
+    
+    // MARK: - User Actions
     
     @IBAction func favouriteTapped(_ sender: UIButton) {
         Animator.animateButton(buttonToAnimate: sender)
         toggleFavourite()
-        
     }
     
     @IBAction func shareTapped(_ sender: UIButton) {
         Animator.animateButton(buttonToAnimate: sender)
         shareTappedClosure?(self)
     }
-    
-    
-    
 }
