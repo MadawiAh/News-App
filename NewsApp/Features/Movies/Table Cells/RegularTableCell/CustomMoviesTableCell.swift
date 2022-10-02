@@ -46,7 +46,7 @@ class CustomMoviesTableCell: UITableViewCell {
         titleLabel.text = movie.displayTitle
         summaryLabel.text = movie.summaryShort
         bylineLabel.text = "By " + movie.byline
-        isCriticPick.isHidden = true
+        isCriticsPickLabel.isHidden = true
         
         if movie.isCriticsPick {
             setUpIsCriticPrickLabel()
