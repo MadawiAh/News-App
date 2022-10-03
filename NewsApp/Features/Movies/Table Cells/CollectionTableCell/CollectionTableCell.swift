@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CollectionTableCell: UITableViewCell, UIScrollViewDelegate {
+class CollectionTableCell: UITableViewCell {
     
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
@@ -50,7 +50,7 @@ class CollectionTableCell: UITableViewCell, UIScrollViewDelegate {
         collectionView.reloadData()
     }
     
-    @IBAction func pageControlTapped(_ sender: UIPageControl) {
+    @IBAction func pageControlChanged(_ sender: UIPageControl) {
         collectionView.scrollToItem(at: IndexPath(item: sender.currentPage, section: 0), at: .centeredHorizontally, animated: true)
     }
 }
