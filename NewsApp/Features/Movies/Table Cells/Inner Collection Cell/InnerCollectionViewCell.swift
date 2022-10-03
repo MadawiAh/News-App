@@ -7,11 +7,10 @@
 
 import UIKit
 
-protocol MovieCellsUpdater: AnyObject {
-    func refreshTableView()
-}
 
 class InnerCollectionViewCell: UICollectionViewCell {
+    
+    static let nibName = "InnerCollectionViewCell"
     
     @IBOutlet weak var cellContainer: UIView!
     @IBOutlet weak var poster: UIImageView!
@@ -21,16 +20,17 @@ class InnerCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var mpaaRatingLabel: UILabel!
     
     let theme: AppTheme = NewsAppTheme()
-    weak var delegate: MovieCellsUpdater?
+    private var refreshTableClosure: (()->())?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         styleElements()
-        
     }
     
-    func styleElements(){
+    // MARK: - Private Helpers
+    
+    private func styleElements(){
         
         poster.image = UIImage(named: "poster-placeholder.png")
         
@@ -53,11 +53,13 @@ class InnerCollectionViewCell: UICollectionViewCell {
         bylineLabel.textColor = theme.color.grayLightColor9fa1a1
     }
     
-    func setMovie(movie: MoviesData){
+    // MARK: - Public Helpers
+    
+    func setMovie(movie: MoviesData, refreshTable: (()->())?){
         titleLabel.text = movie.displayTitle
         bylineLabel.text = "By " + movie.byline
         mpaaRatingView.isHidden = true
-       
+        
         if movie.hasMpaaRating {
             mpaaRatingLabel.text = movie.mpaaRating
             mpaaRatingView.isHidden = false
@@ -67,7 +69,7 @@ class InnerCollectionViewCell: UICollectionViewCell {
         else {return}
         
         poster.kf.setImage(with: completeURL, placeholder: UIImage(named: "poster-placeholder.png")){ result, error in
-            self.delegate?.refreshTableView()
+            refreshTable?()
         }
     }
 }

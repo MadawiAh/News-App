@@ -16,6 +16,8 @@ class MoviesListViewController: UIViewController {
     private let moviesController = MoviesController()
     private let refreshControl = UIRefreshControl()
     
+    // MARK: - Lifecycle methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,6 +32,8 @@ class MoviesListViewController: UIViewController {
         self.title = barTitle
     }
     
+    // MARK: - Views SetUp methods
+    
     private func setUpTableView() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -40,7 +44,7 @@ class MoviesListViewController: UIViewController {
         tableView.addSubview(refreshControl)
     }
     
-    @objc func refresh(_ sender: AnyObject) {
+    @objc private func refresh(_ sender: AnyObject) {
         switch barTitle {
         case MovieSections.criticPicks.title:
             self.fetchCriticPicks()
@@ -52,10 +56,9 @@ class MoviesListViewController: UIViewController {
     }
     
     private func registerTableViewCells() {
-        
-        tableView.register(UINib(nibName: "CustomMoviesTableCell",
+        tableView.register(UINib(nibName: CustomMoviesTableCell.nibName,
                                  bundle: nil),
-                           forCellReuseIdentifier: "CustomMoviesTableCell")
+                           forCellReuseIdentifier: CustomMoviesTableCell.cellIdentifier)
     }
     
     private func updateViews() {
@@ -63,7 +66,11 @@ class MoviesListViewController: UIViewController {
         refreshControl.endRefreshing()
     }
     
-    // MARK: Fetching movie reviews
+    private func refreshTableView() {
+        self.tableView.reloadData()
+    }
+    
+    // MARK: - Fetching Moives
     
     private func fetchCriticPicks() {
         moviesController.fetchCriticPicks { [weak self] fetchedMovies in
@@ -100,7 +107,7 @@ class MoviesListViewController: UIViewController {
     }
 }
 
-// MARK: UITableView DataSource and Delegate
+// MARK: - UITableView DataSource and Delegate
 
 extension MoviesListViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -114,23 +121,13 @@ extension MoviesListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomMoviesTableCell", for: indexPath) as! CustomMoviesTableCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CustomMoviesTableCell.cellIdentifier, for: indexPath) as! CustomMoviesTableCell
         guard !moviesList.isEmpty else {return cell}
         
         let currentMovie = moviesList[indexPath.row]
-        cell.setMovie(movie: currentMovie)
-        
-        return cell
-    }
-}
-
-// MARK: CollectionCellUpdater protocol
-
-extension MoviesListViewController: MovieCellsUpdater {
-    
-    func refreshTableView() {
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
+        cell.setMovie(movie: currentMovie){
+            self.refreshTableView()
         }
+        return cell
     }
 }

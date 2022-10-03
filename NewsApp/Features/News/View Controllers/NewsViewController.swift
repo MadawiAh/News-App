@@ -65,7 +65,7 @@ class NewsViewController: UIViewController{
     private func registerTableViewCells() {
         tableView.register(UINib(nibName: "CustomNewsCell",
                                  bundle: nil),
-                           forCellReuseIdentifier: "CustomNewsCell")
+                           forCellReuseIdentifier: CustomNewsCell.cellIdentifier)
     }
     
     private func setUpFooterSpinner(_ tableView: UITableView) {
@@ -148,7 +148,7 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomNewsCell") as! CustomNewsCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CustomNewsCell.cellIdentifier) as! CustomNewsCell
         
         cell.delegate = self
         guard !news.isEmpty else {return cell}

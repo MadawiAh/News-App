@@ -19,7 +19,7 @@ class MoviesViewController: UIViewController {
     private var recentlyReviewedMovies = [MoviesData]()
     private var lastContentOffset: CGFloat = 0
     
-    // MARK: Lifecycle methods
+    // MARK: - Lifecycle methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,7 @@ class MoviesViewController: UIViewController {
         fetchRecentMovieReviews()
     }
     
-    // MARK: Views SetUp methods
+    // MARK: - Views SetUp methods
     
     private func setUpTableView() {
         tableView.backgroundColor = theme.color.grayBrightColorf9f9f9
@@ -58,18 +58,18 @@ class MoviesViewController: UIViewController {
         tableView.addSubview(refreshControl)
     }
     
-    @objc func refresh(_ sender: AnyObject) {
+    @objc private func refresh(_ sender: AnyObject) {
         self.fetchCriticPicks()
         self.fetchRecentMovieReviews()
     }
     
     private func registerTableViewCells() {
-        tableView.register(UINib(nibName: "CollectionTableCell",
+        tableView.register(UINib(nibName: CollectionTableCell.nibName,
                                  bundle: nil),
-                           forCellReuseIdentifier: "CollectionTableCell")
-        tableView.register(UINib(nibName: "CustomMoviesTableCell",
+                           forCellReuseIdentifier: CollectionTableCell.cellIdentifier)
+        tableView.register(UINib(nibName: CustomMoviesTableCell.nibName,
                                  bundle: nil),
-                           forCellReuseIdentifier: "CustomMoviesTableCell")
+                           forCellReuseIdentifier: CustomMoviesTableCell.cellIdentifier)
     }
     
     private func setUpEmptyListLable() {
@@ -85,7 +85,7 @@ class MoviesViewController: UIViewController {
         self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
     }
     
-    private func setUpSectionHeaderView(for section: Int) -> UIView {
+    private func setUpSectionHeaderView(for sectionType: MovieSections) -> UIView {
         let headerView = UIView()
         headerView.backgroundColor = UIColor.white
         
@@ -101,11 +101,11 @@ class MoviesViewController: UIViewController {
         seeAllBtn.titleLabel?.font = theme.font.titleFifeFont
         seeAllBtn.addTarget(self, action: #selector(seeAllTapped(withSender:)), for: .touchUpInside)
         
-        switch section {
-        case MovieSections.criticPicks.rawValue:
+        switch sectionType {
+        case .criticPicks:
             titleLabel.text = MovieSections.criticPicks.title
             seeAllBtn.tag = MovieSections.criticPicks.rawValue
-        default:
+        case .recentReviews:
             titleLabel.text = MovieSections.recentReviews.title
             seeAllBtn.tag = MovieSections.recentReviews.rawValue
         }
@@ -116,7 +116,7 @@ class MoviesViewController: UIViewController {
         return headerView
     }
     
-    @objc func seeAllTapped(withSender sender: UIButton) {
+    @objc private func seeAllTapped(withSender sender: UIButton) {
         
         let vc = UIStoryboard.movies.instantiateViewController(withIdentifier: "MoviesListViewController") as! MoviesListViewController
         
@@ -143,7 +143,15 @@ class MoviesViewController: UIViewController {
         refreshControl.endRefreshing()
     }
     
-    // MARK: Fetching movie reviews
+    private func refreshTableView() {
+        tableView.reloadData()
+    }
+    
+    private func isFitchedSuccessfully() -> Bool {
+        return !criticPicksMovies.isEmpty && !recentlyReviewedMovies.isEmpty
+    }
+    
+    // MARK: - Fetching Moives
     
     private func fetchCriticPicks() {
         moviesController.fetchCriticPicks { [weak self] fetchedMovies in
@@ -178,13 +186,9 @@ class MoviesViewController: UIViewController {
             }
         }
     }
-    
-    private func isFitchedSuccessfully() -> Bool {
-        return !criticPicksMovies.isEmpty && !recentlyReviewedMovies.isEmpty
-    }
 }
 
-// MARK: UITableView DataSource and Delegate
+// MARK: - UITableView DataSource and Delegate
 
 extension MoviesViewController: UITableViewDelegate, UITableViewDataSource{
     
@@ -197,49 +201,46 @@ extension MoviesViewController: UITableViewDelegate, UITableViewDataSource{
             setUpEmptyListLable()
             return 0
         }
-        
-        switch section {
-            
-        case MovieSections.criticPicks.rawValue:
+        let sectionType = MovieSections.allCases[section]
+        switch sectionType {
+        case .criticPicks:
             return MovieSections.criticPicks.numberOfRows
-            
-        default:
+        case .recentReviews:
             return MovieSections.recentReviews.numberOfRows
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        switch indexPath.section {
-            
-        case MovieSections.criticPicks.rawValue:
+        let sectionType = MovieSections.allCases[indexPath.section]
+        switch sectionType {
+        case .criticPicks:
             return MovieSections.criticPicks.rowHeight
-            
-        default:
+        case .recentReviews:
             return MovieSections.recentReviews.rowHeight
         }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if !isFitchedSuccessfully() {return nil}
-        return setUpSectionHeaderView(for: section)
+        let sectionType = MovieSections.allCases[section]
+        return setUpSectionHeaderView(for: sectionType)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch (indexPath.section) {
-            
-        case MovieSections.criticPicks.rawValue:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CollectionTableCell", for: indexPath) as! CollectionTableCell
-            
+        let sectionType = MovieSections.allCases[indexPath.section]
+        
+        switch sectionType {
+        case .criticPicks:
+            let cell = tableView.dequeueReusableCell(withIdentifier: CollectionTableCell.cellIdentifier, for: indexPath) as! CollectionTableCell
             return cell
-            
-        default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CustomMoviesTableCell", for: indexPath) as! CustomMoviesTableCell
+        case .recentReviews:
+            let cell = tableView.dequeueReusableCell(withIdentifier: CustomMoviesTableCell.cellIdentifier, for: indexPath) as! CustomMoviesTableCell
             guard !recentlyReviewedMovies.isEmpty else {return cell}
             
             let currentMovie = recentlyReviewedMovies[indexPath.row]
-            cell.setMovie(movie: currentMovie)
-            
+            cell.setMovie(movie: currentMovie){
+                self.refreshTableView()
+            }
             return cell
         }
     }
@@ -247,15 +248,8 @@ extension MoviesViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let tableViewCell = cell as? CollectionTableCell else { return }
         
-        tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
+        tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self)
     }
-    
-    //    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-    //        print ("In scroll")
-    //        guard let tableViewCell = tableView.cellForRow(at: indexPath) as? CollectionTableCell else { return }
-    //        tableViewCell.collectionDidScroll = true
-    //
-    //    }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         /// check if horizontal scrolling
         if (self.lastContentOffset > scrollView.contentOffset.x) || (self.lastContentOffset < scrollView.contentOffset.x) {
@@ -267,7 +261,8 @@ extension MoviesViewController: UITableViewDelegate, UITableViewDataSource{
         }
     }
 }
-// MARK: UICollectionView DataSource and Delegate
+
+// MARK: - UICollectionView DataSource and Delegate
 
 extension MoviesViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
@@ -277,34 +272,25 @@ extension MoviesViewController: UICollectionViewDataSource, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InnerCollectionViewCell", for: indexPath)  as! InnerCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InnerCollectionViewCell.cellIdentifier, for: indexPath)  as! InnerCollectionViewCell
         
         guard !criticPicksMovies.isEmpty else {return cell}
         
         let currentMovie = criticPicksMovies[indexPath.row]
         
-        cell.setMovie(movie: currentMovie)
+        cell.setMovie(movie: currentMovie){
+            self.refreshTableView()
+        }
         
         return cell
     }
 }
 
-// MARK: UICollectionViewDelegateFlowLayout
+// MARK: - UICollectionViewDelegateFlowLayout
 
 extension MoviesViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 200, height: 180)
-    }
-}
-
-// MARK: CollectionCellUpdater protocol
-
-extension MoviesViewController: MovieCellsUpdater {
-    
-    func refreshTableView() {
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
     }
 }

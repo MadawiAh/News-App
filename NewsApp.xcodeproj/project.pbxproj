@@ -43,6 +43,8 @@
 		71651EB428ABCD99002263D3 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71651EB328ABCD98002263D3 /* MoreViewController.swift */; };
 		71651EB628ACD166002263D3 /* FontTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71651EB528ACD165002263D3 /* FontTheme.swift */; };
 		71651EB828ACD265002263D3 /* NewsAppFontTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71651EB728ACD265002263D3 /* NewsAppFontTheme.swift */; };
+		7165892928EAE4380024A7BD /* UICollectionViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7165892828EAE4380024A7BD /* UICollectionViewCell+Extensions.swift */; };
+		7165892B28EAE4670024A7BD /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7165892A28EAE4670024A7BD /* UITableViewCell+Extensions.swift */; };
 		71807CC928B7873400715D9A /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71807CC828B7873400715D9A /* UIView+Extensions.swift */; };
 		71807CCE28BB991F00715D9A /* MoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71807CCD28BB991F00715D9A /* MoreTableViewController.swift */; };
 		71807CD128BCAB7600715D9A /* MoreActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71807CD028BCAB7600715D9A /* MoreActions.swift */; };
@@ -104,6 +106,8 @@
 		71651EB328ABCD98002263D3 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		71651EB528ACD165002263D3 /* FontTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontTheme.swift; sourceTree = "<group>"; };
 		71651EB728ACD265002263D3 /* NewsAppFontTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAppFontTheme.swift; sourceTree = "<group>"; };
+		7165892828EAE4380024A7BD /* UICollectionViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Extensions.swift"; sourceTree = "<group>"; };
+		7165892A28EAE4670024A7BD /* UITableViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extensions.swift"; sourceTree = "<group>"; };
 		71807CC828B7873400715D9A /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		71807CCD28BB991F00715D9A /* MoreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTableViewController.swift; sourceTree = "<group>"; };
 		71807CD028BCAB7600715D9A /* MoreActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreActions.swift; sourceTree = "<group>"; };
@@ -231,11 +235,13 @@
 		714C5BBB28A279FE00D0DD57 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				714C5BB928A279F600D0DD57 /* UIViewController+Extensions.swift */,
-				714C5BBC28A30A6A00D0DD57 /* UINavigationController+Navigations.swift */,
-				716425E128B75F3900F7DC85 /* UIStoryboard+Extensions.swift */,
-				71807CC828B7873400715D9A /* UIView+Extensions.swift */,
 				711D645828C9FB980094284A /* Date+Extensions.swift */,
+				71807CC828B7873400715D9A /* UIView+Extensions.swift */,
+				716425E128B75F3900F7DC85 /* UIStoryboard+Extensions.swift */,
+				714C5BB928A279F600D0DD57 /* UIViewController+Extensions.swift */,
+				7165892A28EAE4670024A7BD /* UITableViewCell+Extensions.swift */,
+				7165892828EAE4380024A7BD /* UICollectionViewCell+Extensions.swift */,
+				714C5BBC28A30A6A00D0DD57 /* UINavigationController+Navigations.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -714,10 +720,12 @@
 				71651EA928AA5FB9002263D3 /* NewsAppColorTheme.swift in Sources */,
 				71CF2BED28C78C10006A0CB6 /* Secrets.swift in Sources */,
 				71807CD128BCAB7600715D9A /* MoreActions.swift in Sources */,
+				7165892B28EAE4670024A7BD /* UITableViewCell+Extensions.swift in Sources */,
 				718A519928B4FA5D000ABB6B /* Animator.swift in Sources */,
 				719F2E6128B61FD60042A74C /* NewsController.swift in Sources */,
 				71CF2BE328C74CE4006A0CB6 /* APIErrors.swift in Sources */,
 				711E0CFC28D0C3850014B831 /* MoviesListViewController.swift in Sources */,
+				7165892928EAE4380024A7BD /* UICollectionViewCell+Extensions.swift in Sources */,
 				714C5BBD28A30A6A00D0DD57 /* UINavigationController+Navigations.swift in Sources */,
 				714C5B9128A0B6E500D0DD57 /* AppDelegate.swift in Sources */,
 				719F2E6428B662A70042A74C /* CustomNewsCell.swift in Sources */,

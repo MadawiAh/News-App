@@ -8,6 +8,9 @@
 import UIKit
 
 class CustomMoviesTableCell: UITableViewCell {
+    
+    static let nibName = "CustomMoviesTableCell"
+    
     @IBOutlet weak var poster: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var summaryLabel: UILabel!
@@ -15,14 +18,17 @@ class CustomMoviesTableCell: UITableViewCell {
     @IBOutlet weak var isCriticsPickLabel: UILabel!
     
     let theme: AppTheme = NewsAppTheme()
-    weak var delegate: MovieCellsUpdater?
+    private var refreshTableClosure: (()->())?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         styleElements()
     }
-    func styleElements(){
+    
+    // MARK: - Private Helpers
+    
+    private func styleElements(){
         
         selectionStyle = .none
         
@@ -42,26 +48,7 @@ class CustomMoviesTableCell: UITableViewCell {
         isCriticsPickLabel.textColor = theme.color.orangeDarkColorEB652B.withAlphaComponent(0.8)
     }
     
-    func setMovie(movie: MoviesData){
-        titleLabel.text = movie.displayTitle
-        summaryLabel.text = movie.summaryShort
-        bylineLabel.text = "By " + movie.byline
-        isCriticsPickLabel.isHidden = true
-        
-        if movie.isCriticsPick {
-            setUpIsCriticPrickLabel()
-            isCriticsPickLabel.isHidden = false
-        }
-        
-        guard let completeURL = URL(string: "\(movie.multimedia.src)")
-        else {return}
-        
-        poster.kf.setImage(with: completeURL, placeholder: UIImage(named: "poster-placeholder.png")){ result, error in
-            self.delegate?.refreshTableView()
-        }
-    }
-    
-    func setUpIsCriticPrickLabel() {
+    private func setUpIsCriticPrickLabel() {
         
         let templateString = NSMutableAttributedString(string:"")
         
@@ -76,4 +63,24 @@ class CustomMoviesTableCell: UITableViewCell {
         isCriticsPickLabel.attributedText = templateString
     }
     
+    // MARK: - Public Helpers
+    
+    func setMovie(movie: MoviesData, refreshTable: (()->())?){
+        titleLabel.text = movie.displayTitle
+        summaryLabel.text = movie.summaryShort
+        bylineLabel.text = "By " + movie.byline
+        isCriticsPickLabel.isHidden = true
+        
+        if movie.isCriticsPick {
+            setUpIsCriticPrickLabel()
+            isCriticsPickLabel.isHidden = false
+        }
+        
+        guard let completeURL = URL(string: "\(movie.multimedia.src)")
+        else {return}
+        
+        poster.kf.setImage(with: completeURL, placeholder: UIImage(named: "poster-placeholder.png")){ result, error in
+            refreshTable?()
+        }
+    }
 }
