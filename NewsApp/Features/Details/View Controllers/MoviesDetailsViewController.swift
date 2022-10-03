@@ -32,7 +32,9 @@ class MoviesDetailsViewController: UIViewController {
         setUpElements()
     }
     
-    func styleElements() {
+    // MARK: - Private Helpers
+    
+    private func styleElements() {
         
         dateLabel.font = theme.font.titleFifeFont
         dateLabel.textColor = theme.color.grayLightColor9fa1a1
@@ -72,7 +74,7 @@ class MoviesDetailsViewController: UIViewController {
         mpaaRatingLabel.textColor = UIColor.black
     }
     
-    func setUpElements() {
+    private func setUpElements() {
         guard let movie = movie else {return}
         
         dateLabel.text = movie.publicationDate.getFormattedDate(currentFormat: "yyyy-MM-dd")
@@ -80,16 +82,17 @@ class MoviesDetailsViewController: UIViewController {
         bylineLabel.text = "By " + movie.byline
         summaryLabel.text = movie.summaryShort
         copyrightsLabel.text = Secrets.copyrights
-        mpaaRatingLabel.text = movie.mpaaRating
         mpaaRatingView.isHidden = true
         isCriticsPickLabel.isHidden = true
         
-        if !movie.mpaaRating.isEmpty && movie.mpaaRating != "Not Rated" {
-            mpaaRatingView.isHidden = false }
-        
+        if movie.hasMpaaRating {
+            mpaaRatingLabel.text = movie.mpaaRating
+            mpaaRatingView.isHidden = false
+        }
         if movie.criticsPick == 1 {
             setUpIsCriticPrickLabel()
         }
+        
         guard let completeURL = URL(string: "\(movie.multimedia.src)")
         else {return}
         
@@ -133,7 +136,7 @@ class MoviesDetailsViewController: UIViewController {
         isCriticsPickLabel.isHidden = false
     }
     
-    private func toggleFavourite(){
+    private func toggleFavourite() {
         
         var img = UIImage(systemName: "suit.heart.fill")
         var color: UIColor = theme.color.orangeDarkColorEB652B
@@ -146,13 +149,8 @@ class MoviesDetailsViewController: UIViewController {
         favouriteBtn.tintColor = color
     }
     
-    private func openLink(forURL url: String) {
-        guard let url = URL(string: url) else { return }
-        UIApplication.shared.open(url)
-    }
-    
     // MARK: User Actions
-    
+
     @objc func readMoreTapped(withSender sender: UITapGestureRecognizer) {
         openLink(forURL: movie!.link.url)
     }
@@ -166,4 +164,3 @@ class MoviesDetailsViewController: UIViewController {
         shareActivity(forURL: movie!.link.url)
     }
 }
-

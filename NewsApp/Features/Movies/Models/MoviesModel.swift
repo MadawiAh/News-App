@@ -11,7 +11,7 @@ struct MoviesNetworkCall: Codable {
     let hasMore: Bool
     let numResults: Int
     let response: [MoviesData]
-
+    
     enum CodingKeys: String, CodingKey {
         case copyright
         case hasMore = "has_more"
@@ -20,10 +20,10 @@ struct MoviesNetworkCall: Codable {
     }
 }
 
-// MARK: MoviesData
+// MARK: - MoviesData
 
 struct MoviesData: Codable {
-    var displayTitle: String 
+    let displayTitle: String
     let mpaaRating: String
     let criticsPick: Int
     let byline, headline, summaryShort, publicationDate: String
@@ -31,7 +31,7 @@ struct MoviesData: Codable {
     let dateUpdated: String
     let link: Link
     let multimedia: MoviesMultimedia
-
+    
     enum CodingKeys: String, CodingKey {
         case displayTitle = "display_title"
         case mpaaRating = "mpaa_rating"
@@ -43,21 +43,31 @@ struct MoviesData: Codable {
         case dateUpdated = "date_updated"
         case link, multimedia
     }
+    
+    var hasMpaaRating: Bool {
+        return  mpaaRating == "Unrated" ||
+        mpaaRating == "Not Rated" ||
+        mpaaRating == "" ? false: true
+    }
+    
+    var isCriticsPick: Bool {
+        return criticsPick == 1
+    }
 }
 
-// MARK: Link
+// MARK: - Link
 
 struct Link: Codable {
     let url: String
     let suggestedLinkText: String
-
+    
     enum CodingKeys: String, CodingKey {
         case url
         case suggestedLinkText = "suggested_link_text"
     }
 }
 
-// MARK: MoviesMultimedia
+// MARK: - MoviesMultimedia
 
 struct MoviesMultimedia: Codable {
     let src: String

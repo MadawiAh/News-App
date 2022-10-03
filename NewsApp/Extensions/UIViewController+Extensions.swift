@@ -9,7 +9,7 @@ import SVProgressHUD
 
 extension UIViewController {
     
-    // MARK: Alert extention
+    // MARK: - Alert extention
     
     func presentAlert(title: String, message: String?, options: String..., style: UIAlertController.Style,completion: @escaping (Int) -> Void) {
        
@@ -37,7 +37,7 @@ extension UIViewController {
         return topViewController!
     }
     
-    // MARK: Share URL extention
+    // MARK: - Share URL extention
     
     func shareActivity (forURL url:String){
        
@@ -50,7 +50,14 @@ extension UIViewController {
         present(activityViewController, animated: true, completion: nil)
     }
     
-    // MARK: Show Error extension
+    // MARK: - Open URL extention
+    
+    func openLink(forURL url: String) {
+        guard let url = URL(string: url) else { return }
+        UIApplication.shared.open(url)
+    }
+    
+    // MARK: - Show Error extension
     
     func showError(error: Error, completion: (()->Void)?){
         

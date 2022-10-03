@@ -30,7 +30,9 @@ class NewsDetailsViewController: UIViewController {
         setUpNews()
     }
     
-    func styleElements() {
+    // MARK: - Private Helpers
+    
+    private func styleElements() {
         
         dateLabel.font = theme.font.titleFifeFont
         dateLabel.textColor = theme.color.grayLightColor9fa1a1
@@ -64,7 +66,7 @@ class NewsDetailsViewController: UIViewController {
         imageView.image = UIImage(named: "poster-placeholder.png")
     }
     
-    func setUpNews() {
+    private func setUpNews() {
         guard let news = news else {return}
         
         dateLabel.text = news.pubDate.getFormattedDate(currentFormat: "yyyy-MM-dd'T'HH:mm:ssZ" )
@@ -80,7 +82,7 @@ class NewsDetailsViewController: UIViewController {
             imageView.isHidden = true
             return
         }
-        guard let completeURL = URL(string: "https://www.nytimes.com/\(news.multimedia[0].url)")
+        guard let completeURL = URL(string: "\(Secrets.mediaBaseUrl)\(news.multimedia[0].url)")
         else {return}
         
         imageView.kf.setImage(with: completeURL, placeholder: UIImage(named: "news-placeholder.png"))
@@ -120,12 +122,7 @@ class NewsDetailsViewController: UIViewController {
         favouriteBtn.tintColor = color
     }
     
-    private func openLink(forURL url: String) {
-        guard let url = URL(string: url) else { return }
-        UIApplication.shared.open(url)
-    }
-    
-    // MARK: User Actions
+    // MARK: - User Actions
     
     @objc func readMoreTapped(withSender sender: UITapGestureRecognizer) {
         openLink(forURL: news!.webURL)
