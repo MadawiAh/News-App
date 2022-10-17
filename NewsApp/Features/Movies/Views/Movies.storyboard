@@ -4,35 +4,75 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Movies View Controller-->
         <scene sceneID="ghL-Dh-pSi">
             <objects>
-                <viewController storyboardIdentifier="MoviesViewController" id="sON-0L-35T" customClass="MoviesViewController" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MoviesViewController" automaticallyAdjustsScrollViewInsets="NO" id="sON-0L-35T" customClass="MoviesViewController" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="goQ-cA-1mo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NEB-Br-4Cp">
-                                <rect key="frame" x="162" y="430.5" width="90" height="35"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eGb-Yg-Ukf">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <inset key="separatorInset" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3BC-NO-eun"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="NEB-Br-4Cp" firstAttribute="centerX" secondItem="goQ-cA-1mo" secondAttribute="centerX" id="5ZS-VR-S7K"/>
-                            <constraint firstItem="NEB-Br-4Cp" firstAttribute="centerY" secondItem="goQ-cA-1mo" secondAttribute="centerY" id="i5u-GH-PQz"/>
+                            <constraint firstItem="eGb-Yg-Ukf" firstAttribute="leading" secondItem="3BC-NO-eun" secondAttribute="leading" id="JcZ-rY-gmu"/>
+                            <constraint firstItem="3BC-NO-eun" firstAttribute="trailing" secondItem="eGb-Yg-Ukf" secondAttribute="trailing" id="uMw-hD-QDy"/>
+                            <constraint firstItem="eGb-Yg-Ukf" firstAttribute="top" secondItem="3BC-NO-eun" secondAttribute="top" id="xpQ-yG-c3v"/>
+                            <constraint firstItem="3BC-NO-eun" firstAttribute="bottom" secondItem="eGb-Yg-Ukf" secondAttribute="bottom" id="yfA-FJ-ITM"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="eGb-Yg-Ukf" id="Ao1-Or-D7F"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f2D-j8-RzJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2916" y="-229"/>
         </scene>
+        <!--Movies List View Controller-->
+        <scene sceneID="h7a-5n-8jO">
+            <objects>
+                <viewController storyboardIdentifier="MoviesListViewController" id="cim-Y6-sFB" customClass="MoviesListViewController" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1aW-XH-0yB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="IxJ-Xd-x7D">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="7Nh-qD-a3y"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="IxJ-Xd-x7D" firstAttribute="leading" secondItem="7Nh-qD-a3y" secondAttribute="leading" id="1Nq-Ls-IXD"/>
+                            <constraint firstItem="IxJ-Xd-x7D" firstAttribute="top" secondItem="7Nh-qD-a3y" secondAttribute="top" id="FAM-2u-tyG"/>
+                            <constraint firstItem="7Nh-qD-a3y" firstAttribute="bottom" secondItem="IxJ-Xd-x7D" secondAttribute="bottom" id="G7C-5E-d1F"/>
+                            <constraint firstItem="7Nh-qD-a3y" firstAttribute="trailing" secondItem="IxJ-Xd-x7D" secondAttribute="trailing" id="leV-bO-w9G"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="IxJ-Xd-x7D" id="bDu-YA-yAa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Cx-XX-70m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3668" y="-229"/>
+        </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

@@ -65,7 +65,9 @@ class NewsViewController: UIViewController{
     private func registerTableViewCells() {
         tableView.register(UINib(nibName: CustomNewsCell.nibName,
                                  bundle: nil),
-                           forCellReuseIdentifier: CustomNewsCell.nibName)
+
+                           forCellReuseIdentifier: CustomNewsCell.cellIdentifier)
+
     }
     
     private func setUpFooterSpinner(_ tableView: UITableView) {
@@ -127,6 +129,15 @@ class NewsViewController: UIViewController{
                 DispatchQueue.main.asyncAfter(deadline: .now()+2.5) {
                     self.updateViews()
                 }
+
+            } failure: { error in
+                self.showError(error: error){
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now()+2.5) {
+                        self.updateViews()
+                    }
+                }
+
             }
         }
     }
@@ -144,7 +155,9 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: CustomNewsCell.nibName) as! CustomNewsCell
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: CustomNewsCell.cellIdentifier) as! CustomNewsCell
+
         
         guard !news.isEmpty else {return cell}
         

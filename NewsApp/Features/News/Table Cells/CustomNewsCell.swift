@@ -72,6 +72,27 @@ class CustomNewsCell: UITableViewCell {
         newsImage.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
     }
     
+
+    func setNews(news: NewsData){
+        
+        newsTitle.text = news.headline.main
+        newsPublishTime.text = "\(news.formatedDate) • \(news.timeToRead == 0 ? "less than" : (String(describing: news.timeToRead))) min read"
+        
+        newsImage.isHidden = false
+        if news.multimedia.isEmpty {
+            newsImage.isHidden = true
+            return
+        }
+        
+        guard let completeURL = URL(string: "https://www.nytimes.com/\(news.multimedia[0].url)")
+        else {return}
+        
+        newsImage.kf.setImage(with: completeURL, placeholder: UIImage(named: "news-placeholder.png")){ result, error in
+            self.delegate?.refreshTableView()
+        }
+    }
+    
+
     private func toggleFavourite(){
         
         var img = UIImage(systemName: "suit.heart.fill")
