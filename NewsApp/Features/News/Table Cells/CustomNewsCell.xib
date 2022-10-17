@@ -18,12 +18,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qvA-z9-0Sy" userLabel="Shadow View">
-                        <rect key="frame" x="15" y="10" width="384" height="280"/>
+                        <rect key="frame" x="15" y="5" width="384" height="290"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0oX-69-GkG" userLabel="Content Stack">
-                                <rect key="frame" x="0.0" y="0.0" width="384" height="275"/>
+                                <rect key="frame" x="0.0" y="0.0" width="384" height="285"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2a7-sb-O9M">
+
                                         <rect key="frame" x="0.0" y="0.0" width="384" height="180"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TVZ-xE-ZUz" userLabel="Bottom Stack">
@@ -33,6 +34,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="384" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7s-BW-IGV">
+
                                                         <rect key="frame" x="10" y="10" width="369" height="40"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -115,8 +117,8 @@
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="qvA-z9-0Sy" secondAttribute="trailing" constant="15" id="9Cx-iY-8Cp"/>
                     <constraint firstItem="qvA-z9-0Sy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Lex-3i-BGO"/>
-                    <constraint firstItem="qvA-z9-0Sy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Wk6-nX-XP6"/>
-                    <constraint firstAttribute="bottom" secondItem="qvA-z9-0Sy" secondAttribute="bottom" constant="10" id="lfa-yo-Ljz"/>
+                    <constraint firstItem="qvA-z9-0Sy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="Wk6-nX-XP6"/>
+                    <constraint firstAttribute="bottom" secondItem="qvA-z9-0Sy" secondAttribute="bottom" constant="5" id="lfa-yo-Ljz"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
