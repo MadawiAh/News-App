@@ -7,11 +7,10 @@
 
 import UIKit
 
-protocol MovieCellsUpdater: AnyObject {
-    func refreshTableView()
-}
 
 class InnerCollectionViewCell: UICollectionViewCell {
+    
+    static let nibName = "InnerCollectionViewCell"
     
     @IBOutlet weak var cellContainer: UIView!
     @IBOutlet weak var poster: UIImageView!
@@ -21,7 +20,7 @@ class InnerCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var mpaaRatingLabel: UILabel!
     
     let theme: AppTheme = NewsAppTheme()
-    weak var delegate: MovieCellsUpdater?
+    private var refreshTableClosure: (()->())?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,7 +28,9 @@ class InnerCollectionViewCell: UICollectionViewCell {
         styleElements()
     }
     
-    func styleElements(){
+    // MARK: - Private Helpers
+    
+    private func styleElements(){
         
         poster.image = UIImage(named: "poster-placeholder.png")
         
@@ -58,14 +59,16 @@ class InnerCollectionViewCell: UICollectionViewCell {
         mpaaRatingLabel.text = movie.mpaaRating
         mpaaRatingView.isHidden = true
        
-        if !movie.mpaaRating.isEmpty && movie.mpaaRating != "Not Rated" {
-            mpaaRatingView.isHidden = false }
-        
+        if movie.hasMpaaRating {
+            mpaaRatingLabel.text = movie.mpaaRating
+            mpaaRatingView.isHidden = false
+        }
+       
         guard let completeURL = URL(string: "\(movie.multimedia.src)")
         else {return}
         
         poster.kf.setImage(with: completeURL, placeholder: UIImage(named: "poster-placeholder.png")){ result, error in
-            self.delegate?.refreshTableView()
+            refreshTable?()
         }
     }
     

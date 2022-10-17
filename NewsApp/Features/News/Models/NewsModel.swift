@@ -57,12 +57,13 @@ struct NewsData: Codable {
             return "\(time == 0 ? "less than" : (String(describing: time))) min read"
         }
     }
-    // TODO: Needs further testing
+
     var formatedDate: String {
         get {
-            /// casting to dates
+            /// casting to date
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
             let date = dateFormatter.date(from: pubDate)!
             
             let now = Date()
@@ -73,7 +74,7 @@ struct NewsData: Codable {
             formatter.allowedUnits = [.year, .month, .day, .hour, .minute]
             formatter.maximumUnitCount = 1
             
-            return formatter.string(from: date, to: now) ?? String(describing: pubDate)
+            return formatter.string(from: date, to: now) ?? ""
         }
     }
 }

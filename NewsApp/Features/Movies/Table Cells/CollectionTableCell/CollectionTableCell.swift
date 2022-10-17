@@ -9,6 +9,8 @@ import UIKit
 
 class CollectionTableCell: UITableViewCell {
     
+    static let nibName = "CollectionTableCell"
+    
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     
@@ -28,6 +30,8 @@ class CollectionTableCell: UITableViewCell {
         registerCollectionViewCells()
     }
     
+    // MARK: - Private Helpers
+    
     private func styleElements() {
         
         selectionStyle = .none
@@ -38,19 +42,23 @@ class CollectionTableCell: UITableViewCell {
     }
     
     private func registerCollectionViewCells() {
-        collectionView.register(UINib(nibName: "InnerCollectionViewCell",
+        collectionView.register(UINib(nibName: InnerCollectionViewCell.nibName,
                                       bundle: nil),
-                                forCellWithReuseIdentifier: "InnerCollectionViewCell")
+                                forCellWithReuseIdentifier: InnerCollectionViewCell.cellIdentifier)
     }
     
-    func setCollectionViewDataSourceDelegate(dataSourceDelegate: UICollectionViewDataSource & UICollectionViewDelegate, forRow row: Int) {
+    // MARK: - Public Helpers
+    
+    func setCollectionViewDataSourceDelegate(dataSourceDelegate: UICollectionViewDataSource & UICollectionViewDelegate) {
         collectionView.delegate = dataSourceDelegate
         collectionView.dataSource = dataSourceDelegate
-        collectionView.tag = row
         collectionView.reloadData()
     }
     
+    // MARK: - User Actions
+    
     @IBAction func pageControlChanged(_ sender: UIPageControl) {
+
         collectionView.scrollToItem(at: IndexPath(item: sender.currentPage, section: 0), at: .centeredHorizontally, animated: true)
     }
 }

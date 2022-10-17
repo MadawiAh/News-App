@@ -8,11 +8,9 @@
 import UIKit
 import Kingfisher
 
-protocol NewsCellUpdater: AnyObject {
-    func refreshTableView()
-}
-
 class CustomNewsCell: UITableViewCell {
+    
+    static let nibName = "CustomNewsCell"
     
     @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var contentStack: UIStackView!
@@ -23,19 +21,19 @@ class CustomNewsCell: UITableViewCell {
     @IBOutlet weak var shareBtn: UIButton!
     
     
-    let theme: AppTheme = NewsAppTheme()
-    var shareTappedClosure: ((CustomNewsCell)->())?
-    weak var delegate: NewsCellUpdater?
+    private let theme: AppTheme = NewsAppTheme()
+    private var shareTappedClosure: ((CustomNewsCell)->())?
+    private var refreshTableClosure: (()->())?
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         styleElements()
-        
     }
     
-    func styleElements(){
+    // MARK: - Private Helpers
+    
+    private func styleElements(){
         
         selectionStyle = .none
         
@@ -55,15 +53,14 @@ class CustomNewsCell: UITableViewCell {
         shareBtn.tintColor = theme.color.grayLightColor9fa1a1
     }
     
-    
     private func styleShadowView() {
         shadowView.layer.shadowPath = UIBezierPath(rect: CGRect(x: 0,
                                                                 y: 0,
-                                                                width: shadowView.layer.frame.width - shadowView.layer.frame.width/12, height: shadowView.layer.frame.height + shadowView.layer.frame.height/35
+                                                                width: shadowView.layer.frame.width - shadowView.layer.frame.width/11, height: shadowView.layer.frame.height
                                                                )).cgPath
         shadowView.layer.shadowColor = theme.color.grayLightColor9fa1a1.cgColor
         shadowView.layer.shadowOffset = CGSize(width: 0, height: -2)
-        shadowView.layer.shadowOpacity = 0.2
+        shadowView.layer.shadowOpacity = 0.3
         shadowView.layer.shadowRadius = 5
     }
     
@@ -75,6 +72,7 @@ class CustomNewsCell: UITableViewCell {
         newsImage.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
     }
     
+
     func setNews(news: NewsData){
         
         newsTitle.text = news.headline.main
@@ -94,6 +92,7 @@ class CustomNewsCell: UITableViewCell {
         }
     }
     
+
     private func toggleFavourite(){
         
         var img = UIImage(systemName: "suit.heart.fill")
@@ -112,12 +111,33 @@ class CustomNewsCell: UITableViewCell {
         favouriteBtn.imageView?.heightAnchor.constraint(equalToConstant: 25).isActive = true
     }
     
-    // MARK: User Actions
+    // MARK: - Public Helpers
+    
+    func setNews(news: NewsData, shareTapped: ((CustomNewsCell)->())?, refreshTable: (()->())?){
+        shareTappedClosure = shareTapped
+        refreshTableClosure = refreshTable
+        newsTitle.text = news.headline.main
+        newsPublishTime.text = "\(news.formatedDate) • \(news.timeToRead)"
+        
+        newsImage.isHidden = false
+        if news.multimedia.isEmpty {
+            newsImage.isHidden = true
+            return
+        }
+        
+        guard let completeURL = URL(string: "\(Secrets.mediaBaseUrl)\(news.multimedia[0].url)")
+        else {return}
+        
+        newsImage.kf.setImage(with: completeURL, placeholder: UIImage(named: "news-placeholder.png")){ result, error in
+            self.refreshTableClosure?()
+        }
+    }
+    
+    // MARK: - User Actions
     
     @IBAction func favouriteTapped(_ sender: UIButton) {
         Animator.animateButton(buttonToAnimate: sender)
         toggleFavourite()
-        
     }
     
     @IBAction func shareTapped(_ sender: UIButton) {

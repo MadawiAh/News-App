@@ -13,4 +13,5 @@ struct Secrets {
     static let baseUrl = "https://api.nytimes.com/svc/"
     static let mediaBaseUrl = "https://www.nytimes.com/"
     static let copyrights = "Copyright (c) The New York Times Company.\nAll Rights Reserved."
+
 }

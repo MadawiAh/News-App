@@ -8,7 +8,7 @@
 import Foundation
 
 class MoviesController {
-   
+    
     func fetchCriticPicks(success: (([MoviesData])->Void)?, failure: ((Error) -> Void)? = nil){
         
         APIService(url: nil, service: .getMovieCriticPicks, method: .get).executeCall{ (result: Result<MoviesNetworkCall,Error>) in

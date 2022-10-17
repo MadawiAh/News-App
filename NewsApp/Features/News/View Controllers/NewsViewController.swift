@@ -19,7 +19,7 @@ class NewsViewController: UIViewController{
     private var pageSize = 0
     
     
-    // MARK: Lifecycle methods
+    // MARK: - Lifecycle methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,7 @@ class NewsViewController: UIViewController{
         fetchNewsData()
     }
     
-    // MARK: Views Set Up methods
+    // MARK: - Views Set Up methods
     
     private func setUpTableView() {
         tableView.rowHeight = UITableView.automaticDimension;
@@ -63,9 +63,11 @@ class NewsViewController: UIViewController{
     }
     
     private func registerTableViewCells() {
-        tableView.register(UINib(nibName: "CustomNewsCell",
+        tableView.register(UINib(nibName: CustomNewsCell.nibName,
                                  bundle: nil),
-                           forCellReuseIdentifier: "CustomNewsCell")
+
+                           forCellReuseIdentifier: CustomNewsCell.cellIdentifier)
+
     }
     
     private func setUpFooterSpinner(_ tableView: UITableView) {
@@ -104,10 +106,16 @@ class NewsViewController: UIViewController{
         refreshControl.endRefreshing()
     }
     
-    // MARK: Fetching news
+    private func refreshTableView() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    // MARK: - Fetching news
     
     private func fetchNewsData() {
-        let now = Date() /// temp
+        let now = Date() /// temp parameters
         newsController.fetchNewsData( year:"\(now.getComponent(.year))", month:"\(now.getComponent(.month))") { [weak self] fetchedNews in
             
             guard let self = self else {return}
@@ -127,19 +135,10 @@ class NewsViewController: UIViewController{
     }
 }
 
-// MARK: Table View Datasource and Delegate
+// MARK: - Table View Datasource and Delegate
 
 extension NewsViewController: UITableViewDelegate, UITableViewDataSource{
     
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let lastSectionIndex = tableView.numberOfSections - 1
-        let lastRowIndex = tableView.numberOfRows(inSection: lastSectionIndex) - 1
-        
-        if indexPath.section ==  lastSectionIndex && indexPath.row == lastRowIndex {
-            setUpFooterSpinner(tableView)
-        }
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if news.count == 0 { setUpEmptyListLable()}
@@ -148,37 +147,44 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomNewsCell") as! CustomNewsCell
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: CustomNewsCell.cellIdentifier) as! CustomNewsCell
+
         
-        cell.delegate = self
         guard !news.isEmpty else {return cell}
         
         let currentNews = news[indexPath.row]
-        cell.setNews(news: currentNews)
-        cell.shareTappedClosure = { [weak self] cell in
-            
-            guard let self = self,
-                  let indexPath = tableView.indexPath(for: cell) else { return }
-            self.shareActivity(forURL: self.news[indexPath.row].webURL)
-        }
+        cell.setNews(
+            news: currentNews,
+            shareTapped: { [weak self] cell in
+                guard let self = self,
+                      let indexPath = tableView.indexPath(for: cell) else { return }
+                self.shareActivity(forURL: self.news[indexPath.row].webURL) },
+            refreshTable: {  [weak self] in
+                guard let self = self else { return }
+                self.refreshTableView() }
+        )
         return cell
     }
     
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = UIStoryboard.details.instantiateViewController(withIdentifier: "NewsDetailsViewController") as! NewsDetailsViewController
         vc.news = news[indexPath.row]
         vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
-    }
 }
-
-// MARK: NewsCellUpdater protocol
-
-extension NewsViewController: NewsCellUpdater{
-    
-    func refreshTableView() {
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let lastSectionIndex = tableView.numberOfSections - 1
+        let lastRowIndex = tableView.numberOfRows(inSection: lastSectionIndex) - 1
+        
+        if indexPath.section ==  lastSectionIndex && indexPath.row == lastRowIndex {
+            setUpFooterSpinner(tableView)
         }
+
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        /// TODO: Navigation to details page
     }
 }

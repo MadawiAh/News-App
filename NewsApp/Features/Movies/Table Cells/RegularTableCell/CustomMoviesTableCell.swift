@@ -8,6 +8,9 @@
 import UIKit
 
 class CustomMoviesTableCell: UITableViewCell {
+    
+    static let nibName = "CustomMoviesTableCell"
+    
     @IBOutlet weak var poster: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var summaryLabel: UILabel!
@@ -15,14 +18,17 @@ class CustomMoviesTableCell: UITableViewCell {
     @IBOutlet weak var isCriticsPickLabel: UILabel!
     
     let theme: AppTheme = NewsAppTheme()
-    weak var delegate: MovieCellsUpdater?
+    private var refreshTableClosure: (()->())?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         styleElements()
     }
-    func styleElements(){
+    
+    // MARK: - Private Helpers
+    
+    private func styleElements(){
         
         selectionStyle = .none
         
@@ -40,33 +46,36 @@ class CustomMoviesTableCell: UITableViewCell {
        
         isCriticsPickLabel.font = theme.font.titleSevenFont
         isCriticsPickLabel.textColor = theme.color.orangeDarkColorEB652B.withAlphaComponent(0.8)
-        
     }
     
+
     func setMovie(movie: MoviesData){
         titleLabel.text = movie.displayTitle.emptyAsNil() ?? getTitleFromHeadline(movie: movie)
         summaryLabel.text = movie.summaryShort
         bylineLabel.text = "By " + movie.byline
         isCriticsPickLabel.isHidden = true
         
-        if movie.criticsPick == 1 {setUpIsCriticPrickLabel()}
+        if movie.isCriticsPick {
+            setUpIsCriticPrickLabel()
+            isCriticsPickLabel.isHidden = false
+        }
 
         guard let completeURL = URL(string: "\(movie.multimedia.src)")
         else {return}
         
         poster.kf.setImage(with: completeURL, placeholder: UIImage(named: "poster-placeholder.png")){ result, error in
-            self.delegate?.refreshTableView()
+            refreshTable?()
         }
     }
-    
-    func setUpIsCriticPrickLabel() {
+
+    private func setUpIsCriticPrickLabel() {
         
         let templateString = NSMutableAttributedString(string:"")
         
         let imageAttachment = NSTextAttachment()
         imageAttachment.image = UIImage(systemName: "star.fill")!.withTintColor(theme.color.orangeDarkColorEB652B.withAlphaComponent(0.8))
         imageAttachment.bounds = CGRect(x: 0, y: -1, width: 10, height: 10)
-
+        
         let imageString = NSAttributedString(attachment: imageAttachment)
         templateString.append(imageString)
         templateString.append(NSAttributedString(string:" Critics's Pick"))
@@ -77,6 +86,7 @@ class CustomMoviesTableCell: UITableViewCell {
     
     func getTitleFromHeadline(movie: MoviesData) -> String {
         return movie.headline.getSlice(from: "‘", to: "’ R") ?? ""
+
     }
 }
 

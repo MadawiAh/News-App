@@ -10,7 +10,7 @@ import UIKit
 enum MovieSections: Int, CaseIterable {
     
     case criticPicks
-    case recentReviews 
+    case recentReviews
     
     var numberOfRows: Int {
         switch self {

@@ -14,12 +14,14 @@ class NewsController {
         APIService(url: nil, service: .getNews(year: year, month: month), method: .get).executeCall{ (result: Result<NewsNetworkCall,Error>) in
             switch result{
             case .success(let news):
-                var newsArray = news.response.docs
-                newsArray = newsArray.filter{$0.documentType == "article"}
-                success?(newsArray)
+                success?(self.filterArticles(from: news.response.docs))
             case .failure(let error):
                 failure?(error)
             }
         }
+    }
+    
+    private func filterArticles (from news: [NewsData]) -> [NewsData] {
+        return news.filter{$0.documentType == "article"}
     }
 }
