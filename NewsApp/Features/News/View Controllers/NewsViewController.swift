@@ -19,7 +19,7 @@ class NewsViewController: UIViewController{
     private var pageSize = 0
     
     
-    // MARK: Lifecycle methods
+    // MARK: - Lifecycle methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,7 @@ class NewsViewController: UIViewController{
         fetchNewsData()
     }
     
-    // MARK: Views Set Up methods
+    // MARK: - Views Set Up methods
     
     private func setUpTableView() {
         tableView.rowHeight = UITableView.automaticDimension;
@@ -63,9 +63,11 @@ class NewsViewController: UIViewController{
     }
     
     private func registerTableViewCells() {
-        tableView.register(UINib(nibName: "CustomNewsCell",
+        tableView.register(UINib(nibName: CustomNewsCell.nibName,
                                  bundle: nil),
+
                            forCellReuseIdentifier: CustomNewsCell.cellIdentifier)
+
     }
     
     private func setUpFooterSpinner(_ tableView: UITableView) {
@@ -104,18 +106,30 @@ class NewsViewController: UIViewController{
         refreshControl.endRefreshing()
     }
     
-    // MARK: Fetching news
+    private func refreshTableView() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    // MARK: - Fetching news
     
     private func fetchNewsData() {
-        let now = Date() /// temp
+        let now = Date() /// temp parameters
         newsController.fetchNewsData( year:"\(now.getComponent(.year))", month:"\(now.getComponent(.month))") { [weak self] fetchedNews in
-                
-                guard let self = self else {return}
-                self.news = fetchedNews
-                self.pageSize = 10
-                DispatchQueue.main.async {
+            
+            guard let self = self else {return}
+            self.news = fetchedNews
+            self.pageSize = 10
+            DispatchQueue.main.async {
+                self.updateViews()
+            }
+        } failure: { error in
+            self.showError(error: error){
+                DispatchQueue.main.asyncAfter(deadline: .now()+2.5) {
                     self.updateViews()
                 }
+
             } failure: { error in
                 self.showError(error: error){
                     
@@ -123,14 +137,43 @@ class NewsViewController: UIViewController{
                         self.updateViews()
                     }
                 }
+
             }
+        }
     }
 }
 
-// MARK: Table View Datasource and Delegate
+// MARK: - Table View Datasource and Delegate
 
 extension NewsViewController: UITableViewDelegate, UITableViewDataSource{
     
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if news.count == 0 { setUpEmptyListLable()}
+        return pageSize
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: CustomNewsCell.cellIdentifier) as! CustomNewsCell
+
+        
+        guard !news.isEmpty else {return cell}
+        
+        let currentNews = news[indexPath.row]
+        cell.setNews(
+            news: currentNews,
+            shareTapped: { [weak self] cell in
+                guard let self = self,
+                      let indexPath = tableView.indexPath(for: cell) else { return }
+                self.shareActivity(forURL: self.news[indexPath.row].webURL) },
+            refreshTable: {  [weak self] in
+                guard let self = self else { return }
+                self.refreshTableView() }
+        )
+        return cell
+    }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let lastSectionIndex = tableView.numberOfSections - 1
@@ -141,41 +184,7 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource{
         }
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if news.count == 0 { setUpEmptyListLable()}
-        return pageSize
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: CustomNewsCell.cellIdentifier) as! CustomNewsCell
-        
-        cell.delegate = self
-        guard !news.isEmpty else {return cell}
-        
-        let currentNews = news[indexPath.row]
-        cell.setNews(news: currentNews)
-        cell.shareTappedClosure = { [weak self] cell in
-            
-            guard let self = self,
-                  let indexPath = tableView.indexPath(for: cell) else { return }
-            self.shareActivity(forURL: self.news[indexPath.row].webURL)
-        }
-        return cell
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         /// TODO: Navigation to details page
-    }
-}
-
-// MARK: NewsCellUpdater protocol
-
-extension NewsViewController: NewsCellUpdater{
-    
-    func refreshTableView() {
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
     }
 }
