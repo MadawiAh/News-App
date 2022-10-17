@@ -53,8 +53,8 @@ class AuthController {
                 completion (.success)
                 return
             }
+        }
             // Invalid access
             completion(.fail(dueTo:.invalidCredentials))
-        }
     }
 }
