@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--More View Controller-->
+        <scene sceneID="pT3-qz-3oK">
+            <objects>
+                <viewController storyboardIdentifier="MoreViewController" id="1sj-2h-6yQ" customClass="MoreViewController" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="f08-b8-dsj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awh-HL-tWp">
+                                <rect key="frame" x="174.5" y="430.5" width="65" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yom-pr-xMF">
+                                <rect key="frame" x="154.5" y="583" width="105.5" height="44"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Log out" cornerStyle="capsule">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="logOutTapped:" destination="1sj-2h-6yQ" eventType="touchUpInside" id="TYk-KH-4M8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="am6-hN-jFj"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="awh-HL-tWp" firstAttribute="centerX" secondItem="f08-b8-dsj" secondAttribute="centerX" id="5e6-CG-ugv"/>
+                            <constraint firstItem="Yom-pr-xMF" firstAttribute="centerY" secondItem="f08-b8-dsj" secondAttribute="centerY" constant="157" id="7CP-ua-bHk"/>
+                            <constraint firstItem="awh-HL-tWp" firstAttribute="centerY" secondItem="f08-b8-dsj" secondAttribute="centerY" id="LOi-sy-TQw"/>
+                            <constraint firstItem="Yom-pr-xMF" firstAttribute="centerX" secondItem="f08-b8-dsj" secondAttribute="centerX" id="i8U-tX-9il"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xST-TE-Gwn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2916" y="1109"/>
+        </scene>
+    </scenes>
+</document>

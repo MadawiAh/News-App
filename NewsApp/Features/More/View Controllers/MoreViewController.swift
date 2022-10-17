@@ -28,9 +28,10 @@ class MoreViewController: UIViewController {
         UserDefaults.standard.set(false, forKey: "isLogged")
         
         /// 2. navigation
-        let landingVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LandingViewController")
+        let landingVC = UIStoryboard.main.instantiateViewController(withIdentifier: "LandingViewController")
         
         landingVC.hidesBottomBarWhenPushed = true
+        navigationController?.setNavigationBarHidden(true, animated: false)
         
         navigationController?.pushViewController(landingVC, animated: true)
     }
