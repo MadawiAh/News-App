@@ -76,7 +76,7 @@ class CustomNewsCell: UITableViewCell {
     func setNews(news: NewsData){
         
         newsTitle.text = news.headline.main
-        newsPublishTime.text = "\(news.formatedDate) • \(news.timeToRead == 0 ? "less than" : (String(describing: news.timeToRead))) min read"
+        newsPublishTime.text = "\(news.formatedDate) • \(news.timeToRead)"
         
         newsImage.isHidden = false
         if news.multimedia.isEmpty {

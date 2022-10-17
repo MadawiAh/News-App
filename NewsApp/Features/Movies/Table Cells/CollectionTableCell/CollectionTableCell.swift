@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CollectionTableCell: UITableViewCell, UIScrollViewDelegate {
+class CollectionTableCell: UITableViewCell {
     
     static let nibName = "CollectionTableCell"
     
@@ -57,7 +57,8 @@ class CollectionTableCell: UITableViewCell, UIScrollViewDelegate {
     
     // MARK: - User Actions
     
-    @IBAction func pageControlTapped(_ sender: UIPageControl) {
+    @IBAction func pageControlChanged(_ sender: UIPageControl) {
+
         collectionView.scrollToItem(at: IndexPath(item: sender.currentPage, section: 0), at: .centeredHorizontally, animated: true)
     }
 }

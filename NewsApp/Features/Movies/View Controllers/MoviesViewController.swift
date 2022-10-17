@@ -250,6 +250,17 @@ extension MoviesViewController: UITableViewDelegate, UITableViewDataSource{
         
         tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self)
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.section == MovieSections.criticPicks.rawValue {return}
+       
+        let vc = UIStoryboard.details.instantiateViewController(withIdentifier: "MoviesDetailsViewController") as! MoviesDetailsViewController
+        vc.movie = recentlyReviewedMovies[indexPath.row]
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         /// check if horizontal scrolling
         if (self.lastContentOffset > scrollView.contentOffset.x) || (self.lastContentOffset < scrollView.contentOffset.x) {
@@ -283,6 +294,13 @@ extension MoviesViewController: UICollectionViewDataSource, UICollectionViewDele
         }
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = UIStoryboard.details.instantiateViewController(withIdentifier: "MoviesDetailsViewController") as! MoviesDetailsViewController
+        vc.movie = criticPicksMovies[indexPath.row]
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

@@ -24,10 +24,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="200" height="128"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1pA-Zo-faw" userLabel="mpaa rating">
-                                <rect key="frame" x="159.5" y="10" width="30.5" height="30.5"/>
+                                <rect key="frame" x="163.5" y="10" width="26.5" height="30.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="G" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HBv-ci-JmC" userLabel="Label">
-                                        <rect key="frame" x="5" y="5" width="20.5" height="20.5"/>
+                                        <rect key="frame" x="7" y="5" width="12.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -35,11 +35,10 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="1pA-Zo-faw" secondAttribute="height" multiplier="1:1" id="9DS-R9-qIt"/>
-                                    <constraint firstItem="HBv-ci-JmC" firstAttribute="leading" secondItem="1pA-Zo-faw" secondAttribute="leading" constant="5" id="BjY-sH-oqZ"/>
+                                    <constraint firstItem="HBv-ci-JmC" firstAttribute="leading" secondItem="1pA-Zo-faw" secondAttribute="leading" constant="7" id="BjY-sH-oqZ"/>
                                     <constraint firstItem="HBv-ci-JmC" firstAttribute="top" secondItem="1pA-Zo-faw" secondAttribute="top" constant="5" id="RES-SL-Bm2"/>
                                     <constraint firstAttribute="bottom" secondItem="HBv-ci-JmC" secondAttribute="bottom" constant="5" id="tt8-ps-jnp"/>
-                                    <constraint firstAttribute="trailing" secondItem="HBv-ci-JmC" secondAttribute="trailing" constant="5" id="vo1-Fu-f3V"/>
+                                    <constraint firstAttribute="trailing" secondItem="HBv-ci-JmC" secondAttribute="trailing" constant="7" id="vo1-Fu-f3V"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gIx-vl-SeB">

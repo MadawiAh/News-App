@@ -126,18 +126,10 @@ class NewsViewController: UIViewController{
             }
         } failure: { error in
             self.showError(error: error){
+                
                 DispatchQueue.main.asyncAfter(deadline: .now()+2.5) {
                     self.updateViews()
                 }
-
-            } failure: { error in
-                self.showError(error: error){
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now()+2.5) {
-                        self.updateViews()
-                    }
-                }
-
             }
         }
     }
@@ -175,6 +167,13 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = UIStoryboard.details.instantiateViewController(withIdentifier: "NewsDetailsViewController") as! NewsDetailsViewController
+        vc.news = news[indexPath.row]
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
+}
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let lastSectionIndex = tableView.numberOfSections - 1
         let lastRowIndex = tableView.numberOfRows(inSection: lastSectionIndex) - 1
@@ -182,6 +181,7 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource{
         if indexPath.section ==  lastSectionIndex && indexPath.row == lastRowIndex {
             setUpFooterSpinner(tableView)
         }
+
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

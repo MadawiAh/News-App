@@ -43,7 +43,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79u-zv-1qi" userLabel="isCriticPick">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79u-zv-1qi" userLabel="isCriticsPick">
                                         <rect key="frame" x="28.5" y="0.0" width="28.5" height="13.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <nil key="textColor"/>
@@ -72,7 +72,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="bylineLabel" destination="G67-Hn-Us4" id="iij-4h-jPi"/>
-                <outlet property="isCriticsPickLabel" destination="79u-zv-1qi" id="AW0-vm-5Z4"/>
+                <outlet property="isCriticsPickLabel" destination="79u-zv-1qi" id="qn3-8f-O9t"/>
                 <outlet property="poster" destination="WW8-e7-VTL" id="COh-ix-ECK"/>
                 <outlet property="summaryLabel" destination="aXe-BQ-TC5" id="qRh-FV-e0d"/>
                 <outlet property="titleLabel" destination="oqW-q0-qHl" id="6UV-96-g8c"/>

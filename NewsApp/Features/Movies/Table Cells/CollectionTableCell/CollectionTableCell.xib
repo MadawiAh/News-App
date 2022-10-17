@@ -31,7 +31,7 @@
                         <rect key="frame" x="0.0" y="137" width="300" height="32"/>
                         <color key="pageIndicatorTintColor" systemColor="opaqueSeparatorColor"/>
                         <connections>
-                            <action selector="pageControlTapped:" destination="KGk-i7-Jjw" eventType="valueChanged" id="Tvc-v0-SPG"/>
+                            <action selector="pageControlChanged:" destination="KGk-i7-Jjw" eventType="valueChanged" id="1l7-le-mwh"/>
                         </connections>
                     </pageControl>
                 </subviews>

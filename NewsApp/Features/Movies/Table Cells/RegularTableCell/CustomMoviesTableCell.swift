@@ -43,30 +43,14 @@ class CustomMoviesTableCell: UITableViewCell {
         
         bylineLabel.font = theme.font.titleSevenFont
         bylineLabel.textColor = theme.color.grayLightColor9fa1a1
-        
+       
         isCriticsPickLabel.font = theme.font.titleSevenFont
         isCriticsPickLabel.textColor = theme.color.orangeDarkColorEB652B.withAlphaComponent(0.8)
     }
     
-    private func setUpIsCriticPrickLabel() {
-        
-        let templateString = NSMutableAttributedString(string:"")
-        
-        let imageAttachment = NSTextAttachment()
-        imageAttachment.image = UIImage(systemName: "star.fill")!.withTintColor(theme.color.orangeLightColorEC8B3F.withAlphaComponent(0.8))
-        imageAttachment.bounds = CGRect(x: 0, y: -1, width: 10, height: 10)
-        
-        let imageString = NSAttributedString(attachment: imageAttachment)
-        templateString.append(imageString)
-        templateString.append(NSAttributedString(string:" Critics's Pick"))
-        
-        isCriticsPickLabel.attributedText = templateString
-    }
-    
-    // MARK: - Public Helpers
-    
-    func setMovie(movie: MoviesData, refreshTable: (()->())?){
-        titleLabel.text = movie.displayTitle
+
+    func setMovie(movie: MoviesData){
+        titleLabel.text = movie.displayTitle.emptyAsNil() ?? getTitleFromHeadline(movie: movie)
         summaryLabel.text = movie.summaryShort
         bylineLabel.text = "By " + movie.byline
         isCriticsPickLabel.isHidden = true
@@ -75,7 +59,7 @@ class CustomMoviesTableCell: UITableViewCell {
             setUpIsCriticPrickLabel()
             isCriticsPickLabel.isHidden = false
         }
-        
+
         guard let completeURL = URL(string: "\(movie.multimedia.src)")
         else {return}
         
@@ -83,4 +67,26 @@ class CustomMoviesTableCell: UITableViewCell {
             refreshTable?()
         }
     }
+
+    private func setUpIsCriticPrickLabel() {
+        
+        let templateString = NSMutableAttributedString(string:"")
+        
+        let imageAttachment = NSTextAttachment()
+        imageAttachment.image = UIImage(systemName: "star.fill")!.withTintColor(theme.color.orangeDarkColorEB652B.withAlphaComponent(0.8))
+        imageAttachment.bounds = CGRect(x: 0, y: -1, width: 10, height: 10)
+        
+        let imageString = NSAttributedString(attachment: imageAttachment)
+        templateString.append(imageString)
+        templateString.append(NSAttributedString(string:" Critics's Pick"))
+
+        isCriticsPickLabel.attributedText = templateString
+        isCriticsPickLabel.isHidden = false
+    }
+    
+    func getTitleFromHeadline(movie: MoviesData) -> String {
+        return movie.headline.getSlice(from: "‘", to: "’ R") ?? ""
+
+    }
 }
+

@@ -53,23 +53,26 @@ class InnerCollectionViewCell: UICollectionViewCell {
         bylineLabel.textColor = theme.color.grayLightColor9fa1a1
     }
     
-    // MARK: - Public Helpers
-    
-    func setMovie(movie: MoviesData, refreshTable: (()->())?){
-        titleLabel.text = movie.displayTitle
+    func setMovie(movie: MoviesData){
+        titleLabel.text = movie.displayTitle.emptyAsNil() ?? getTitleFromHeadline(movie: movie)
         bylineLabel.text = "By " + movie.byline
+        mpaaRatingLabel.text = movie.mpaaRating
         mpaaRatingView.isHidden = true
-        
+       
         if movie.hasMpaaRating {
             mpaaRatingLabel.text = movie.mpaaRating
             mpaaRatingView.isHidden = false
         }
-        
+       
         guard let completeURL = URL(string: "\(movie.multimedia.src)")
         else {return}
         
         poster.kf.setImage(with: completeURL, placeholder: UIImage(named: "poster-placeholder.png")){ result, error in
             refreshTable?()
         }
+    }
+    
+    func getTitleFromHeadline(movie: MoviesData) -> String {
+        return movie.headline.getSlice(from: "‘", to: "’ R") ?? ""
     }
 }
