@@ -4,43 +4,24 @@
 //
 //  Created by Madawi Ahmed on 26/01/1444 AH.
 //
-
-import Foundation
+import Alamofire
 import UIKit
 
 class NewsController {
     
-    /// temp until API calls are implemented
-    func fetchNewsData(success: (([News])->Void)?, failure: ((Error) -> Void)? = nil){
+    func fetchNewsData(year: String, month:String, success: (([NewsData])->Void)?, failure: ((Error) -> Void)? = nil){
         
-        success?([
-            News(image: UIImage(named:"news-1")!,
-                 title: "Trump Kept More Than 700 Pages of Classified Documents, Letter Says National Archives says",
-                 url: "https://www.google.com/",
-                 createdAt: "2 min ago",
-                 numberOfWords: 560),
-            News(image: UIImage(named:"news-2")!,
-                 title: "Ex-Detective Admits Misleading Judge Who Approved Breonna Taylor Raid",
-                 url: "https://www.google.com/",
-                 createdAt: "2 hour ago",
-                 numberOfWords: 730),
-            News(image: UIImage(named:"news-3")!,
-                 title: "Voters in Florida and New York to Decide High-Profile Races",
-                 url: "https://www.google.com/",
-                 createdAt: "2 hours ago",
-                 numberOfWords: 2050),
-            News(image: nil,
-                 title: "Two Men Convicted in Plot to Kidnap Michigan’s Governor",
-                 url: "https://www.google.com/",
-                 createdAt: "20 August",
-                 numberOfWords: 1600),
-            News(image: UIImage(named: "news-4")!,
-                 title: "Europe’s Rivers, Starved by Drought, Reveal Shipwrecks and Bombs",
-                 url: "https://www.google.com/",
-                 createdAt: "18 June",
-                 numberOfWords: 2300)
-        ])
-        /// failure is yet to be implemented
+        APIService(url: nil, service: .getNews(year: year, month: month), method: .get).executeCall{ (result: Result<NewsNetworkCall,Error>) in
+            switch result{
+            case .success(let news):
+                success?(self.filterArticles(from: news.response.docs))
+            case .failure(let error):
+                failure?(error)
+            }
+        }
+    }
+    
+    private func filterArticles (from news: [NewsData]) -> [NewsData] {
+        return news.filter{$0.documentType == "article"}
     }
 }
-
