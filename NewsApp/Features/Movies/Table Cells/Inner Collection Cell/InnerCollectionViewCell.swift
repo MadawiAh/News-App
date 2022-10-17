@@ -20,7 +20,6 @@ class InnerCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var mpaaRatingLabel: UILabel!
     
     let theme: AppTheme = NewsAppTheme()
-    private var refreshTableClosure: (()->())?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -53,7 +52,7 @@ class InnerCollectionViewCell: UICollectionViewCell {
         bylineLabel.textColor = theme.color.grayLightColor9fa1a1
     }
     
-    func setMovie(movie: MoviesData){
+    func setMovie(movie: MoviesData, refreshTable: (()->())?){
         titleLabel.text = movie.displayTitle.emptyAsNil() ?? getTitleFromHeadline(movie: movie)
         bylineLabel.text = "By " + movie.byline
         mpaaRatingLabel.text = movie.mpaaRating

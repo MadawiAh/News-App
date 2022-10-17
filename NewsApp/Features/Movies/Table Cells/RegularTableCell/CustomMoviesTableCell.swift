@@ -18,7 +18,6 @@ class CustomMoviesTableCell: UITableViewCell {
     @IBOutlet weak var isCriticsPickLabel: UILabel!
     
     let theme: AppTheme = NewsAppTheme()
-    private var refreshTableClosure: (()->())?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -49,7 +48,7 @@ class CustomMoviesTableCell: UITableViewCell {
     }
     
 
-    func setMovie(movie: MoviesData){
+    func setMovie(movie: MoviesData, refreshTable: (()->())?){
         titleLabel.text = movie.displayTitle.emptyAsNil() ?? getTitleFromHeadline(movie: movie)
         summaryLabel.text = movie.summaryShort
         bylineLabel.text = "By " + movie.byline
