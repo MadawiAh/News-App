@@ -71,6 +71,7 @@ struct NewsData: Codable {
             /// comparison
             let formatter = DateComponentsFormatter()
             formatter.unitsStyle = .abbreviated
+            formatter.calendar?.locale = Locale(identifier: "en_US_POSIX")
             formatter.allowedUnits = [.year, .month, .day, .hour, .minute]
             formatter.maximumUnitCount = 1
             

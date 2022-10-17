@@ -62,7 +62,7 @@ class MoreTableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if MoreActions.allCases[indexPath.row] == .favourites {
-            navigationController?.pushVC(storyboard: .more, VCIdetifier: "FavouritesViewController", animated: true)
+            navigationController?.pushVC(storyboard: .favourites, VCIdetifier: "FavouritesViewController", animated: true)
         }
         if MoreActions.allCases[indexPath.row] == .shareApp {
             self.shareActivity(forURL: "https://google.com//")

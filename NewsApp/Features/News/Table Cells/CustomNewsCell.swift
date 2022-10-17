@@ -23,7 +23,6 @@ class CustomNewsCell: UITableViewCell {
     
     private let theme: AppTheme = NewsAppTheme()
     private var shareTappedClosure: ((CustomNewsCell)->())?
-    private var refreshTableClosure: (()->())?
     
     
     override func awakeFromNib() {
@@ -72,9 +71,10 @@ class CustomNewsCell: UITableViewCell {
         newsImage.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
     }
     
-
-    func setNews(news: NewsData){
-        
+    // MARK: - Public Helpers
+    
+    func setNews(news: NewsData, shareTapped: ((CustomNewsCell)->())?, refreshTable: (()->())?){
+        shareTappedClosure = shareTapped
         newsTitle.text = news.headline.main
         newsPublishTime.text = "\(news.formatedDate) • \(news.timeToRead)"
         
@@ -84,11 +84,11 @@ class CustomNewsCell: UITableViewCell {
             return
         }
         
-        guard let completeURL = URL(string: "https://www.nytimes.com/\(news.multimedia[0].url)")
+        guard let completeURL = URL(string: "\(Secrets.mediaBaseUrl)\(news.multimedia[0].url)")
         else {return}
         
         newsImage.kf.setImage(with: completeURL, placeholder: UIImage(named: "news-placeholder.png")){ result, error in
-            self.delegate?.refreshTableView()
+            refreshTable?()
         }
     }
     
@@ -109,28 +109,6 @@ class CustomNewsCell: UITableViewCell {
         favouriteBtn.imageView?.translatesAutoresizingMaskIntoConstraints = false
         favouriteBtn.imageView?.widthAnchor.constraint(equalToConstant: 26).isActive = true
         favouriteBtn.imageView?.heightAnchor.constraint(equalToConstant: 25).isActive = true
-    }
-    
-    // MARK: - Public Helpers
-    
-    func setNews(news: NewsData, shareTapped: ((CustomNewsCell)->())?, refreshTable: (()->())?){
-        shareTappedClosure = shareTapped
-        refreshTableClosure = refreshTable
-        newsTitle.text = news.headline.main
-        newsPublishTime.text = "\(news.formatedDate) • \(news.timeToRead)"
-        
-        newsImage.isHidden = false
-        if news.multimedia.isEmpty {
-            newsImage.isHidden = true
-            return
-        }
-        
-        guard let completeURL = URL(string: "\(Secrets.mediaBaseUrl)\(news.multimedia[0].url)")
-        else {return}
-        
-        newsImage.kf.setImage(with: completeURL, placeholder: UIImage(named: "news-placeholder.png")){ result, error in
-            self.refreshTableClosure?()
-        }
     }
     
     // MARK: - User Actions

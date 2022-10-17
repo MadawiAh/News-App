@@ -65,9 +65,9 @@ class NewsViewController: UIViewController{
     private func registerTableViewCells() {
         tableView.register(UINib(nibName: CustomNewsCell.nibName,
                                  bundle: nil),
-
+                           
                            forCellReuseIdentifier: CustomNewsCell.cellIdentifier)
-
+        
     }
     
     private func setUpFooterSpinner(_ tableView: UITableView) {
@@ -147,9 +147,9 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: CustomNewsCell.cellIdentifier) as! CustomNewsCell
-
+        
         
         guard !news.isEmpty else {return cell}
         
@@ -167,13 +167,13 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     
-
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = UIStoryboard.details.instantiateViewController(withIdentifier: "NewsDetailsViewController") as! NewsDetailsViewController
         vc.news = news[indexPath.row]
         vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
-}
+    }
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let lastSectionIndex = tableView.numberOfSections - 1
         let lastRowIndex = tableView.numberOfRows(inSection: lastSectionIndex) - 1
@@ -181,10 +181,5 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource{
         if indexPath.section ==  lastSectionIndex && indexPath.row == lastRowIndex {
             setUpFooterSpinner(tableView)
         }
-
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        /// TODO: Navigation to details page
     }
 }
