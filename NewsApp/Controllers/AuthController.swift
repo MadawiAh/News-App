@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Auth {
+class AuthController {
     
     enum authResult {
         case success

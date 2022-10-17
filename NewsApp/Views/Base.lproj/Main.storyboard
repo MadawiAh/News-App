@@ -653,24 +653,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="News" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bn-a6-z1g">
-                                <rect key="frame" x="171.5" y="430.5" width="71" height="35"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="nL2-gt-w52">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8bE-ub-AlP"/>
-                        <color key="backgroundColor" red="0.92549019610000005" green="0.5450980392" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="6bn-a6-z1g" firstAttribute="centerX" secondItem="0g4-sJ-Dsu" secondAttribute="centerX" id="BLA-a6-6yh"/>
-                            <constraint firstItem="6bn-a6-z1g" firstAttribute="centerY" secondItem="0g4-sJ-Dsu" secondAttribute="centerY" id="Tbl-00-oIK"/>
+                            <constraint firstItem="nL2-gt-w52" firstAttribute="top" secondItem="8bE-ub-AlP" secondAttribute="top" id="KZz-5d-e9L"/>
+                            <constraint firstItem="nL2-gt-w52" firstAttribute="leading" secondItem="8bE-ub-AlP" secondAttribute="leading" id="L6H-xy-TSO"/>
+                            <constraint firstItem="nL2-gt-w52" firstAttribute="trailing" secondItem="8bE-ub-AlP" secondAttribute="trailing" id="tUx-Im-RfM"/>
+                            <constraint firstItem="nL2-gt-w52" firstAttribute="bottom" secondItem="8bE-ub-AlP" secondAttribute="bottom" id="v2A-rM-03x"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="nL2-gt-w52" id="J99-XM-gkp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cwW-rt-imr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2916" y="-882"/>
+            <point key="canvasLocation" x="2915.9420289855075" y="-882.58928571428567"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1sS-sr-Gqy">

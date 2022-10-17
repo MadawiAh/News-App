@@ -23,5 +23,11 @@ protocol FontTheme {
     
     var titleOneFont: UIFont { get }
     
+    var titleTwoFont: UIFont { get }
+    
+    var titleThreeFont: UIFont { get }
+    
     var titleFourFont: UIFont { get }
+    
+    var titlefiveFont: UIFont { get }
 }
