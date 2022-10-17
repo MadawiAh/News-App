@@ -9,9 +9,8 @@ import UIKit
 
 extension UINavigationController {
     
-    func pushVC(storyboard: String, VCIdetifier: String, animated: Bool){
-        let st = UIStoryboard(name: storyboard, bundle: nil)
-        let vc = st.instantiateViewController(withIdentifier: VCIdetifier)
+    func pushVC(storyboard: UIStoryboard, VCIdetifier: String, animated: Bool){
+        let vc = storyboard.instantiateViewController(withIdentifier: VCIdetifier)
         pushViewController(vc, animated: animated)
     
     }

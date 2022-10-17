@@ -42,9 +42,13 @@ struct NewsAppFontTheme: FontTheme {
     }
     
     var titleFourFont: UIFont {
+        return UIFont.systemFont(ofSize: 16, weight: .medium)
+    }
+    
+    var titleFifeFont: UIFont {
         return UIFont.systemFont(ofSize: 14, weight: .medium)
     }
     
-    var titlefiveFont: UIFont {
+    var titleSixFont: UIFont {
         return UIFont.systemFont(ofSize: 12, weight: .medium) }
 }

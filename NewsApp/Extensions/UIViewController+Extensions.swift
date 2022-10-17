@@ -8,12 +8,22 @@
 import UIKit
 extension UIViewController {
     
-    func presentAlertWithTitleAndMessage(title: String, message: String, options: String..., completion: @escaping (Int) -> Void) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    // MARK: Alert extention
+    
+    func presentAlert(title: String, message: String?, options: String..., style: UIAlertController.Style,completion: @escaping (Int) -> Void) {
+       
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: style)
         for (index, option) in options.enumerated() {
-            alertController.addAction(UIAlertAction.init(title: option, style: .default, handler: { (action) in
+            
+            var actionStyle: UIAlertAction.Style = .default
+            if option.uppercased() == "CANCEL" {
+                actionStyle = .cancel
+            }
+            
+            alertController.addAction(UIAlertAction.init(title: option, style: actionStyle, handler: { (action) in
                 completion(index)
             }))
+            
         }
         topMostViewController().present(alertController, animated: true, completion: nil)
     }
@@ -25,6 +35,8 @@ extension UIViewController {
         }
         return topViewController!
     }
+    
+    // MARK: Share URL extention
     
     func shareActivity (forURL url:String){
        

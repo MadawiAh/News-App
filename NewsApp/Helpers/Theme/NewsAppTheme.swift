@@ -28,6 +28,14 @@ struct NewsAppTheme: AppTheme {
         button.titleLabel?.textColor = color.orangeLightColorEC8B3F
     }
     
+    func styleSecondaryButton (_ button: UIButton){
+        button.titleLabel?.font = font.primaryButtonFont
+        button.titleLabel?.textColor = color.grayDarkColor343B3C
+        button.tintColor = color.grayDarkColor343B3C
+        button.layer.cornerRadius = 10
+        button.clipsToBounds = true
+    }
+    
     // MARK: Lable
     
     func styleTitleOneLable(_ lable: UILabel) {
@@ -36,7 +44,7 @@ struct NewsAppTheme: AppTheme {
     }
     
     func styleTitleFourLable (_ lable: UILabel) {
-        lable.font = font.titleFourFont
+        lable.font = font.titleFifeFont
         lable.textColor = color.grayLightColor9fa1a1
     }
     

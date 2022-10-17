@@ -19,6 +19,8 @@ protocol AppTheme {
     
     func styleTitleFourButton (_ button: UIButton)
     
+    func styleSecondaryButton (_ button: UIButton)
+    
     // MARK: Lable
     
     func styleTitleOneLable (_ lable: UILabel)

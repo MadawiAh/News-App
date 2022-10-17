@@ -109,7 +109,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 
             case .fail(dueTo: .invalidCredentials):
                 self.resetElements()
-                self.view.window?.rootViewController?.presentAlertWithTitleAndMessage(title: "Alert", message: "You have entered an invalid username or password", options: "OK") { (_) in }
+                self.view.window?.rootViewController?.presentAlert(title: "Alert", message: "You have entered an invalid username or password", options: "OK", style: .alert) { (_) in }
                 
             default:
                 print("In default")
@@ -120,7 +120,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     @IBAction func signUpTapped(_ sender: Any) {
         guard let navigationVC = self.navigationController else { return }
         navigationVC.popViewController(animated: false)
-        navigationVC.pushVC(storyboard: "Main", VCIdetifier: "SignUpViewController", animated: false)
+        navigationVC.pushVC(storyboard: .main, VCIdetifier: "SignUpViewController", animated: false)
     }
     
     private func checkForValidForm(){
