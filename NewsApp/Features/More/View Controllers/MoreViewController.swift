@@ -26,6 +26,8 @@ class MoreViewController: UIViewController{
         
     }
     
+    // MARK: - Private Helpers
+    
     private func styleElements(){
         view.backgroundColor = theme.color.viewsBackgroundColor
         
@@ -53,7 +55,7 @@ class MoreViewController: UIViewController{
         shadowView.backgroundColor = .clear
         shadowView.layer.shadowPath = UIBezierPath(roundedRect:shadowView.layer.frame ,cornerRadius:shadowView.layer.frame.width/2).cgPath;
         shadowView.layer.shadowColor = theme.color.grayDarkColor343B3C.cgColor
-        shadowView.layer.shadowOffset = CGSize(width: -139, height:-80)
+        shadowView.layer.shadowOffset = CGSize(width: -146, height:-80)
         shadowView.layer.shadowOpacity = 0.4
     }
     
@@ -70,7 +72,7 @@ class MoreViewController: UIViewController{
         imagePicker.delegate = self
     }
     
-    // MARK: User Actions
+    // MARK: - User Actions
     
     @IBAction func editImageTapped(_ sender: Any) {
         editImage()
@@ -88,9 +90,9 @@ class MoreViewController: UIViewController{
     }
 }
 
-extension MoreViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+// MARK: - UIImagePicker Mathods
 
-    // MARK: UIImagePicker Methods
+extension MoreViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     func editImage() {
         self.view.window?.rootViewController?.presentAlert(title: "Choose an Image", message: nil, options: "Camera", "Photo Album", "Cancel", style: .actionSheet) { option in
@@ -105,12 +107,10 @@ extension MoreViewController: UIImagePickerControllerDelegate & UINavigationCont
     
     func openCamera() {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera){
-            imagePicker.sourceType = UIImagePickerController.SourceType.camera
             imagePicker.allowsEditing = false
+            imagePicker.sourceType = UIImagePickerController.SourceType.camera
             self.present(imagePicker, animated: true, completion: nil)
-            
         } else {
-            
             self.view.window?.rootViewController?.presentAlert(title: "Warning", message: "NewsApp don't have permission to access camera", options: "OK", style: .alert) { (_) in }
         }
     }
@@ -120,9 +120,7 @@ extension MoreViewController: UIImagePickerControllerDelegate & UINavigationCont
             imagePicker.allowsEditing = true
             imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
             self.present(imagePicker, animated: true, completion: nil)
-            
         } else {
-            
             self.view.window?.rootViewController?.presentAlert(title: "Warning", message:  "NewsApp don't have permission to access photo album", options: "OK", style: .alert) { (_) in }
         }
     }

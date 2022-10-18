@@ -30,7 +30,6 @@ class NewsViewController: UIViewController{
         registerTableViewCells()
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -38,7 +37,7 @@ class NewsViewController: UIViewController{
         fetchNewsData()
     }
     
-    // MARK: - Views Set Up methods
+    // MARK: - Private Helpers
     
     private func setUpTableView() {
         tableView.rowHeight = UITableView.automaticDimension;
@@ -112,10 +111,10 @@ class NewsViewController: UIViewController{
         }
     }
     
-    // MARK: - Fetching news
+    // MARK: - Fetching News
     
     private func fetchNewsData() {
-        let now = Date() /// temp parameters
+        let now = Date()
         newsController.fetchNewsData( year:"\(now.getComponent(.year))", month:"\(now.getComponent(.month))") { [weak self] fetchedNews in
             
             guard let self = self else {return}

@@ -10,7 +10,7 @@ import Alamofire
 class APIService: NSObject{
     
     
-   // MARK: Call setUp
+    // MARK: - Call setUp
     
     var headers = HTTPHeaders()
     var method: HTTPMethod!
@@ -49,7 +49,7 @@ class APIService: NSObject{
         print("Call Initiated with \n- Service: \(service?.endPoint ?? self.url ?? "") \n- data: \(String(describing: parameters))")
     }
     
-    // MARK: Call execution
+    // MARK: - Call execution
     
     func executeCall<T>(completion: @escaping (Result<T, Error>) -> Void) where T: Codable {
         

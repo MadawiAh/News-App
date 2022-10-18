@@ -19,17 +19,16 @@ class LandingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         styleElements()
     }
     
     private func styleElements(){
-      
         theme.stylePrimaryButton(logInBtn)
         theme.stylePrimaryButton(signUpBtn)
-        
+    
         theme.styleSloganLable(sloganPart1)
         theme.styleSloganLable(sloganPart2)
-
     }
 }
 

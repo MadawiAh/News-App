@@ -32,7 +32,7 @@ class MoviesListViewController: UIViewController {
         self.title = barTitle
     }
     
-    // MARK: - Views SetUp methods
+    // MARK: - Private Helpers
     
     private func setUpTableView() {
         tableView.delegate = self

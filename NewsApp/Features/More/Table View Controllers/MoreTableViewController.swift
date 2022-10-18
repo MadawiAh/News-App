@@ -24,9 +24,11 @@ class MoreTableViewController: UITableViewController {
     
         styleElements()
         setUpElements()
-        
     }
-    func styleElements (){
+    
+    // MARK: - Private Helpers
+    
+    private func styleElements (){
         
         imageOne.tintColor = theme.color.grayLightColor9fa1a1
         imageTwo.tintColor = theme.color.grayLightColor9fa1a1
@@ -41,7 +43,7 @@ class MoreTableViewController: UITableViewController {
         titleThree.font = theme.font.titleFourFont
     }
     
-    func setUpElements(){
+    private func setUpElements(){
         imageOne.image = MoreActions.favourites.image
         imageTwo.image = MoreActions.shareApp.image
         imageThree.image = MoreActions.clearCache.image

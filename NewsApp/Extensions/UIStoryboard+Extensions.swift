@@ -29,8 +29,8 @@ extension UIStoryboard {
         return UIStoryboard(name: "Details", bundle: nil)
     }
     
-    static var tv: UIStoryboard {
-        return UIStoryboard(name: "TV", bundle: nil)
+    static var books: UIStoryboard {
+        return UIStoryboard(name: "Books", bundle: nil)
     }
     
     static var more: UIStoryboard {
