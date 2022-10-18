@@ -46,7 +46,29 @@ class CustomMoviesTableCell: UITableViewCell {
         isCriticsPickLabel.font = theme.font.titleSevenFont
         isCriticsPickLabel.textColor = theme.color.orangeDarkColorEB652B.withAlphaComponent(0.8)
     }
+
+    private func setUpIsCriticPrickLabel() {
+        
+        let templateString = NSMutableAttributedString(string:"")
+        
+        let imageAttachment = NSTextAttachment()
+        imageAttachment.image = UIImage(systemName: "star.fill")!.withTintColor(theme.color.orangeDarkColorEB652B.withAlphaComponent(0.8))
+        imageAttachment.bounds = CGRect(x: 0, y: -1, width: 10, height: 10)
+        
+        let imageString = NSAttributedString(attachment: imageAttachment)
+        templateString.append(imageString)
+        templateString.append(NSAttributedString(string:" Critics's Pick"))
+
+        isCriticsPickLabel.attributedText = templateString
+        isCriticsPickLabel.isHidden = false
+    }
     
+    private func getTitleFromHeadline(movie: MoviesData) -> String {
+        return movie.headline.getSlice(from: "‘", to: "’ R") ?? ""
+
+    }
+    
+    // MARK: - Public Helpers
 
     func setMovie(movie: MoviesData, refreshTable: (()->())?){
         titleLabel.text = movie.displayTitle.emptyAsNil() ?? getTitleFromHeadline(movie: movie)
@@ -65,27 +87,6 @@ class CustomMoviesTableCell: UITableViewCell {
         poster.kf.setImage(with: completeURL, placeholder: UIImage(named: "poster-placeholder.png")){ result, error in
             refreshTable?()
         }
-    }
-
-    private func setUpIsCriticPrickLabel() {
-        
-        let templateString = NSMutableAttributedString(string:"")
-        
-        let imageAttachment = NSTextAttachment()
-        imageAttachment.image = UIImage(systemName: "star.fill")!.withTintColor(theme.color.orangeDarkColorEB652B.withAlphaComponent(0.8))
-        imageAttachment.bounds = CGRect(x: 0, y: -1, width: 10, height: 10)
-        
-        let imageString = NSAttributedString(attachment: imageAttachment)
-        templateString.append(imageString)
-        templateString.append(NSAttributedString(string:" Critics's Pick"))
-
-        isCriticsPickLabel.attributedText = templateString
-        isCriticsPickLabel.isHidden = false
-    }
-    
-    func getTitleFromHeadline(movie: MoviesData) -> String {
-        return movie.headline.getSlice(from: "‘", to: "’ R") ?? ""
-
     }
 }
 

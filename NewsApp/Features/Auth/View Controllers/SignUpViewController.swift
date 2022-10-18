@@ -28,18 +28,17 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         setUpElements()
-        
     }
     
-    func setUpElements(){
-        
+    // MARK: - Private Helpers
+    
+    private func setUpElements() {
         styleElements()
         emptyFields()
         resetElements()
-        
     }
     
-    fileprivate func styleElements() {
+    private func styleElements() {
         
         theme.styleViewCard(viewCard)
         
@@ -59,18 +58,38 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         theme.styleTitleFourButton(logInBtn)
     }
     
-    fileprivate func emptyFields() {
+    private func emptyFields() {
         emailField.text = ""
         passwordField.text = ""
         repeatPasswordField.text = ""
     }
     
-    fileprivate func resetElements() {
+    private func resetElements() {
         signUpBtn.isEnabled = false
         emailErrorLable.isHidden = true
         passwordErrorLable.isHidden = true
         repeatPasswordErrorLable.isHidden = true
     }
+    
+    private func checkForValidForm() {
+        
+        if !emailErrorLable.isHidden ||
+            !passwordErrorLable.isHidden ||
+            !repeatPasswordErrorLable.isHidden  {
+            signUpBtn.isEnabled = false
+            return
+        }
+        
+        if emailField.text?.isEmpty ?? true ||
+            passwordField.text?.isEmpty ?? true ||
+            repeatPasswordField.text?.isEmpty ?? true{
+            signUpBtn.isEnabled = false
+            return
+        }
+        signUpBtn.isEnabled = true
+    }
+    
+    // MARK: - User Actions
     
     @IBAction func backTapped(_ sender: Any) {
         navigationController?.popViewController(animated: true)
@@ -84,11 +103,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             break OuterIF
         }
         emailErrorLable.isHidden = true
-        
     }
         checkForValidForm()
     }
-    
     
     @IBAction func passwordChanged(_ sender: Any) {
     OuterIF: if let password = passwordField.text {
@@ -141,24 +158,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         guard let navigationVC = self.navigationController else { return }
         navigationVC.popViewController(animated: false)
         navigationVC.pushVC(storyboard: .main, VCIdetifier: "LogInViewController", animated: false)
-    }
-    
-    private func checkForValidForm(){
-        
-        if !emailErrorLable.isHidden ||
-            !passwordErrorLable.isHidden ||
-            !repeatPasswordErrorLable.isHidden  {
-            signUpBtn.isEnabled = false
-            return
-        }
-        
-        if emailField.text?.isEmpty ?? true ||
-            passwordField.text?.isEmpty ?? true ||
-            repeatPasswordField.text?.isEmpty ?? true{
-            signUpBtn.isEnabled = false
-            return
-        }
-        signUpBtn.isEnabled = true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

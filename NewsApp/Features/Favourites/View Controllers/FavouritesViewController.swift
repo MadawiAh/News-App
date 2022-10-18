@@ -7,7 +7,7 @@
 import UIKit
 
 class FavouritesViewController: UIViewController {
-
+    
     @IBOutlet weak var segmentsView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
@@ -16,13 +16,15 @@ class FavouritesViewController: UIViewController {
     private var movieFavourites = [MoviesData]()
     private var currentSegment = 0 {
         didSet {
-           refreshTableView()
+            refreshTableView()
         }
     }
     
+    // MARK: - Lifecycle Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setUpSegmentedControl()
         setUpTableView()
         registerTableViewCells()
@@ -35,13 +37,15 @@ class FavouritesViewController: UIViewController {
         /// getting data
     }
     
+    // MARK: - Private Helpers
+    
     private func setUpSegmentedControl() {
         
         var titles = [String]()
         FavouriteSegments.allCases.forEach { titles.append($0.title) }
         
         let segmenetedControl = CustomSegmentedControl(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: segmentsView.frame.height), buttonTitles: titles)
-
+        
         segmenetedControl.indexChangedClosure = { [weak self] indx in
             guard let self = self else {return}
             self.currentSegment = indx
@@ -88,7 +92,8 @@ class FavouritesViewController: UIViewController {
     }
 }
 
-// MARK: Table View Datasource and Delegate
+// MARK: - Table View Datasource and Delegate
+
 extension FavouritesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -99,7 +104,7 @@ extension FavouritesViewController: UITableViewDelegate, UITableViewDataSource {
         switch currentSegment {
         case FavouriteSegments.news.rawValue:
             return newsFavourites.count
-       
+            
         default:
             return movieFavourites.count
         }
@@ -110,7 +115,7 @@ extension FavouritesViewController: UITableViewDelegate, UITableViewDataSource {
         case FavouriteSegments.news.rawValue:
             let cell = tableView.dequeueReusableCell(withIdentifier: CustomNewsCell.nibName) as! CustomNewsCell
             return cell
-        
+            
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CustomMoviesTableCell", for: indexPath) as! CustomMoviesTableCell
             return cell

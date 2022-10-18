@@ -18,7 +18,6 @@ class CustomSegmentedControl: UIView {
     var titleColor: UIColor = .gray
     var selectorViewColor:UIColor = .orange
     var selectorTextColor:UIColor = .orange
-    
     var indexChangedClosure: ((Int)->())?
     
     
@@ -51,7 +50,6 @@ class CustomSegmentedControl: UIView {
         stack.distribution = .fillEqually
         addSubview(stack)
         
-        /// setUp Constraints
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         stack.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
@@ -71,7 +69,7 @@ class CustomSegmentedControl: UIView {
     }
     
     private func setUpButtons(){
-        /// resetting
+        
         buttons.removeAll()
         subviews.forEach({$0.removeFromSuperview()})
         

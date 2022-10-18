@@ -33,14 +33,15 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         setUpElements()
     }
     
-    func setUpElements(){
-        
+    // MARK: - Private Helpers
+    
+    private func setUpElements(){
         styleElements()
         emptyFields()
         resetElements()
     }
     
-    fileprivate func styleElements() {
+    private func styleElements() {
         
         theme.styleViewCard(viewCard)
         
@@ -58,7 +59,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         theme.styleTitleFourButton(signUpBtn)
     }
     
-    fileprivate func emptyFields() {
+    private func emptyFields() {
         emailField.text = ""
         passwordField.text = ""
     }
@@ -68,6 +69,23 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         emailErrorLable.isHidden = true
         passwordErrorLable.isHidden = true
     }
+    
+    private func checkForValidForm(){
+        
+        if !emailErrorLable.isHidden ||
+            !passwordErrorLable.isHidden {
+            logInBtn.isEnabled = false
+            return
+        }
+        if emailField.text?.isEmpty ?? true ||
+            passwordField.text?.isEmpty ?? true {
+            logInBtn.isEnabled = false
+            return
+        }
+        logInBtn.isEnabled = true
+    }
+    
+    // MARK: - User Actions
     
     @IBAction func backTapped(_ sender: Any) {
         navigationController?.popViewController(animated: true)
@@ -121,21 +139,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         guard let navigationVC = self.navigationController else { return }
         navigationVC.popViewController(animated: false)
         navigationVC.pushVC(storyboard: .main, VCIdetifier: "SignUpViewController", animated: false)
-    }
-    
-    private func checkForValidForm(){
-        
-        if !emailErrorLable.isHidden ||
-            !passwordErrorLable.isHidden {
-            logInBtn.isEnabled = false
-            return
-        }
-        if emailField.text?.isEmpty ?? true ||
-            passwordField.text?.isEmpty ?? true {
-            logInBtn.isEnabled = false
-            return
-        }
-        logInBtn.isEnabled = true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

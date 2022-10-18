@@ -1,5 +1,5 @@
 //
-//  TVViewController.swift
+//  BooksViewController.swift
 //  NewsApp
 //
 //  Created by Madawi Ahmed on 18/01/1444 AH.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TVViewController: UIViewController {
+class BooksViewController: UIViewController {
     
     let theme: AppTheme = NewsAppTheme()
 
@@ -15,8 +15,9 @@ class TVViewController: UIViewController {
         super.viewDidLoad()
         
         styleElements()
-
     }
+    
+    // MARK: - Private Helpers
     
     private func styleElements(){
         view.backgroundColor = theme.color.viewsBackgroundColor

@@ -38,7 +38,7 @@ class MoviesViewController: UIViewController {
         fetchRecentMovieReviews()
     }
     
-    // MARK: - Views SetUp methods
+    // MARK: - Private Helpers
     
     private func setUpTableView() {
         tableView.backgroundColor = theme.color.grayBrightColorf9f9f9

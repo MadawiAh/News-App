@@ -26,7 +26,7 @@
 		714C5BBF28A3C43B00D0DD57 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714C5BBE28A3C43B00D0DD57 /* Validator.swift */; };
 		716425C828B742C800F7DC85 /* News.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 716425C728B742C800F7DC85 /* News.storyboard */; };
 		716425DA28B747E300F7DC85 /* Movies.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 716425D928B747E300F7DC85 /* Movies.storyboard */; };
-		716425DC28B7481B00F7DC85 /* TV.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 716425DB28B7481B00F7DC85 /* TV.storyboard */; };
+		716425DC28B7481B00F7DC85 /* Books.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 716425DB28B7481B00F7DC85 /* Books.storyboard */; };
 		716425DE28B7487000F7DC85 /* More.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 716425DD28B7487000F7DC85 /* More.storyboard */; };
 		716425E228B75F3900F7DC85 /* UIStoryboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716425E128B75F3900F7DC85 /* UIStoryboard+Extensions.swift */; };
 		71651EA228AA334B002263D3 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71651EA128AA334B002263D3 /* Note.swift */; };
@@ -35,7 +35,7 @@
 		71651EA928AA5FB9002263D3 /* NewsAppColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71651EA828AA5FB9002263D3 /* NewsAppColorTheme.swift */; };
 		71651EAB28AA6324002263D3 /* NewsAppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71651EAA28AA6324002263D3 /* NewsAppTheme.swift */; };
 		71651EAD28AB94E0002263D3 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71651EAC28AB94E0002263D3 /* MoviesViewController.swift */; };
-		71651EAF28AB94FB002263D3 /* TVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71651EAE28AB94FB002263D3 /* TVViewController.swift */; };
+		71651EAF28AB94FB002263D3 /* BooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71651EAE28AB94FB002263D3 /* BooksViewController.swift */; };
 		71651EB128AB959E002263D3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71651EB028AB959E002263D3 /* TabBarController.swift */; };
 		71651EB428ABCD99002263D3 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71651EB328ABCD98002263D3 /* MoreViewController.swift */; };
 		71651EB628ACD166002263D3 /* FontTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71651EB528ACD165002263D3 /* FontTheme.swift */; };
@@ -96,7 +96,7 @@
 		714C5BBE28A3C43B00D0DD57 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		716425C728B742C800F7DC85 /* News.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = News.storyboard; sourceTree = "<group>"; };
 		716425D928B747E300F7DC85 /* Movies.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Movies.storyboard; sourceTree = "<group>"; };
-		716425DB28B7481B00F7DC85 /* TV.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TV.storyboard; sourceTree = "<group>"; };
+		716425DB28B7481B00F7DC85 /* Books.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Books.storyboard; sourceTree = "<group>"; };
 		716425DD28B7487000F7DC85 /* More.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = More.storyboard; sourceTree = "<group>"; };
 		716425E128B75F3900F7DC85 /* UIStoryboard+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extensions.swift"; sourceTree = "<group>"; };
 		71651EA128AA334B002263D3 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
@@ -105,7 +105,7 @@
 		71651EA828AA5FB9002263D3 /* NewsAppColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAppColorTheme.swift; sourceTree = "<group>"; };
 		71651EAA28AA6324002263D3 /* NewsAppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAppTheme.swift; sourceTree = "<group>"; };
 		71651EAC28AB94E0002263D3 /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
-		71651EAE28AB94FB002263D3 /* TVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVViewController.swift; sourceTree = "<group>"; };
+		71651EAE28AB94FB002263D3 /* BooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewController.swift; sourceTree = "<group>"; };
 		71651EB028AB959E002263D3 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		71651EB328ABCD98002263D3 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		71651EB528ACD165002263D3 /* FontTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontTheme.swift; sourceTree = "<group>"; };
@@ -295,7 +295,7 @@
 				716425C028B73ECE00F7DC85 /* Auth */,
 				716425C228B73F3000F7DC85 /* News */,
 				716425D028B746B000F7DC85 /* Movies */,
-				716425D128B746BA00F7DC85 /* TV */,
+				716425D128B746BA00F7DC85 /* Books */,
 				711E0CF228D071610014B831 /* Details */,
 				716425D228B746C500F7DC85 /* More */,
 				71E1231128D8554B007F2C03 /* Favourites */,
@@ -385,12 +385,12 @@
 			path = Movies;
 			sourceTree = "<group>";
 		};
-		716425D128B746BA00F7DC85 /* TV */ = {
+		716425D128B746BA00F7DC85 /* Books */ = {
 			isa = PBXGroup;
 			children = (
 				716425D528B7472000F7DC85 /* View Controllers */,
 			);
-			path = TV;
+			path = Books;
 			sourceTree = "<group>";
 		};
 		716425D228B746C500F7DC85 /* More */ = {
@@ -415,7 +415,7 @@
 		716425D528B7472000F7DC85 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				71651EAE28AB94FB002263D3 /* TVViewController.swift */,
+				71651EAE28AB94FB002263D3 /* BooksViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -491,7 +491,7 @@
 				71A9C2AA28FD9AFE00AC66FA /* Auth.storyboard */,
 				716425C728B742C800F7DC85 /* News.storyboard */,
 				716425D928B747E300F7DC85 /* Movies.storyboard */,
-				716425DB28B7481B00F7DC85 /* TV.storyboard */,
+				716425DB28B7481B00F7DC85 /* Books.storyboard */,
 				71B064B128FD79BE00539F48 /* Details.storyboard */,
 				716425DD28B7487000F7DC85 /* More.storyboard */,
 				71B064C028FD86E800539F48 /* Favourites.storyboard */,
@@ -688,7 +688,7 @@
 				716425DA28B747E300F7DC85 /* Movies.storyboard in Resources */,
 				71B2307128CE9CDE006F4CEF /* CustomMoviesTableCell.xib in Resources */,
 				71B064C128FD86E800539F48 /* Favourites.storyboard in Resources */,
-				716425DC28B7481B00F7DC85 /* TV.storyboard in Resources */,
+				716425DC28B7481B00F7DC85 /* Books.storyboard in Resources */,
 				711D646428CA27360094284A /* InnerCollectionViewCell.xib in Resources */,
 				719F2E6528B662A70042A74C /* CustomNewsCell.xib in Resources */,
 			);
@@ -788,7 +788,7 @@
 				714C5BBA28A279F600D0DD57 /* UIViewController+Extensions.swift in Sources */,
 				71BD1C7828B2526500941978 /* NewsModel.swift in Sources */,
 				714C5BA728A0B7FB00D0DD57 /* LogInViewController.swift in Sources */,
-				71651EAF28AB94FB002263D3 /* TVViewController.swift in Sources */,
+				71651EAF28AB94FB002263D3 /* BooksViewController.swift in Sources */,
 				714C5B9328A0B6E500D0DD57 /* SceneDelegate.swift in Sources */,
 				71B064BA28FD813300539F48 /* FavouriteSegments.swift in Sources */,
 				71DE149F28D368B5008BF2B1 /* MoviesDetailsViewController.swift in Sources */,

@@ -10,13 +10,12 @@ import UIKit
 class TabBarController: UITabBarController {
     
     let theme: AppTheme = NewsAppTheme()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         styleElements()
         setupTabBarPages()
-
     }
     
     private func styleElements(){
@@ -34,15 +33,15 @@ class TabBarController: UITabBarController {
                                                 UIStoryboard.news.instantiateViewController(withIdentifier: "NewsViewController"))
         let moviesVC = UINavigationController(rootViewController:
                                                 UIStoryboard.movies.instantiateViewController(withIdentifier: "MoviesViewController"))
-        let tvVC = UINavigationController(rootViewController:
-                                            UIStoryboard.tv.instantiateViewController(withIdentifier: "TVViewController"))
+        let booksVC = UINavigationController(rootViewController:
+                                                UIStoryboard.books.instantiateViewController(withIdentifier: "BooksViewController"))
         let moreVC = UINavigationController(rootViewController:
                                                 UIStoryboard.more.instantiateViewController(withIdentifier: "MoreViewController"))
-      
-
-        let viewControllers = [newsVC, moviesVC, tvVC, moreVC]
-        let titles = ["News","Movies","TV","More"]
-        let images = [UIImage(systemName: "newspaper"), UIImage(systemName: "film"), UIImage(systemName: "tv"), UIImage(systemName: "ellipsis")]
+        
+        
+        let viewControllers = [newsVC, moviesVC, booksVC, moreVC]
+        let titles = ["News","Movies","Books","More"]
+        let images = [UIImage(systemName: "newspaper"), UIImage(systemName: "film"), UIImage(systemName: "book"), UIImage(systemName: "ellipsis")]
         
         for x in 0..<viewControllers.count {
             viewControllers[x].tabBarItem = UITabBarItem(
@@ -53,5 +52,5 @@ class TabBarController: UITabBarController {
         
         setViewControllers(viewControllers, animated: false)
     }
-
+    
 }

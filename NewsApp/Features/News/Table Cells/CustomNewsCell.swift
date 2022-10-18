@@ -70,6 +70,24 @@ class CustomNewsCell: UITableViewCell {
         newsImage.layer.cornerRadius = 10
         newsImage.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
     }
+
+    private func toggleFavourite(){
+        
+        var img = UIImage(systemName: "suit.heart.fill")
+        var color: UIColor = theme.color.orangeDarkColorEB652B
+        
+        if favouriteBtn.imageView?.image == UIImage(systemName: "suit.heart.fill") {
+            img = UIImage(systemName: "suit.heart")
+            color = theme.color.grayLightColor9fa1a1
+        }
+        
+        favouriteBtn.setImage(img, for: .normal)
+        favouriteBtn.tintColor = color
+        
+        favouriteBtn.imageView?.translatesAutoresizingMaskIntoConstraints = false
+        favouriteBtn.imageView?.widthAnchor.constraint(equalToConstant: 26).isActive = true
+        favouriteBtn.imageView?.heightAnchor.constraint(equalToConstant: 25).isActive = true
+    }
     
     // MARK: - Public Helpers
     
@@ -90,25 +108,6 @@ class CustomNewsCell: UITableViewCell {
         newsImage.kf.setImage(with: completeURL, placeholder: UIImage(named: "news-placeholder.png")){ result, error in
             refreshTable?()
         }
-    }
-    
-
-    private func toggleFavourite(){
-        
-        var img = UIImage(systemName: "suit.heart.fill")
-        var color: UIColor = theme.color.orangeDarkColorEB652B
-        
-        if favouriteBtn.imageView?.image == UIImage(systemName: "suit.heart.fill") {
-            img = UIImage(systemName: "suit.heart")
-            color = theme.color.grayLightColor9fa1a1
-        }
-        
-        favouriteBtn.setImage(img, for: .normal)
-        favouriteBtn.tintColor = color
-        
-        favouriteBtn.imageView?.translatesAutoresizingMaskIntoConstraints = false
-        favouriteBtn.imageView?.widthAnchor.constraint(equalToConstant: 26).isActive = true
-        favouriteBtn.imageView?.heightAnchor.constraint(equalToConstant: 25).isActive = true
     }
     
     // MARK: - User Actions
