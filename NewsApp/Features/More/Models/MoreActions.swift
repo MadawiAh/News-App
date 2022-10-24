@@ -28,7 +28,7 @@ enum MoreActions: CaseIterable {
         case .favourites:
             return "Favourites"
         case .shareApp:
-            return "Share NewsApp"
+            return "Share Daily News App"
         case .clearCache:
             return "Clear Cache"
         }

@@ -51,7 +51,7 @@ struct NewsAppTheme: AppTheme {
     
     func styleSloganLable (_ lable: UILabel){
         lable.font = font.sloganFont
-        lable.textColor = .white
+        lable.textColor = .white.withAlphaComponent(0.7)
     }
     
     func styleErrorLable (_ lable: UILabel) {

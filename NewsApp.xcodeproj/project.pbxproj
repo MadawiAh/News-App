@@ -1027,6 +1027,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NewsApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Daily News";
+				INFOPLIST_KEY_NSCameraUsageDescription = "NewsApp needs access to capture photos";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "NewsApp needs access to import photos";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1056,6 +1059,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NewsApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Daily News";
+				INFOPLIST_KEY_NSCameraUsageDescription = "NewsApp needs access to capture photos";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "NewsApp needs access to import photos";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

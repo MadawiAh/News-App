@@ -22,7 +22,7 @@ struct NewsAppFontTheme: FontTheme {
     // MARK: Lable
     
     var sloganFont: UIFont {
-        return UIFont(name: "Sinhala Sangam MN", size: 35)!
+        return UIFont(name: "Sinhala Sangam MN", size: 27)!
     }
     
     var errorFont: UIFont {
