@@ -45,7 +45,7 @@ struct NewsAppTheme: AppTheme {
     }
     
     func styleTitleFourLable (_ lable: UILabel) {
-        lable.font = font.titleFifeFont
+        lable.font = font.titleSixFont
         lable.textColor = color.grayLightColor9fa1a1
     }
     

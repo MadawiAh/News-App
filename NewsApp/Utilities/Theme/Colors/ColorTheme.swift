@@ -10,11 +10,11 @@ import UIKit
 
 protocol ColorTheme {
     
-    // MARK: Elements colors
+    // MARK: - Elements colors
     
     var viewsBackgroundColor: UIColor { get }
     
-    // MARK: Color plallet
+    // MARK: - Color palette
     
     var orangeLightColorEC8B3F: UIColor { get } 
     
@@ -27,5 +27,7 @@ protocol ColorTheme {
     var grayMediumColor546062: UIColor { get }
     
     var grayDarkColor343B3C: UIColor { get }
+    
+    var grayBluishColor80A2A9: UIColor { get }
 
 }

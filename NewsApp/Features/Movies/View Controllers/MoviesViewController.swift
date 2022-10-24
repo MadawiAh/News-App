@@ -64,9 +64,9 @@ class MoviesViewController: UIViewController {
     }
     
     private func registerTableViewCells() {
-        tableView.register(UINib(nibName: CollectionTableCell.nibName,
+        tableView.register(UINib(nibName: MovieCollectionTableCell.nibName,
                                  bundle: nil),
-                           forCellReuseIdentifier: CollectionTableCell.cellIdentifier)
+                           forCellReuseIdentifier: MovieCollectionTableCell.cellIdentifier)
         tableView.register(UINib(nibName: CustomMoviesTableCell.nibName,
                                  bundle: nil),
                            forCellReuseIdentifier: CustomMoviesTableCell.cellIdentifier)
@@ -77,7 +77,7 @@ class MoviesViewController: UIViewController {
         let emptyLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
         emptyLabel.numberOfLines = 2
         emptyLabel.textAlignment = NSTextAlignment.center
-        emptyLabel.font = theme.font.titleFifeFont
+        emptyLabel.font = theme.font.titleSixFont
         emptyLabel.textColor = theme.color.grayLightColor9fa1a1
         emptyLabel.text = "Oops there are no reviews! \n Swipe down to refresh"
         
@@ -90,15 +90,15 @@ class MoviesViewController: UIViewController {
         headerView.backgroundColor = UIColor.white
         
         /// Header title
-        let titleLabel = UILabel(frame: CGRect(x: 10, y: 0, width: 180, height: 30))
+        let titleLabel = UILabel(frame: CGRect(x: 7, y: 0, width: 180, height: 30))
         titleLabel.textColor = theme.color.grayDarkColor343B3C
-        titleLabel.font = theme.font.titleThreeFont
+        titleLabel.font = theme.font.titleFourFont
         
         /// Header button
         let seeAllBtn: UIButton = UIButton(frame: CGRect(x: view.frame.width - 80, y: 0, width: 80, height: 30))
         seeAllBtn.setTitle("See All", for: .normal)
         seeAllBtn.setTitleColor(theme.color.orangeLightColorEC8B3F, for: .normal)
-        seeAllBtn.titleLabel?.font = theme.font.titleFifeFont
+        seeAllBtn.titleLabel?.font = theme.font.titleSixFont
         seeAllBtn.addTarget(self, action: #selector(seeAllTapped(withSender:)), for: .touchUpInside)
         
         switch sectionType {
@@ -231,7 +231,7 @@ extension MoviesViewController: UITableViewDelegate, UITableViewDataSource{
         
         switch sectionType {
         case .criticPicks:
-            let cell = tableView.dequeueReusableCell(withIdentifier: CollectionTableCell.cellIdentifier, for: indexPath) as! CollectionTableCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: MovieCollectionTableCell.cellIdentifier, for: indexPath) as! MovieCollectionTableCell
             return cell
         case .recentReviews:
             let cell = tableView.dequeueReusableCell(withIdentifier: CustomMoviesTableCell.cellIdentifier, for: indexPath) as! CustomMoviesTableCell
@@ -246,7 +246,7 @@ extension MoviesViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard let tableViewCell = cell as? CollectionTableCell else { return }
+        guard let tableViewCell = cell as? MovieCollectionTableCell else { return }
         
         tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self)
     }
@@ -266,7 +266,7 @@ extension MoviesViewController: UITableViewDelegate, UITableViewDataSource{
         if (self.lastContentOffset > scrollView.contentOffset.x) || (self.lastContentOffset < scrollView.contentOffset.x) {
             
             if let collectionCell = tableView.cellForRow( at: IndexPath( row: 0,
-                                                                         section: MovieSections.criticPicks.rawValue)) as? CollectionTableCell{
+                                                                         section: MovieSections.criticPicks.rawValue)) as? MovieCollectionTableCell{
                 collectionCell.collectionDidScroll = true
             }
         }
@@ -283,7 +283,7 @@ extension MoviesViewController: UICollectionViewDataSource, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InnerCollectionViewCell.cellIdentifier, for: indexPath)  as! InnerCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieInnerCollectionCell.cellIdentifier, for: indexPath)  as! MovieInnerCollectionCell
         
         guard !criticPicksMovies.isEmpty else {return cell}
         

@@ -34,26 +34,26 @@ class NewsDetailsViewController: UIViewController {
     
     private func styleElements() {
         
-        dateLabel.font = theme.font.titleFifeFont
+        dateLabel.font = theme.font.titleSixFont
         dateLabel.textColor = theme.color.grayLightColor9fa1a1
         
         headlineLabel.font = theme.font.titleTwoFont
         headlineLabel.textColor = theme.color.grayDarkColor343B3C
         
-        abstractLabel.font = theme.font.titleFourFont
+        abstractLabel.font = theme.font.titleFifeFont
         abstractLabel.textColor = theme.color.grayMediumColor546062
         
-        bylineLabel.font = theme.font.titleFifeFont
-        bylineLabel.textColor = theme.color.grayLightColor9fa1a1
+        bylineLabel.font = theme.font.titleSixFont
+        bylineLabel.textColor = theme.color.grayBluishColor80A2A9
         
-        leadParagraphLabel.font = theme.font.titleFourFont
+        leadParagraphLabel.font = theme.font.titleFifeFont
         leadParagraphLabel.textColor = theme.color.grayMediumColor546062
         
-        copyrightsLabel.font = theme.font.titleSevenFont
+        copyrightsLabel.font = theme.font.titleEightFont
         copyrightsLabel.textColor = theme.color.grayLightColor9fa1a1.withAlphaComponent(0.7)
         
         readMoreLabel.textColor = theme.color.orangeLightColorEC8B3F
-        readMoreLabel.font = theme.font.titleFifeFont
+        readMoreLabel.font = theme.font.titleSixFont
         setUpReadMoreButton()
         
         favouriteBtn.tintColor = theme.color.grayLightColor9fa1a1

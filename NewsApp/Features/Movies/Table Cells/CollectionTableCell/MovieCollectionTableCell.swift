@@ -1,5 +1,5 @@
 //
-//  CollectionTableViewCell.swift
+//  MovieCollectionTableCell.swift
 //  NewsApp
 //
 //  Created by Madawi Ahmed on 12/02/1444 AH.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-class CollectionTableCell: UITableViewCell {
+class MovieCollectionTableCell: UITableViewCell {
     
-    static let nibName = "CollectionTableCell"
+    static let nibName = "MovieCollectionTableCell"
     
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
@@ -42,9 +42,9 @@ class CollectionTableCell: UITableViewCell {
     }
     
     private func registerCollectionViewCells() {
-        collectionView.register(UINib(nibName: InnerCollectionViewCell.nibName,
+        collectionView.register(UINib(nibName: MovieInnerCollectionCell.nibName,
                                       bundle: nil),
-                                forCellWithReuseIdentifier: InnerCollectionViewCell.cellIdentifier)
+                                forCellWithReuseIdentifier: MovieInnerCollectionCell.cellIdentifier)
     }
     
     // MARK: - Public Helpers

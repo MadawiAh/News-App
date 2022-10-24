@@ -37,7 +37,7 @@ class MoreViewController: UIViewController{
         styleNavBar()
 
         emailLabel.textColor = theme.color.grayMediumColor546062
-        emailLabel.font = theme.font.titleThreeFont
+        emailLabel.font = theme.font.titleFourFont
         
         theme.styleSecondaryButton(logOut)
         logOut.backgroundColor = theme.color.grayLightColor9fa1a1.withAlphaComponent(0.2)

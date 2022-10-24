@@ -10,6 +10,7 @@ enum Services{
     case getNews(year: String, month:String)
     case getMovieCriticPicks
     case getRecentMovieReviews
+    case getBookList
     
     var endPoint: String {
         switch self {
@@ -22,7 +23,10 @@ enum Services{
         case .getRecentMovieReviews:
             return "movies/v2/reviews/search.json?api-key=\(Secrets.apiKey)"
         
-        /// other screens API calls endpoints will be added later
+        case .getBookList:
+            return "books/v3/lists/overview.json?api-key=\(Secrets.apiKey)"
+       
+            /// other screens API calls endpoints will be added later
         
         }
     }

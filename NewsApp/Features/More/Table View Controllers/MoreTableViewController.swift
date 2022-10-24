@@ -38,9 +38,9 @@ class MoreTableViewController: UITableViewController {
         titleTwo.textColor = theme.color.grayMediumColor546062
         titleThree.textColor = theme.color.grayMediumColor546062
         
-        titleOne.font = theme.font.titleFourFont
-        titleTwo.font = theme.font.titleFourFont
-        titleThree.font = theme.font.titleFourFont
+        titleOne.font = theme.font.titleFifeFont
+        titleTwo.font = theme.font.titleFifeFont
+        titleThree.font = theme.font.titleFifeFont
     }
     
     private func setUpElements(){
