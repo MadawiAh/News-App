@@ -89,6 +89,21 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         signUpBtn.isEnabled = true
     }
     
+    // MARK: - Public Helpers
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailField {
+            textField.resignFirstResponder()
+            passwordField.becomeFirstResponder()
+        } else if textField == passwordField {
+            passwordField.resignFirstResponder()
+            repeatPasswordField.becomeFirstResponder()
+        } else if textField == repeatPasswordField {
+            repeatPasswordField.resignFirstResponder()
+        }
+        return true
+    }
+    
     // MARK: - User Actions
     
     @IBAction func backTapped(_ sender: Any) {
@@ -121,7 +136,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func repeatPasswordChanged(_ sender: Any) {
     OuterIF: if let rePassword = repeatPasswordField.text {
-        if let errorMsg = Validator.validatePassword(rePassword){
+        if let errorMsg = Validator.validateRepeatPassword(rePassword){
             repeatPasswordErrorLable.text = errorMsg
             repeatPasswordErrorLable.isHidden = false
             break OuterIF
@@ -154,22 +169,21 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    @IBAction func fieldDidChange(_ sender: UITextField) {
+        let field = sender.tag
+        switch field {
+        case 0:
+            emailErrorLable.isHidden = true
+        case 1:
+            passwordErrorLable.isHidden = true
+        default:
+            repeatPasswordErrorLable.isHidden = true
+        }
+    }
+    
     @IBAction func logInTapped(_ sender: Any) {
         guard let navigationVC = self.navigationController else { return }
         navigationVC.popViewController(animated: false)
         navigationVC.pushVC(storyboard: .main, VCIdetifier: "LogInViewController", animated: false)
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == emailField {
-            textField.resignFirstResponder()
-            passwordField.becomeFirstResponder()
-        } else if textField == passwordField {
-            passwordField.resignFirstResponder()
-            repeatPasswordField.becomeFirstResponder()
-        } else if textField == repeatPasswordField {
-            repeatPasswordField.resignFirstResponder()
-        }
-        return true
     }
 }
