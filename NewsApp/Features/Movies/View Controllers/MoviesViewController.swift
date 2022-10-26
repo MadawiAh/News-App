@@ -254,13 +254,13 @@ extension MoviesViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if indexPath.section == MovieSections.criticPicks.rawValue {return}
-       
+        
         let vc = UIStoryboard.details.instantiateViewController(withIdentifier: "MoviesDetailsViewController") as! MoviesDetailsViewController
         vc.movie = recentlyReviewedMovies[indexPath.row]
         vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
     }
-
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         /// check if horizontal scrolling
         if (self.lastContentOffset > scrollView.contentOffset.x) || (self.lastContentOffset < scrollView.contentOffset.x) {

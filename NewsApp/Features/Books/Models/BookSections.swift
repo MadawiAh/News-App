@@ -34,7 +34,7 @@ enum BookSections: Int, CaseIterable {
     var numberOfColumns: Int {
         switch self {
         case .hotList:
-            return 18
+            return 5
         case .bestSellersLists:
             return 5
         }

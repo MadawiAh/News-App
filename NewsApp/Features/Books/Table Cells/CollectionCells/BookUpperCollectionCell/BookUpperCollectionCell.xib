@@ -88,7 +88,7 @@
                     <constraint firstItem="EHi-OV-T77" firstAttribute="leading" secondItem="Nt5-gS-xER" secondAttribute="leading" constant="15" id="17l-Vc-9tI"/>
                     <constraint firstItem="rNO-0z-fIN" firstAttribute="top" secondItem="Nt5-gS-xER" secondAttribute="top" constant="14" id="6oy-ld-Hem"/>
                     <constraint firstAttribute="trailing" secondItem="EHi-OV-T77" secondAttribute="trailing" constant="15" id="ACK-QD-v3j"/>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="EHi-OV-T77" secondAttribute="bottom" constant="15" id="opK-BU-suA"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="EHi-OV-T77" secondAttribute="bottom" constant="5" id="opK-BU-suA"/>
                     <constraint firstItem="EHi-OV-T77" firstAttribute="top" secondItem="Nt5-gS-xER" secondAttribute="top" constant="30" id="qpV-bg-6DE"/>
                 </constraints>
             </collectionViewCellContentView>

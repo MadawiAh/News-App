@@ -17,10 +17,7 @@ class MovieCollectionTableCell: UITableViewCell {
     let theme: AppTheme = NewsAppTheme()
     var collectionDidScroll = false {
         didSet{
-            pageControl.currentPage = Int(
-                (collectionView.contentOffset.x / (collectionView.frame.width / 2))
-                    .rounded(.toNearestOrAwayFromZero)
-            )
+            updatePageControl()
         }
     }
     
@@ -47,6 +44,13 @@ class MovieCollectionTableCell: UITableViewCell {
                                 forCellWithReuseIdentifier: MovieInnerCollectionCell.cellIdentifier)
     }
     
+    private func updatePageControl() {
+        pageControl.currentPage = Int(
+            (collectionView.contentOffset.x / (collectionView.frame.width / 2))
+                .rounded(.toNearestOrAwayFromZero)
+        )
+    }
+    
     // MARK: - Public Helpers
     
     func setCollectionViewDataSourceDelegate(dataSourceDelegate: UICollectionViewDataSource & UICollectionViewDelegate) {
@@ -58,7 +62,7 @@ class MovieCollectionTableCell: UITableViewCell {
     // MARK: - User Actions
     
     @IBAction func pageControlChanged(_ sender: UIPageControl) {
-
+        
         collectionView.scrollToItem(at: IndexPath(item: sender.currentPage, section: 0), at: .centeredHorizontally, animated: true)
     }
 }

@@ -155,6 +155,7 @@ class BooksDetailsViewController: UIViewController {
     //MARK: - User Actions
     
     @IBAction func openSellerLink(_ sender: UIButton) {
+        Animator.animateButton(buttonToAnimate: sender)
         if let url = book?.buyLinks[sender.tag].url {
             openLink(forURL: url)
         }

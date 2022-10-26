@@ -14,14 +14,12 @@ class BookCollectionTableCell: UITableViewCell {
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet weak var sectionView: UIView!
     @IBOutlet weak var sectionName: UILabel!
+    @IBOutlet weak var pageControl: UIPageControl!
     
     let theme: AppTheme = NewsAppTheme()
-    var collectionViewOffset: CGFloat {
-        get {
-            return collectionView.contentOffset.x
-        }
-        set {
-            collectionView.contentOffset.x = newValue
+    var collectionDidScroll = false {
+        didSet{
+            updatePageControl()
         }
     }
     
@@ -36,6 +34,10 @@ class BookCollectionTableCell: UITableViewCell {
     private func styleElements() {
         selectionStyle = .none
         
+        pageControl.pageIndicatorTintColor = theme.color.grayLightColor9fa1a1.withAlphaComponent(0.2)
+        pageControl.currentPageIndicatorTintColor = theme.color.orangeLightColorEC8B3F
+        pageControl.numberOfPages = 5
+        
         styleSectionView()
         styleSectionNameLabel()
     }
@@ -48,7 +50,7 @@ class BookCollectionTableCell: UITableViewCell {
     }
     
     @objc private func resetOffset(){
-        collectionViewOffset = 0
+        collectionView.contentOffset.x = 0
     }
     
     private func styleSectionNameLabel() {
@@ -68,9 +70,22 @@ class BookCollectionTableCell: UITableViewCell {
                                 forCellWithReuseIdentifier: BookUpperCollectionCell.cellIdentifier)
     }
     
-    private func configureSectionView() {
+    private func configureBestSellerSections() {
         sectionView.backgroundColor = SectionColors.allCases[(collectionView.tag-1) % 13].colorFromHex
         sectionView.isHidden = false
+        pageControl.isHidden = true
+    }
+    
+    private func configureHotListSection() {
+        sectionView.isHidden = true
+        pageControl.isHidden = false
+    }
+    
+    private func updatePageControl() {
+        pageControl.currentPage = Int(
+            (collectionView.contentOffset.x / (collectionView.frame.width))
+                .rounded(.toNearestOrAwayFromZero)
+        )
     }
     
     // MARK: - Public Helpers
@@ -79,8 +94,12 @@ class BookCollectionTableCell: UITableViewCell {
         collectionView.delegate = dataSourceDelegate
         collectionView.dataSource = dataSourceDelegate
         collectionView.tag = row
-        row == 0 ? sectionView.isHidden = true : configureSectionView()
+        row == 0 ? configureHotListSection() : configureBestSellerSections()
         resetOffset()
         collectionView.reloadData()
+    }
+    
+    @IBAction func pageControlChanged(_ sender: UIPageControl) {
+        collectionView.scrollToItem(at: IndexPath(item: sender.currentPage, section: 0), at: .centeredHorizontally, animated: true)
     }
 }

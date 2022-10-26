@@ -17,6 +17,7 @@ class BooksViewController: UIViewController {
     private let refreshControl = UIRefreshControl()
     private var bookLists = [BookList]()
     private var hotList = [BookData]()
+    private var lastContentOffset: CGFloat = 0
     
     // MARK: - Lifecycle Methods
     
@@ -181,6 +182,17 @@ extension BooksViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return cell
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        /// check if horizontal scrolling
+        if (self.lastContentOffset > scrollView.contentOffset.x) || (self.lastContentOffset < scrollView.contentOffset.x) {
+            
+            if let collectionCell = tableView.cellForRow( at: IndexPath( row: 0,
+                                                                         section: 0)) as? BookCollectionTableCell{
+                collectionCell.collectionDidScroll = true
+            }
+        }
+    }
 }
 
 // MARK: - UICollectionView DataSource and Delegate
@@ -249,7 +261,7 @@ extension BooksViewController: UICollectionViewDelegateFlowLayout {
         let section = collectionView.tag
         switch section {
         case BookSections.hotList.rawValue:
-            return CGSize(width: 340, height: 190)
+            return CGSize(width: 340, height: 175)
         default:
             return CGSize(width: 140, height: 240)
         }
