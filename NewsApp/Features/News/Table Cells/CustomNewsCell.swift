@@ -89,12 +89,18 @@ class CustomNewsCell: UITableViewCell {
         favouriteBtn.imageView?.heightAnchor.constraint(equalToConstant: 25).isActive = true
     }
     
+    private func resetFavouritesBtn(){
+        favouriteBtn.imageView?.image = UIImage(systemName: "suit.heart")
+        favouriteBtn.tintColor = theme.color.grayLightColor9fa1a1
+    }
+    
     // MARK: - Public Helpers
     
     func setNews(news: NewsData, shareTapped: ((CustomNewsCell)->())?, refreshTable: (()->())?){
         shareTappedClosure = shareTapped
         newsTitle.text = news.headline.main
         newsPublishTime.text = "\(news.formatedDate) • \(news.timeToRead)"
+        resetFavouritesBtn()
         
         newsImage.isHidden = false
         if news.multimedia.isEmpty {
