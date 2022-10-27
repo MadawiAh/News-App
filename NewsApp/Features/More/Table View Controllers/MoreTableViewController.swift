@@ -10,8 +10,6 @@ import Kingfisher
 
 class MoreTableViewController: UITableViewController {
     
-    @IBOutlet weak var imageOne: UIImageView!
-    @IBOutlet weak var titleOne: UILabel!
     @IBOutlet weak var imageTwo: UIImageView!
     @IBOutlet weak var titleTwo: UILabel!
     @IBOutlet weak var imageThree: UIImageView!
@@ -29,26 +27,21 @@ class MoreTableViewController: UITableViewController {
     // MARK: - Private Helpers
     
     private func styleElements (){
-        
-        imageOne.tintColor = theme.color.grayLightColor9fa1a1
+       
         imageTwo.tintColor = theme.color.grayLightColor9fa1a1
         imageThree.tintColor = theme.color.grayLightColor9fa1a1
         
-        titleOne.textColor = theme.color.grayMediumColor546062
         titleTwo.textColor = theme.color.grayMediumColor546062
         titleThree.textColor = theme.color.grayMediumColor546062
         
-        titleOne.font = theme.font.titleFifeFont
         titleTwo.font = theme.font.titleFifeFont
         titleThree.font = theme.font.titleFifeFont
     }
     
     private func setUpElements(){
-        imageOne.image = MoreActions.favourites.image
         imageTwo.image = MoreActions.shareApp.image
         imageThree.image = MoreActions.clearCache.image
         
-        titleOne.text = MoreActions.favourites.label
         titleTwo.text = MoreActions.shareApp.label
         titleThree.text = MoreActions.clearCache.label
     }
@@ -63,9 +56,6 @@ class MoreTableViewController: UITableViewController {
         return MoreActions.allCases.count
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if MoreActions.allCases[indexPath.row] == .favourites {
-            navigationController?.pushVC(storyboard: .favourites, VCIdetifier: "FavouritesViewController", animated: true)
-        }
         if MoreActions.allCases[indexPath.row] == .shareApp {
             self.shareActivity(forURL: "https://google.com//")
         }

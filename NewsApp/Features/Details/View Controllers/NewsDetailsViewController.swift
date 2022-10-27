@@ -16,7 +16,6 @@ class NewsDetailsViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var leadParagraphLabel: UILabel!
     @IBOutlet weak var readMoreLabel: UILabel!
-    @IBOutlet weak var favouriteBtn: UIButton!
     @IBOutlet weak var shareBtn: UIButton!
     @IBOutlet weak var copyrightsLabel: UILabel!
     
@@ -55,9 +54,6 @@ class NewsDetailsViewController: UIViewController {
         readMoreLabel.textColor = theme.color.orangeLightColorEC8B3F
         readMoreLabel.font = theme.font.titleSixFont
         setUpReadMoreButton()
-        
-        favouriteBtn.tintColor = theme.color.grayLightColor9fa1a1
-        favouriteBtn.addTarget(self, action: #selector(favouriteTapped(withSender:)), for: .touchUpInside)
         
         shareBtn.tintColor = theme.color.grayLightColor9fa1a1
         shareBtn.addTarget(self, action: #selector(shareTapped(withSender:)), for: .touchUpInside)
@@ -108,29 +104,10 @@ class NewsDetailsViewController: UIViewController {
         readMoreLabel.addGestureRecognizer(tap)
     }
     
-    private func toggleFavourite(){
-        
-        var img = UIImage(systemName: "suit.heart.fill")
-        var color: UIColor = theme.color.orangeDarkColorEB652B
-        
-        if favouriteBtn.imageView?.image == UIImage(systemName: "suit.heart.fill") {
-            img = UIImage(systemName: "suit.heart")
-            color = theme.color.grayLightColor9fa1a1
-        }
-        
-        favouriteBtn.setImage(img, for: .normal)
-        favouriteBtn.tintColor = color
-    }
-    
     // MARK: - User Actions
     
     @objc func readMoreTapped(withSender sender: UITapGestureRecognizer) {
         openLink(forURL: news!.webURL)
-    }
-    
-    @objc func favouriteTapped(withSender sender: UIButton) {
-        Animator.animateButton(buttonToAnimate: sender)
-        toggleFavourite()
     }
     
     @objc func shareTapped(withSender sender: UIButton) {

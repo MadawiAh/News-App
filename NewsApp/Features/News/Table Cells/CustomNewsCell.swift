@@ -17,7 +17,6 @@ class CustomNewsCell: UITableViewCell {
     @IBOutlet weak var newsImage: UIImageView!
     @IBOutlet weak var newsTitle: UILabel!
     @IBOutlet weak var newsPublishTime: UILabel!
-    @IBOutlet weak var favouriteBtn: UIButton!
     @IBOutlet weak var shareBtn: UIButton!
     
     
@@ -48,7 +47,6 @@ class CustomNewsCell: UITableViewCell {
         newsPublishTime.textColor = theme.color.grayLightColor9fa1a1
         newsPublishTime.font = theme.font.titleSevenFont
         
-        favouriteBtn.tintColor = theme.color.grayLightColor9fa1a1
         shareBtn.tintColor = theme.color.grayLightColor9fa1a1
     }
     
@@ -70,29 +68,6 @@ class CustomNewsCell: UITableViewCell {
         newsImage.layer.cornerRadius = 10
         newsImage.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
     }
-
-    private func toggleFavourite(){
-        
-        var img = UIImage(systemName: "suit.heart.fill")
-        var color: UIColor = theme.color.orangeDarkColorEB652B
-        
-        if favouriteBtn.imageView?.image == UIImage(systemName: "suit.heart.fill") {
-            img = UIImage(systemName: "suit.heart")
-            color = theme.color.grayLightColor9fa1a1
-        }
-        
-        favouriteBtn.setImage(img, for: .normal)
-        favouriteBtn.tintColor = color
-        
-        favouriteBtn.imageView?.translatesAutoresizingMaskIntoConstraints = false
-        favouriteBtn.imageView?.widthAnchor.constraint(equalToConstant: 26).isActive = true
-        favouriteBtn.imageView?.heightAnchor.constraint(equalToConstant: 25).isActive = true
-    }
-    
-    private func resetFavouritesBtn(){
-        favouriteBtn.imageView?.image = UIImage(systemName: "suit.heart")
-        favouriteBtn.tintColor = theme.color.grayLightColor9fa1a1
-    }
     
     // MARK: - Public Helpers
     
@@ -100,7 +75,6 @@ class CustomNewsCell: UITableViewCell {
         shareTappedClosure = shareTapped
         newsTitle.text = news.headline.main
         newsPublishTime.text = "\(news.formatedDate) • \(news.timeToRead)"
-        resetFavouritesBtn()
         
         newsImage.isHidden = false
         if news.multimedia.isEmpty {
@@ -117,11 +91,6 @@ class CustomNewsCell: UITableViewCell {
     }
     
     // MARK: - User Actions
-    
-    @IBAction func favouriteTapped(_ sender: UIButton) {
-        Animator.animateButton(buttonToAnimate: sender)
-        toggleFavourite()
-    }
     
     @IBAction func shareTapped(_ sender: UIButton) {
         Animator.animateButton(buttonToAnimate: sender)

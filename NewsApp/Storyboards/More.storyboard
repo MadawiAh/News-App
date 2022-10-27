@@ -132,37 +132,8 @@
                         <sections>
                             <tableViewSection id="9ho-sX-Wqx">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="jbP-rZ-GAQ">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jbP-rZ-GAQ" id="aN6-qa-k45">
-                                            <rect key="frame" x="0.0" y="0.0" width="385.5" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Acc-C4-Rht">
-                                                    <rect key="frame" x="40" y="9.5" width="25" height="25"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="25" id="8uG-KT-TQg"/>
-                                                        <constraint firstAttribute="width" constant="25" id="Flg-uo-NU4"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title One" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJp-MY-Jze">
-                                                    <rect key="frame" x="90" y="11.5" width="69" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Acc-C4-Rht" firstAttribute="centerY" secondItem="aN6-qa-k45" secondAttribute="centerY" id="NcJ-ys-QjB"/>
-                                                <constraint firstItem="fJp-MY-Jze" firstAttribute="centerY" secondItem="aN6-qa-k45" secondAttribute="centerY" id="Ura-k5-LeX"/>
-                                                <constraint firstItem="fJp-MY-Jze" firstAttribute="leading" secondItem="Acc-C4-Rht" secondAttribute="trailing" constant="25" id="hZa-nB-96f"/>
-                                                <constraint firstItem="Acc-C4-Rht" firstAttribute="leading" secondItem="aN6-qa-k45" secondAttribute="leading" constant="40" id="l8R-7o-Bxs"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="MNo-DO-NFc">
-                                        <rect key="frame" x="0.0" y="88" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MNo-DO-NFc" id="9au-Wm-Xwn">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -191,7 +162,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="Hxo-i3-5jC">
-                                        <rect key="frame" x="0.0" y="131.5" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="88" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hxo-i3-5jC" id="OaN-kg-X3M">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -228,10 +199,8 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="imageOne" destination="Acc-C4-Rht" id="TZo-Ji-9M0"/>
                         <outlet property="imageThree" destination="SPC-tg-yDM" id="a4N-di-6T4"/>
                         <outlet property="imageTwo" destination="c3b-Nh-c15" id="dNp-Ef-wvC"/>
-                        <outlet property="titleOne" destination="fJp-MY-Jze" id="EQj-wN-3uI"/>
                         <outlet property="titleThree" destination="P3y-gI-gan" id="gQT-1m-JY2"/>
                         <outlet property="titleTwo" destination="z6E-XB-0uN" id="CMF-GU-XcK"/>
                     </connections>

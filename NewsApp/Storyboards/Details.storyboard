@@ -61,11 +61,11 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Pc7-qy-EkE">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Pc7-qy-EkE">
                                                         <rect key="frame" x="0.0" y="382.5" width="374" height="40"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gk9-O9-3xW">
-                                                                <rect key="frame" x="0.0" y="0.0" width="249.5" height="40"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="41.5" height="40"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="FGH-jK-hv3"/>
                                                                 </constraints>
@@ -81,21 +81,12 @@
                                                                 </attributedString>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15c-ng-7SW" userLabel="Favourite">
-                                                                <rect key="frame" x="249.5" y="0.0" width="62" height="40"/>
-                                                                <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="plain" image="suit.heart" catalog="system"/>
-                                                            </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eqa-4X-K5H" userLabel="Share">
-                                                                <rect key="frame" x="311.5" y="0.0" width="62.5" height="40"/>
+                                                                <rect key="frame" x="329.5" y="0.0" width="44.5" height="40"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" image="square.and.arrow.up" catalog="system"/>
                                                             </button>
                                                         </subviews>
-                                                        <constraints>
-                                                            <constraint firstItem="15c-ng-7SW" firstAttribute="width" secondItem="Eqa-4X-K5H" secondAttribute="width" id="HOu-b3-5za"/>
-                                                            <constraint firstItem="gk9-O9-3xW" firstAttribute="width" secondItem="15c-ng-7SW" secondAttribute="width" multiplier="4" id="KqQ-Cf-kux"/>
-                                                        </constraints>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gpd-sO-vF4" userLabel="Seperator">
                                                         <rect key="frame" x="0.0" y="432.5" width="374" height="0.5"/>
@@ -148,7 +139,6 @@
                         <outlet property="bylineLabel" destination="Oqb-uL-52p" id="JmJ-YW-LoB"/>
                         <outlet property="copyrightsLabel" destination="0Il-mn-pWW" id="Hm0-OF-Yi1"/>
                         <outlet property="dateLabel" destination="ms1-QD-Rgv" id="Vgy-46-sLE"/>
-                        <outlet property="favouriteBtn" destination="15c-ng-7SW" id="kwP-3P-Wnp"/>
                         <outlet property="headlineLabel" destination="yPw-ZG-Ncg" id="LFP-fu-fTb"/>
                         <outlet property="imageView" destination="Wwe-EK-mOT" id="lZW-Qm-6kp"/>
                         <outlet property="leadParagraphLabel" destination="gKR-8I-x5g" id="R58-N3-7Sl"/>
@@ -253,11 +243,11 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="neo-sI-HRx">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="neo-sI-HRx">
                                                         <rect key="frame" x="0.0" y="367" width="374" height="40"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Yb-xP-cZc">
-                                                                <rect key="frame" x="0.0" y="0.0" width="249.5" height="40"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="41.5" height="40"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="1sJ-SW-WLK"/>
                                                                 </constraints>
@@ -273,21 +263,15 @@
                                                                 </attributedString>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ha-be-ong" userLabel="Favourite">
-                                                                <rect key="frame" x="249.5" y="0.0" width="62" height="40"/>
-                                                                <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="plain" image="suit.heart" catalog="system"/>
-                                                            </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zLm-Yn-tGu" userLabel="Share">
-                                                                <rect key="frame" x="311.5" y="0.0" width="62.5" height="40"/>
+                                                                <rect key="frame" x="324" y="0.0" width="50" height="40"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="50" id="0YN-sr-loE"/>
+                                                                </constraints>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" image="square.and.arrow.up" catalog="system"/>
                                                             </button>
                                                         </subviews>
-                                                        <constraints>
-                                                            <constraint firstItem="0Yb-xP-cZc" firstAttribute="width" secondItem="7Ha-be-ong" secondAttribute="width" multiplier="4" id="GUQ-W7-PDF"/>
-                                                            <constraint firstItem="7Ha-be-ong" firstAttribute="width" secondItem="zLm-Yn-tGu" secondAttribute="width" id="JTO-AS-ssO"/>
-                                                        </constraints>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fcY-4z-7YJ" userLabel="Seperator">
                                                         <rect key="frame" x="0.0" y="420" width="374" height="0.5"/>
@@ -342,7 +326,6 @@
                         <outlet property="bylineLabel" destination="QpM-5J-Dy7" id="FDe-w7-s1o"/>
                         <outlet property="copyrightsLabel" destination="7rL-B0-XN0" id="l0Y-9T-pQD"/>
                         <outlet property="dateLabel" destination="O0K-vv-dVj" id="Hvm-s1-wJ2"/>
-                        <outlet property="favouriteBtn" destination="7Ha-be-ong" id="4Ez-P3-sUS"/>
                         <outlet property="headlineLabel" destination="EVj-z4-3g4" id="41Q-0J-0Ss"/>
                         <outlet property="imageView" destination="WZW-eG-PCJ" id="9Q2-YG-55A"/>
                         <outlet property="isCriticsPickLabel" destination="Vnt-7a-UgW" id="xDG-in-5S1"/>
@@ -750,7 +733,6 @@
         <image name="barcode" catalog="system" width="128" height="93"/>
         <image name="building.2" catalog="system" width="128" height="106"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
-        <image name="suit.heart" catalog="system" width="128" height="109"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

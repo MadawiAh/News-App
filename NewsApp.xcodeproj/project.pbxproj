@@ -65,8 +65,6 @@
 		71A9C2AD28FD9BE200AC66FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71A9C2AC28FD9BE200AC66FA /* Main.storyboard */; };
 		71A9C2AF28FD9C1C00AC66FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71A9C2AE28FD9C1C00AC66FA /* LaunchScreen.storyboard */; };
 		71B064B228FD79BE00539F48 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71B064B128FD79BE00539F48 /* Details.storyboard */; };
-		71B064B728FD802D00539F48 /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B064B628FD802D00539F48 /* FavouritesViewController.swift */; };
-		71B064BA28FD813300539F48 /* FavouriteSegments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B064B928FD813300539F48 /* FavouriteSegments.swift */; };
 		71B064BD28FD822B00539F48 /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B064BC28FD822A00539F48 /* CustomSegmentedControl.swift */; };
 		71B064C128FD86E800539F48 /* Favourites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71B064C028FD86E800539F48 /* Favourites.storyboard */; };
 		71B2307028CE9CDE006F4CEF /* CustomMoviesTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B2306E28CE9CDE006F4CEF /* CustomMoviesTableCell.swift */; };
@@ -147,8 +145,6 @@
 		71A9C2AC28FD9BE200AC66FA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		71A9C2AE28FD9C1C00AC66FA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		71B064B128FD79BE00539F48 /* Details.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Details.storyboard; sourceTree = "<group>"; };
-		71B064B628FD802D00539F48 /* FavouritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
-		71B064B928FD813300539F48 /* FavouriteSegments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteSegments.swift; sourceTree = "<group>"; };
 		71B064BC28FD822A00539F48 /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
 		71B064C028FD86E800539F48 /* Favourites.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Favourites.storyboard; sourceTree = "<group>"; };
 		71B2306E28CE9CDE006F4CEF /* CustomMoviesTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMoviesTableCell.swift; sourceTree = "<group>"; };
@@ -387,7 +383,6 @@
 				716425D128B746BA00F7DC85 /* Books */,
 				711E0CF228D071610014B831 /* Details */,
 				716425D228B746C500F7DC85 /* More */,
-				71E1231128D8554B007F2C03 /* Favourites */,
 				71651EB228AB95B2002263D3 /* Shared */,
 			);
 			path = Features;
@@ -591,22 +586,6 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		71B064B528FD7FF000539F48 /* View Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				71B064B628FD802D00539F48 /* FavouritesViewController.swift */,
-			);
-			path = "View Controllers";
-			sourceTree = "<group>";
-		};
-		71B064B828FD810300539F48 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				71B064B928FD813300539F48 /* FavouriteSegments.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		71B064BB28FD81F600539F48 /* Segmented Control */ = {
 			isa = PBXGroup;
 			children = (
@@ -673,15 +652,6 @@
 				71CF2BE628C76125006A0CB6 /* NetworkConnectivity.swift */,
 			);
 			path = "Network Calls";
-			sourceTree = "<group>";
-		};
-		71E1231128D8554B007F2C03 /* Favourites */ = {
-			isa = PBXGroup;
-			children = (
-				71B064B828FD810300539F48 /* Models */,
-				71B064B528FD7FF000539F48 /* View Controllers */,
-			);
-			path = Favourites;
 			sourceTree = "<group>";
 		};
 		71F60FEB28C8B4A7005EE13D /* Bottom Tab Bar */ = {
@@ -838,7 +808,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71B064B728FD802D00539F48 /* FavouritesViewController.swift in Sources */,
 				71651EB428ABCD99002263D3 /* MoreViewController.swift in Sources */,
 				7156F8BA29057771000C993D /* BooksDetailsViewController.swift in Sources */,
 				71F60FEA28C88428005EE13D /* APIService.swift in Sources */,
@@ -894,7 +863,6 @@
 				7156F89D28FED473000C993D /* BooksModel.swift in Sources */,
 				71651EAF28AB94FB002263D3 /* BooksViewController.swift in Sources */,
 				714C5B9328A0B6E500D0DD57 /* SceneDelegate.swift in Sources */,
-				71B064BA28FD813300539F48 /* FavouriteSegments.swift in Sources */,
 				71DE149F28D368B5008BF2B1 /* MoviesDetailsViewController.swift in Sources */,
 				714C5BA928A0B82400D0DD57 /* NewsViewController.swift in Sources */,
 			);
@@ -1025,6 +993,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y8Q34XAWTV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NewsApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Daily News";
@@ -1057,6 +1026,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y8Q34XAWTV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NewsApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Daily News";
