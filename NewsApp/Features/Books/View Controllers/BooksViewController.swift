@@ -37,6 +37,12 @@ class BooksViewController: UIViewController {
         fetchBookLists()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        refreshControl.endRefreshing()
+    }
+    
     // MARK: - Private Helpers
     
     private func setUpTableView() {
