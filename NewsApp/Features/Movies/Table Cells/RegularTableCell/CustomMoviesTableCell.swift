@@ -34,17 +34,17 @@ class CustomMoviesTableCell: UITableViewCell {
         poster.layer.cornerRadius = 5
         poster.image = UIImage(named: "poster-placeholder.png")
         
-        titleLabel.font = theme.font.titleFourFont
+        titleLabel.font = theme.font.titleFifeFont
         titleLabel.textColor = theme.color.grayMediumColor546062
         
         summaryLabel.font = theme.font.bodyFifeFont
         summaryLabel.textColor = theme.color.grayLightColor9fa1a1
         
-        bylineLabel.font = theme.font.titleSevenFont
-        bylineLabel.textColor = theme.color.grayLightColor9fa1a1
+        bylineLabel.font = theme.font.titleEightFont
+        bylineLabel.textColor = theme.color.grayBluishColor80A2A9
        
-        isCriticsPickLabel.font = theme.font.titleSevenFont
-        isCriticsPickLabel.textColor = theme.color.orangeDarkColorEB652B.withAlphaComponent(0.8)
+        isCriticsPickLabel.font = theme.font.titleEightFont
+        isCriticsPickLabel.textColor = theme.color.orangeDarkColorEB652B.withAlphaComponent(0.65)
     }
 
     private func setUpIsCriticPrickLabel() {
@@ -52,7 +52,7 @@ class CustomMoviesTableCell: UITableViewCell {
         let templateString = NSMutableAttributedString(string:"")
         
         let imageAttachment = NSTextAttachment()
-        imageAttachment.image = UIImage(systemName: "star.fill")!.withTintColor(theme.color.orangeDarkColorEB652B.withAlphaComponent(0.8))
+        imageAttachment.image = UIImage(systemName: "star.fill")!.withTintColor(theme.color.orangeDarkColorEB652B.withAlphaComponent(0.65))
         imageAttachment.bounds = CGRect(x: 0, y: -1, width: 10, height: 10)
         
         let imageString = NSAttributedString(attachment: imageAttachment)

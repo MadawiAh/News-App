@@ -85,6 +85,18 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         logInBtn.isEnabled = true
     }
     
+    // MARK: - Public Helpers
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailField {
+            textField.resignFirstResponder()
+            passwordField.becomeFirstResponder()
+        } else if textField == passwordField {
+            passwordField.resignFirstResponder()
+        }
+        return true
+    }
+    
     // MARK: - User Actions
     
     @IBAction func backTapped(_ sender: Any) {
@@ -135,19 +147,19 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    @IBAction func fieldDidChange(_ sender: UITextField) {
+        let field = sender.tag
+        switch field {
+        case 0:
+            emailErrorLable.isHidden = true
+        default:
+            passwordErrorLable.isHidden = true
+        }
+    }
+    
     @IBAction func signUpTapped(_ sender: Any) {
         guard let navigationVC = self.navigationController else { return }
         navigationVC.popViewController(animated: false)
         navigationVC.pushVC(storyboard: .main, VCIdetifier: "SignUpViewController", animated: false)
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == emailField {
-            textField.resignFirstResponder()
-            passwordField.becomeFirstResponder()
-        } else if textField == passwordField {
-            passwordField.resignFirstResponder()
-        }
-        return true
     }
 }

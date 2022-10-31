@@ -15,20 +15,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Reviews" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBC-Qv-l8o">
-                                <rect key="frame" x="120" y="430.5" width="174" height="35"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="rSu-Tk-LaY">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="D6w-6M-8cx"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="hBC-Qv-l8o" firstAttribute="centerY" secondItem="c6H-9Y-PAe" secondAttribute="centerY" id="T2F-Es-lgm"/>
-                            <constraint firstItem="hBC-Qv-l8o" firstAttribute="centerX" secondItem="c6H-9Y-PAe" secondAttribute="centerX" id="TiO-fW-pcc"/>
+                            <constraint firstItem="rSu-Tk-LaY" firstAttribute="top" secondItem="D6w-6M-8cx" secondAttribute="top" id="FzK-tB-znU"/>
+                            <constraint firstItem="D6w-6M-8cx" firstAttribute="trailing" secondItem="rSu-Tk-LaY" secondAttribute="trailing" id="IZJ-4g-1vj"/>
+                            <constraint firstItem="D6w-6M-8cx" firstAttribute="bottom" secondItem="rSu-Tk-LaY" secondAttribute="bottom" id="Iyu-Re-oi6"/>
+                            <constraint firstItem="rSu-Tk-LaY" firstAttribute="leading" secondItem="D6w-6M-8cx" secondAttribute="leading" id="b9E-bU-CRh"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="rSu-Tk-LaY" id="paL-Gb-LFV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1uf-hn-ClO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

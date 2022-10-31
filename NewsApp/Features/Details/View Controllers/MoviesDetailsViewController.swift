@@ -36,26 +36,26 @@ class MoviesDetailsViewController: UIViewController {
     
     private func styleElements() {
         
-        dateLabel.font = theme.font.titleFifeFont
+        dateLabel.font = theme.font.titleSixFont
         dateLabel.textColor = theme.color.grayLightColor9fa1a1
         
-        isCriticsPickLabel.font = theme.font.titleSixFont
+        isCriticsPickLabel.font = theme.font.titleSevenFont
         isCriticsPickLabel.textColor = theme.color.orangeDarkColorEB652B.withAlphaComponent(0.8)
         
         headlineLabel.font = theme.font.titleTwoFont
         headlineLabel.textColor = theme.color.grayDarkColor343B3C
         
-        bylineLabel.font = theme.font.titleFifeFont
-        bylineLabel.textColor = theme.color.grayLightColor9fa1a1
+        bylineLabel.font = theme.font.titleSixFont
+        bylineLabel.textColor = theme.color.grayBluishColor80A2A9
         
-        summaryLabel.font = theme.font.titleFourFont
+        summaryLabel.font = theme.font.titleFifeFont
         summaryLabel.textColor = theme.color.grayMediumColor546062
         
-        copyrightsLabel.font = theme.font.titleSevenFont
+        copyrightsLabel.font = theme.font.titleEightFont
         copyrightsLabel.textColor = theme.color.grayLightColor9fa1a1.withAlphaComponent(0.7)
         
         readMoreLabel.textColor = theme.color.orangeLightColorEC8B3F
-        readMoreLabel.font = theme.font.titleFifeFont
+        readMoreLabel.font = theme.font.titleSixFont
         setUpReadMoreButton()
         
         favouriteBtn.tintColor = theme.color.grayLightColor9fa1a1
@@ -70,7 +70,7 @@ class MoviesDetailsViewController: UIViewController {
         mpaaRatingView.layer.cornerRadius = 10
         mpaaRatingView.backgroundColor = UIColor.white.withAlphaComponent(0.8)
         
-        mpaaRatingLabel.font = theme.font.titleFifeFont
+        mpaaRatingLabel.font = theme.font.titleSixFont
         mpaaRatingLabel.textColor = UIColor.black
     }
     

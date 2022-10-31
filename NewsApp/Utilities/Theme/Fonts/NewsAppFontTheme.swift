@@ -22,7 +22,7 @@ struct NewsAppFontTheme: FontTheme {
     // MARK: Lable
     
     var sloganFont: UIFont {
-        return UIFont(name: "Sinhala Sangam MN", size: 35)!
+        return UIFont(name: "Sinhala Sangam MN", size: 27)!
     }
     
     var errorFont: UIFont {
@@ -38,22 +38,26 @@ struct NewsAppFontTheme: FontTheme {
     }
     
     var titleThreeFont: UIFont {
-        return UIFont.systemFont(ofSize: 16, weight: .bold)
+        return UIFont.systemFont(ofSize: 20, weight: .semibold)
     }
     
     var titleFourFont: UIFont {
-        return UIFont.systemFont(ofSize: 16, weight: .medium)
+        return UIFont.systemFont(ofSize: 16, weight: .bold)
     }
     
     var titleFifeFont: UIFont {
-        return UIFont.systemFont(ofSize: 14, weight: .medium)
+        return UIFont.systemFont(ofSize: 16, weight: .medium)
     }
     
     var titleSixFont: UIFont {
-        return UIFont.systemFont(ofSize: 12, weight: .medium)
+        return UIFont.systemFont(ofSize: 14, weight: .medium)
     }
     
     var titleSevenFont: UIFont {
+        return UIFont.systemFont(ofSize: 12, weight: .medium)
+    }
+    
+    var titleEightFont: UIFont {
         return UIFont.systemFont(ofSize: 10, weight: .medium)
     }
     

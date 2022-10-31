@@ -37,7 +37,7 @@ class MoreViewController: UIViewController{
         styleNavBar()
 
         emailLabel.textColor = theme.color.grayMediumColor546062
-        emailLabel.font = theme.font.titleThreeFont
+        emailLabel.font = theme.font.titleFourFont
         
         theme.styleSecondaryButton(logOut)
         logOut.backgroundColor = theme.color.grayLightColor9fa1a1.withAlphaComponent(0.2)
@@ -107,7 +107,7 @@ extension MoreViewController: UIImagePickerControllerDelegate & UINavigationCont
     
     func openCamera() {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera){
-            imagePicker.allowsEditing = false
+            imagePicker.allowsEditing = true
             imagePicker.sourceType = UIImagePickerController.SourceType.camera
             self.present(imagePicker, animated: true, completion: nil)
         } else {

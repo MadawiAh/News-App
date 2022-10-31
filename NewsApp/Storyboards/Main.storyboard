@@ -19,26 +19,6 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.65000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="news" translatesAutoresizingMaskIntoConstraints="NO" id="SGa-nj-y3l" userLabel="Background Img">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Sep-ic-q7Z" userLabel="Slogan Stack">
-                                <rect key="frame" x="47" y="367.5" width="320" height="99"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where journalism" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i2f-OQ-1VM" userLabel="Slogan 1">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="47"/>
-                                        <fontDescription key="fontDescription" name="SinhalaSangamMN" family="Sinhala Sangam MN" pointSize="35"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="has integrity" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ca-Ih-LEU" userLabel="Slogan 2">
-                                        <rect key="frame" x="0.0" y="52" width="320" height="47"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="320" id="mvs-3K-6wo"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="SinhalaSangamMN" family="Sinhala Sangam MN" pointSize="35"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="k1c-nx-MnL" userLabel="Buttons Stack">
                                 <rect key="frame" x="25" y="668" width="364" height="134"/>
                                 <subviews>
@@ -75,6 +55,33 @@
                                     <constraint firstItem="PAD-gQ-1tb" firstAttribute="height" secondItem="W58-PK-IdF" secondAttribute="height" id="Qpe-Hq-WB9"/>
                                 </constraints>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="full-logo" translatesAutoresizingMaskIntoConstraints="NO" id="AZC-YE-zJj">
+                                <rect key="frame" x="87" y="234" width="240" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="Kao-aE-8h6"/>
+                                    <constraint firstAttribute="width" secondItem="AZC-YE-zJj" secondAttribute="height" multiplier="8:5" id="zof-30-DqF"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Sep-ic-q7Z" userLabel="Slogan Stack">
+                                <rect key="frame" x="77" y="419" width="260" height="78"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where journalism" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i2f-OQ-1VM" userLabel="Slogan 1">
+                                        <rect key="frame" x="0.0" y="0.0" width="260" height="36.5"/>
+                                        <fontDescription key="fontDescription" name="SinhalaSangamMN" family="Sinhala Sangam MN" pointSize="27"/>
+                                        <color key="textColor" white="1" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" has integrity" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ca-Ih-LEU" userLabel="Slogan 2">
+                                        <rect key="frame" x="0.0" y="41.5" width="260" height="36.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="260" id="mvs-3K-6wo"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SinhalaSangamMN" family="Sinhala Sangam MN" pointSize="27"/>
+                                        <color key="textColor" white="1" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -83,11 +90,13 @@
                             <constraint firstItem="SGa-nj-y3l" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="9zk-4F-uyM"/>
                             <constraint firstItem="k1c-nx-MnL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="GYU-uh-nf7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="k1c-nx-MnL" secondAttribute="trailing" constant="25" id="HMR-Rk-tMB"/>
-                            <constraint firstItem="Sep-ic-q7Z" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-31" id="Maf-x4-IwP"/>
+                            <constraint firstItem="Sep-ic-q7Z" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="10" id="Maf-x4-IwP"/>
+                            <constraint firstItem="Sep-ic-q7Z" firstAttribute="top" secondItem="AZC-YE-zJj" secondAttribute="bottom" constant="35" id="P18-MC-eh0"/>
                             <constraint firstAttribute="bottom" secondItem="SGa-nj-y3l" secondAttribute="bottom" id="PN3-Yq-ih0"/>
                             <constraint firstItem="SGa-nj-y3l" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="fgN-Ij-Pc1"/>
                             <constraint firstItem="Sep-ic-q7Z" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jnR-FF-NOI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="k1c-nx-MnL" secondAttribute="bottom" constant="60" id="q1G-0E-sbK"/>
+                            <constraint firstItem="AZC-YE-zJj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wlq-1U-MoV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="BBW-Ov-9IW"/>
@@ -142,6 +151,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="full-logo" width="158" height="98.5"/>
         <image name="news" width="124" height="124"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

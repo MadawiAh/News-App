@@ -37,6 +37,12 @@ class NewsViewController: UIViewController{
         fetchNewsData()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        refreshControl.endRefreshing()
+    }
+    
     // MARK: - Private Helpers
     
     private func setUpTableView() {
@@ -88,7 +94,7 @@ class NewsViewController: UIViewController{
         let emptyLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
         emptyLabel.numberOfLines = 2
         emptyLabel.textAlignment = NSTextAlignment.center
-        emptyLabel.font = theme.font.titleFifeFont
+        emptyLabel.font = theme.font.titleSixFont
         emptyLabel.textColor = theme.color.grayLightColor9fa1a1
         emptyLabel.text = "Oops there are no news! \n Swipe down to refresh"
         

@@ -11,11 +11,15 @@ class Validator {
     
     static func validateEmail(_ email: String) -> String?{
         
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,7}"
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         
         if email.isEmpty {
             return "Field required"
+        }
+        
+        if email.count > 60 {
+            return "Invalid Email Address"
         }
         
         if !emailPred.evaluate(with: email){
@@ -43,6 +47,14 @@ class Validator {
         }
         if password.range(of: #"\s+"#, options: .regularExpression) != nil {
             return "Avoid using whitespace"
+        }
+        return nil
+    }
+    
+    static func validateRepeatPassword(_ password: String) -> String?{
+
+        if password.isEmpty {
+            return "Field required"
         }
         return nil
     }

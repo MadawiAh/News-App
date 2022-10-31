@@ -1,5 +1,5 @@
 //
-//  CustomCollectionViewCell.swift
+//  MovieInnerCollectionCell.swift
 //  NewsApp
 //
 //  Created by Madawi Ahmed on 12/02/1444 AH.
@@ -7,10 +7,9 @@
 
 import UIKit
 
-
-class InnerCollectionViewCell: UICollectionViewCell {
+class MovieInnerCollectionCell: UICollectionViewCell {
     
-    static let nibName = "InnerCollectionViewCell"
+    static let nibName = "MovieInnerCollectionCell"
     
     @IBOutlet weak var cellContainer: UIView!
     @IBOutlet weak var poster: UIImageView!
@@ -36,7 +35,7 @@ class InnerCollectionViewCell: UICollectionViewCell {
         mpaaRatingView.layer.cornerRadius = 5
         mpaaRatingView.backgroundColor = UIColor.white.withAlphaComponent(0.8)
         
-        mpaaRatingLabel.font = theme.font.titleSixFont
+        mpaaRatingLabel.font = theme.font.titleSevenFont
         mpaaRatingLabel.textColor = UIColor.black
         
         cellContainer.layer.cornerRadius = 10
@@ -45,10 +44,10 @@ class InnerCollectionViewCell: UICollectionViewCell {
         cellContainer.layer.borderColor = theme.color.grayBrightColorf9f9f9.cgColor
         cellContainer.layer.masksToBounds = true
         
-        titleLabel.font = theme.font.titleFifeFont
+        titleLabel.font = theme.font.titleSixFont
         titleLabel.textColor = theme.color.grayMediumColor546062
         
-        bylineLabel.font = theme.font.titleSevenFont
+        bylineLabel.font = theme.font.titleEightFont
         bylineLabel.textColor = theme.color.grayLightColor9fa1a1
     }
     

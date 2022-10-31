@@ -47,6 +47,7 @@
                                                         <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="email"/>
                                                         <connections>
                                                             <action selector="emailChanged:" destination="TIt-cq-chC" eventType="editingDidEnd" id="kPK-Z9-alK"/>
+                                                            <action selector="fieldDidChange:" destination="TIt-cq-chC" eventType="editingChanged" id="Zyg-B9-ADa"/>
                                                             <outlet property="delegate" destination="TIt-cq-chC" id="Fwz-ND-B5g"/>
                                                         </connections>
                                                     </textField>
@@ -70,7 +71,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="li1-PK-bh7" userLabel="Password Group">
                                                 <rect key="frame" x="0.0" y="190" width="364" height="80"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ctf-MH-zeY">
+                                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ctf-MH-zeY">
                                                         <rect key="frame" x="0.0" y="15" width="364" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="d6L-BQ-Pg2"/>
@@ -78,6 +79,7 @@
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                         <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES" textContentType="password"/>
                                                         <connections>
+                                                            <action selector="fieldDidChange:" destination="TIt-cq-chC" eventType="editingChanged" id="bs1-bx-M4J"/>
                                                             <action selector="passwordChanged:" destination="TIt-cq-chC" eventType="editingDidEnd" id="hIz-Jd-eXs"/>
                                                             <outlet property="delegate" destination="TIt-cq-chC" id="Dct-GR-Zwc"/>
                                                         </connections>
@@ -102,7 +104,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="11v-oy-pRU" userLabel="Re-Password Group">
                                                 <rect key="frame" x="0.0" y="295" width="364" height="80"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repeat password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="OJ3-hv-Uv0" userLabel="Re-Password">
+                                                    <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repeat password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="OJ3-hv-Uv0" userLabel="Re-Password">
                                                         <rect key="frame" x="0.0" y="15" width="364" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="2NO-9u-75s"/>
@@ -110,6 +112,7 @@
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                         <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
                                                         <connections>
+                                                            <action selector="fieldDidChange:" destination="TIt-cq-chC" eventType="editingChanged" id="4X4-6h-goJ"/>
                                                             <action selector="repeatPasswordChanged:" destination="TIt-cq-chC" eventType="editingDidEnd" id="pZY-yf-YgD"/>
                                                             <outlet property="delegate" destination="TIt-cq-chC" id="Td0-45-P7v"/>
                                                         </connections>
@@ -290,6 +293,7 @@
                                                         <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="email"/>
                                                         <connections>
                                                             <action selector="emailChanged:" destination="Wgo-8W-EZn" eventType="editingDidEnd" id="7VE-6H-kMj"/>
+                                                            <action selector="fieldDidChange:" destination="Wgo-8W-EZn" eventType="editingChanged" id="NAT-4F-0vd"/>
                                                             <outlet property="delegate" destination="Wgo-8W-EZn" id="b4K-B9-7va"/>
                                                         </connections>
                                                     </textField>
@@ -313,7 +317,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yeq-7b-GGN" userLabel="Password Group">
                                                 <rect key="frame" x="0.0" y="190" width="364" height="80"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="MiD-Mx-lng">
+                                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="MiD-Mx-lng">
                                                         <rect key="frame" x="0.0" y="15" width="364" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="USv-dO-bbM"/>
@@ -321,6 +325,7 @@
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                         <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
                                                         <connections>
+                                                            <action selector="fieldDidChange:" destination="Wgo-8W-EZn" eventType="editingChanged" id="PAX-Fm-acy"/>
                                                             <action selector="passwordChanged:" destination="Wgo-8W-EZn" eventType="editingDidEnd" id="ueg-cB-TLb"/>
                                                             <outlet property="delegate" destination="Wgo-8W-EZn" id="mBa-E3-cSf"/>
                                                         </connections>

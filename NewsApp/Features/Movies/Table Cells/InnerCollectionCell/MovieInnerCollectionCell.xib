@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="InnerCollectionViewCell" id="gTV-IL-0wX" customClass="InnerCollectionViewCell" customModule="NewsApp" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="gTV-IL-0wX" customClass="MovieInnerCollectionCell" customModule="NewsApp" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="200" height="181"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="200" height="179"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9lh-t6-lIp">
-                                <rect key="frame" x="0.0" y="0.0" width="200" height="128"/>
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="126"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1pA-Zo-faw" userLabel="mpaa rating">
                                 <rect key="frame" x="163.5" y="10" width="26.5" height="30.5"/>
@@ -42,7 +42,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gIx-vl-SeB">
-                                <rect key="frame" x="5" y="129" width="193" height="45"/>
+                                <rect key="frame" x="5" y="127" width="193" height="45"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8W1-16-i3B" userLabel="Title">
                                         <rect key="frame" x="0.0" y="0.0" width="193" height="30"/>
@@ -74,7 +74,7 @@
                             <constraint firstAttribute="trailing" secondItem="gIx-vl-SeB" secondAttribute="trailing" constant="2" id="VM4-20-f0H"/>
                             <constraint firstItem="gIx-vl-SeB" firstAttribute="leading" secondItem="kvN-Wx-JDS" secondAttribute="leading" constant="5" id="XvN-8L-4p0"/>
                             <constraint firstItem="9lh-t6-lIp" firstAttribute="top" secondItem="kvN-Wx-JDS" secondAttribute="top" id="j1G-vX-Vxw"/>
-                            <constraint firstAttribute="bottom" secondItem="gIx-vl-SeB" secondAttribute="bottom" constant="5" id="vGW-Lg-XTd"/>
+                            <constraint firstAttribute="bottom" secondItem="gIx-vl-SeB" secondAttribute="bottom" constant="7" id="vGW-Lg-XTd"/>
                             <constraint firstAttribute="trailing" secondItem="1pA-Zo-faw" secondAttribute="trailing" constant="10" id="z1N-Az-sCu"/>
                         </constraints>
                     </view>
