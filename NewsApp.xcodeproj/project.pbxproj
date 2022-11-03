@@ -74,6 +74,9 @@
 		71B2307428CEA438006F4CEF /* MoviesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B2307328CEA438006F4CEF /* MoviesModel.swift */; };
 		71B2307728CEA896006F4CEF /* MoviesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B2307628CEA896006F4CEF /* MoviesController.swift */; };
 		71B2307928CF5AF9006F4CEF /* NewsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B2307828CF5AF9006F4CEF /* NewsDetailsViewController.swift */; };
+		71B637CA29129C3B00B0633F /* 629-empty-box.json in Resources */ = {isa = PBXBuildFile; fileRef = 71B637C929129C3B00B0633F /* 629-empty-box.json */; };
+		71B637CD2912A0CB00B0633F /* EmptyListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71B637CC2912A0CB00B0633F /* EmptyListView.xib */; };
+		71B637CF2912A3AD00B0633F /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B637CE2912A3AD00B0633F /* EmptyListView.swift */; };
 		71BD1C7828B2526500941978 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BD1C7728B2526500941978 /* NewsModel.swift */; };
 		71CF2BE328C74CE4006A0CB6 /* APIErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CF2BE228C74CE4006A0CB6 /* APIErrors.swift */; };
 		71CF2BE728C76125006A0CB6 /* NetworkConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CF2BE628C76125006A0CB6 /* NetworkConnectivity.swift */; };
@@ -156,6 +159,9 @@
 		71B2307328CEA438006F4CEF /* MoviesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesModel.swift; sourceTree = "<group>"; };
 		71B2307628CEA896006F4CEF /* MoviesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesController.swift; sourceTree = "<group>"; };
 		71B2307828CF5AF9006F4CEF /* NewsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsViewController.swift; sourceTree = "<group>"; };
+		71B637C929129C3B00B0633F /* 629-empty-box.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "629-empty-box.json"; sourceTree = "<group>"; };
+		71B637CC2912A0CB00B0633F /* EmptyListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyListView.xib; sourceTree = "<group>"; };
+		71B637CE2912A3AD00B0633F /* EmptyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListView.swift; sourceTree = "<group>"; };
 		71BD1C7728B2526500941978 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		71CF2BE228C74CE4006A0CB6 /* APIErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrors.swift; sourceTree = "<group>"; };
 		71CF2BE628C76125006A0CB6 /* NetworkConnectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConnectivity.swift; sourceTree = "<group>"; };
@@ -534,6 +540,7 @@
 		71651EB228AB95B2002263D3 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				71B637CB2912A09F00B0633F /* Custom Views */,
 				71B064BB28FD81F600539F48 /* Segmented Control */,
 				71CF2BEB28C78A2C006A0CB6 /* Network Calls */,
 				71F60FEB28C8B4A7005EE13D /* Bottom Tab Bar */,
@@ -641,6 +648,23 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		71B637C829129C2800B0633F /* Json Animation */ = {
+			isa = PBXGroup;
+			children = (
+				71B637C929129C3B00B0633F /* 629-empty-box.json */,
+			);
+			path = "Json Animation";
+			sourceTree = "<group>";
+		};
+		71B637CB2912A09F00B0633F /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				71B637CC2912A0CB00B0633F /* EmptyListView.xib */,
+				71B637CE2912A3AD00B0633F /* EmptyListView.swift */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
 		71CF2BE828C78966006A0CB6 /* Error */ = {
 			isa = PBXGroup;
 			children = (
@@ -660,6 +684,7 @@
 		71CF2BEA28C789A0006A0CB6 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
+				71B637C829129C2800B0633F /* Json Animation */,
 				718A519828B4FA5D000ABB6B /* Animator.swift */,
 			);
 			path = Animation;
@@ -776,6 +801,7 @@
 				716425C828B742C800F7DC85 /* News.storyboard in Resources */,
 				711D645F28CA24DA0094284A /* MovieCollectionTableCell.xib in Resources */,
 				71A9C2AD28FD9BE200AC66FA /* Main.storyboard in Resources */,
+				71B637CA29129C3B00B0633F /* 629-empty-box.json in Resources */,
 				71A9C2AB28FD9AFE00AC66FA /* Auth.storyboard in Resources */,
 				716425DA28B747E300F7DC85 /* Movies.storyboard in Resources */,
 				7156F8A428FFDA80000C993D /* BookCollectionTableCell.xib in Resources */,
@@ -783,6 +809,7 @@
 				71B064C128FD86E800539F48 /* Favourites.storyboard in Resources */,
 				716425DC28B7481B00F7DC85 /* Books.storyboard in Resources */,
 				711D646428CA27360094284A /* MovieInnerCollectionCell.xib in Resources */,
+				71B637CD2912A0CB00B0633F /* EmptyListView.xib in Resources */,
 				719F2E6528B662A70042A74C /* CustomNewsCell.xib in Resources */,
 				7156F8AA28FFDE3C000C993D /* BookInnerCollectionCell.xib in Resources */,
 				7156F8B029013485000C993D /* BookUpperCollectionCell.xib in Resources */,
@@ -878,6 +905,7 @@
 				7156F8AC28FFE665000C993D /* BookInnerCollectionCell.swift in Sources */,
 				71651EAD28AB94E0002263D3 /* MoviesViewController.swift in Sources */,
 				71B2307928CF5AF9006F4CEF /* NewsDetailsViewController.swift in Sources */,
+				71B637CF2912A3AD00B0633F /* EmptyListView.swift in Sources */,
 				7156F8BC29058339000C993D /* UIColor+Extensions.swift in Sources */,
 				711D646328CA27360094284A /* MovieInnerCollectionCell.swift in Sources */,
 				71651EAB28AA6324002263D3 /* NewsAppTheme.swift in Sources */,

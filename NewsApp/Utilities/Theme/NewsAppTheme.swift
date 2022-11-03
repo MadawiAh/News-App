@@ -84,6 +84,7 @@ struct NewsAppTheme: AppTheme {
         SVProgressHUD.setDefaultStyle(.custom)
         SVProgressHUD.setDefaultMaskType(.custom)
         SVProgressHUD.setMaximumDismissTimeInterval(2.5)
+        SVProgressHUD.setForegroundColor(UIColor.black.withAlphaComponent(0.8))
         SVProgressHUD.setBackgroundLayerColor(UIColor.black.withAlphaComponent(0.13))
         SVProgressHUD.setBackgroundColor(UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1.0))
     }  

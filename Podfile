@@ -11,5 +11,6 @@ target 'NewsApp' do
   pod 'Kingfisher', '~> 7.0'
   pod 'SVProgressHUD'
   pod 'lottie-ios'
+  pod 'FLAnimatedImage'
 
 end
