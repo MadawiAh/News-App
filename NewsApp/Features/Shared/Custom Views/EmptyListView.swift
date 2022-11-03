@@ -42,7 +42,7 @@ class EmptyListView: UIView {
         messageLabel.textColor = theme.color.grayLightColor9fa1a1.withAlphaComponent(0.6)
         messageLabel.text = message
         
-        animationView.loopMode = .repeat(2)
+        animationView.loopMode = .repeat(1)
         DispatchQueue.main.asyncAfter(deadline: .now()+1){
             self.animationView.play()
         }

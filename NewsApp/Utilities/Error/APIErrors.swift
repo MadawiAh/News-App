@@ -37,7 +37,7 @@ enum APIErrors: Error {
             
         case .error(let description , let code):
             print("\nDescription:" + description + "\nCode\(String(describing: code))")
-            return  "Oops we ran into an error, please try again later"
+            return  "Oops we ran into an error \n please try again later"
         }
     }
 }
