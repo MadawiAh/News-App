@@ -56,7 +56,7 @@
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="full-logo" translatesAutoresizingMaskIntoConstraints="NO" id="AZC-YE-zJj">
-                                <rect key="frame" x="87" y="234" width="240" height="150"/>
+                                <rect key="frame" x="87" y="249" width="240" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="Kao-aE-8h6"/>
                                     <constraint firstAttribute="width" secondItem="AZC-YE-zJj" secondAttribute="height" multiplier="8:5" id="zof-30-DqF"/>
@@ -91,7 +91,7 @@
                             <constraint firstItem="k1c-nx-MnL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="GYU-uh-nf7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="k1c-nx-MnL" secondAttribute="trailing" constant="25" id="HMR-Rk-tMB"/>
                             <constraint firstItem="Sep-ic-q7Z" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="10" id="Maf-x4-IwP"/>
-                            <constraint firstItem="Sep-ic-q7Z" firstAttribute="top" secondItem="AZC-YE-zJj" secondAttribute="bottom" constant="35" id="P18-MC-eh0"/>
+                            <constraint firstItem="Sep-ic-q7Z" firstAttribute="top" secondItem="AZC-YE-zJj" secondAttribute="bottom" constant="20" id="P18-MC-eh0"/>
                             <constraint firstAttribute="bottom" secondItem="SGa-nj-y3l" secondAttribute="bottom" id="PN3-Yq-ih0"/>
                             <constraint firstItem="SGa-nj-y3l" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="fgN-Ij-Pc1"/>
                             <constraint firstItem="Sep-ic-q7Z" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jnR-FF-NOI"/>

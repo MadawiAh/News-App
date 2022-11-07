@@ -1,28 +1,36 @@
 PODS:
   - Alamofire (5.6.2)
+  - FLAnimatedImage (1.0.17)
   - IQKeyboardManagerSwift (6.5.10)
   - Kingfisher (7.3.2)
+  - lottie-ios (3.5.0)
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
   - Alamofire (~> 5.0)
+  - FLAnimatedImage
   - IQKeyboardManagerSwift
   - Kingfisher (~> 7.0)
+  - lottie-ios
   - SVProgressHUD
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - FLAnimatedImage
     - IQKeyboardManagerSwift
     - Kingfisher
+    - lottie-ios
     - SVProgressHUD
 
 SPEC CHECKSUMS:
   Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
+  FLAnimatedImage: bbf914596368867157cc71b38a8ec834b3eeb32b
   IQKeyboardManagerSwift: 52962c76ab33532f15ad9f3ff4e5715eda5335bb
   Kingfisher: 0086ad83719761ba9b2cdaf6ef4d5b4878cbae23
+  lottie-ios: c55158d67d0629a260625cc2ded2052b829e3c3e
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 213a5f0d4dfd47e1555e7ded18e8d56dbd450e50
+PODFILE CHECKSUM: 04a0089e6f33d3670ebcd88d7dfb4bbfe62f0c0b
 
 COCOAPODS: 1.11.3

@@ -79,15 +79,9 @@ class MoviesViewController: UIViewController {
     }
     
     private func setUpEmptyListLable() {
-        
-        let emptyLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
-        emptyLabel.numberOfLines = 2
-        emptyLabel.textAlignment = NSTextAlignment.center
-        emptyLabel.font = theme.font.titleSixFont
-        emptyLabel.textColor = theme.color.grayLightColor9fa1a1
-        emptyLabel.text = "Oops there are no reviews! \n Swipe down to refresh"
-        
-        self.tableView.backgroundView = emptyLabel
+        let emptyListView = EmptyListView()
+        emptyListView.configure(message: "Oops there are no reviews! \n Swipe down to refresh")
+        tableView.backgroundView = emptyListView
         self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
     }
     
