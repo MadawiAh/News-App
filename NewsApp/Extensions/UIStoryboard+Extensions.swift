@@ -40,4 +40,8 @@ extension UIStoryboard {
     static var favourites: UIStoryboard {
         return UIStoryboard(name: "Favourites", bundle: nil)
     }
+    
+    static var aboutUs: UIStoryboard {
+        return UIStoryboard(name: "AboutUs", bundle: nil)
+    }
 }

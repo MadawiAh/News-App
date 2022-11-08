@@ -9,17 +9,20 @@ import UIKit
 enum MoreActions: CaseIterable {
     
     case favourites
-    case shareApp
     case clearCache
+    case aboutUs
+    case shareApp
     
-    var image: UIImage {
+    var image: UIImage? {
         switch self {
         case .favourites:
-            return UIImage(systemName: "heart.fill")!
-        case .shareApp:
-            return UIImage(systemName: "square.and.arrow.up")!
+            return UIImage(systemName: "heart.fill")
         case .clearCache:
-            return UIImage(systemName: "trash")!
+            return UIImage(systemName: "trash")
+        case .aboutUs:
+            return UIImage(systemName: "questionmark.app.dashed")
+        case .shareApp:
+            return UIImage(systemName: "square.and.arrow.up")
         }
     }
     
@@ -27,10 +30,12 @@ enum MoreActions: CaseIterable {
         switch self {
         case .favourites:
             return "Favourites"
-        case .shareApp:
-            return "Share Daily News App"
         case .clearCache:
             return "Clear Cache"
+        case .aboutUs:
+            return "About Us"
+        case .shareApp:
+            return "Share Daily News"
         }
     }
 }
