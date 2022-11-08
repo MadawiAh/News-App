@@ -16,8 +16,14 @@ class AboutUsViewController: UIViewController {
     
     let theme: AppTheme = NewsAppTheme()
     weak var aboutUsPageViewController: AboutUsPageViewController?
+    var transitionDirection: UIPageViewController.NavigationDirection = .forward
     var currentIndex = 0 {
         didSet {
+            if oldValue > currentIndex {
+                transitionDirection = .reverse
+            } else {
+                transitionDirection = .forward
+            }
             pageControl.currentPage = currentIndex
             checkButtonsVisibility()
         }
@@ -52,7 +58,7 @@ class AboutUsViewController: UIViewController {
     
     private func setPageViewController() {
         if let firstViewController = aboutUsPageViewController?.contentViewController(at: currentIndex) {
-            aboutUsPageViewController?.setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
+            aboutUsPageViewController?.setViewControllers([firstViewController], direction: transitionDirection, animated: true, completion: nil)
             
         }
     }
