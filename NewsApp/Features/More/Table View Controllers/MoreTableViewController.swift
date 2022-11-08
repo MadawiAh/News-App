@@ -16,6 +16,8 @@ class MoreTableViewController: UITableViewController {
     @IBOutlet weak var titleTwo: UILabel!
     @IBOutlet weak var imageThree: UIImageView!
     @IBOutlet weak var titleThree: UILabel!
+    @IBOutlet weak var imageFour: UIImageView!
+    @IBOutlet weak var titleFour: UILabel!
     
     let theme: AppTheme = NewsAppTheme()
     
@@ -33,24 +35,29 @@ class MoreTableViewController: UITableViewController {
         imageOne.tintColor = theme.color.grayLightColor9fa1a1
         imageTwo.tintColor = theme.color.grayLightColor9fa1a1
         imageThree.tintColor = theme.color.grayLightColor9fa1a1
+        imageFour.tintColor = theme.color.grayLightColor9fa1a1
         
         titleOne.textColor = theme.color.grayMediumColor546062
         titleTwo.textColor = theme.color.grayMediumColor546062
         titleThree.textColor = theme.color.grayMediumColor546062
+        titleFour.textColor = theme.color.grayMediumColor546062
         
         titleOne.font = theme.font.titleFifeFont
         titleTwo.font = theme.font.titleFifeFont
         titleThree.font = theme.font.titleFifeFont
+        titleFour.font = theme.font.titleFifeFont
     }
     
     private func setUpElements(){
         imageOne.image = MoreActions.favourites.image
-        imageTwo.image = MoreActions.shareApp.image
-        imageThree.image = MoreActions.clearCache.image
+        imageTwo.image = MoreActions.clearCache.image
+        imageThree.image = MoreActions.aboutUs.image
+        imageFour.image = MoreActions.shareApp.image
         
         titleOne.text = MoreActions.favourites.label
-        titleTwo.text = MoreActions.shareApp.label
-        titleThree.text = MoreActions.clearCache.label
+        titleTwo.text = MoreActions.clearCache.label
+        titleThree.text = MoreActions.aboutUs.label
+        titleFour.text = MoreActions.shareApp.label
     }
     
     // MARK: - Table view data source
@@ -66,9 +73,6 @@ class MoreTableViewController: UITableViewController {
         if MoreActions.allCases[indexPath.row] == .favourites {
             navigationController?.pushVC(storyboard: .favourites, VCIdetifier: "FavouritesViewController", animated: true)
         }
-        if MoreActions.allCases[indexPath.row] == .shareApp {
-            self.shareActivity(forURL: "https://google.com//")
-        }
         if MoreActions.allCases[indexPath.row] == .clearCache {
             self.view.window?.rootViewController?.presentAlert(title: "Clear All Cache?", message: "All your caches will be cleared", options: "OK", "Cancel", style: .alert) { option in
                 
@@ -76,6 +80,12 @@ class MoreTableViewController: UITableViewController {
                     KingfisherManager.shared.cache.clearCache()
                 }
             }
+        }
+        if MoreActions.allCases[indexPath.row] == .aboutUs {
+            navigationController?.pushVC(storyboard: .aboutUs, VCIdetifier: "AboutUsViewController", animated: true)
+        }
+        if MoreActions.allCases[indexPath.row] == .shareApp {
+            self.shareActivity(forURL: "https://google.com//")
         }
     }
 }
